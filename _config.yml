@@ -1,5 +1,6 @@
 url: "http://127.0.0.1:4000"  # Local development için
 baseurl: ""
+future: true
 
 # Blog posts folder
 collections:
