@@ -1,9 +1,12 @@
+---
+# default layout for all pages
+---
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta http-equiv="X-UA-Compatible" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Selim YILDIZ</title>
+    <title>Selim YILDIZ{% if page.title and page.title != "Home" %} - {{ page.title }}{% endif %}</title>
 
     <!--
     - favicon
@@ -121,50 +124,21 @@
         <nav class="navbar">
           <ul class="navbar-list">
             <li class="navbar-item">
-              <a href="index.html" class="navbar-link active">About</a>
+              <a href="index.html" class="navbar-link{% if page.nav_active == 'about' %} active{% endif %}">About</a>
             </li>
             <li class="navbar-item">
-              <a href="resume.html" class="navbar-link">Resume</a>
+              <a href="resume.html" class="navbar-link{% if page.nav_active == 'resume' %} active{% endif %}">Resume</a>
             </li>
             <li class="navbar-item">
-              <a href="blog.html" class="navbar-link">Blog</a>
+              <a href="blog.html" class="navbar-link{% if page.nav_active == 'blog' %} active{% endif %}">Blog</a>
             </li>
             <li class="navbar-item">
-              <a href="contact.html" class="navbar-link">Contact</a>
+              <a href="contact.html" class="navbar-link{% if page.nav_active == 'contact' %} active{% endif %}">Contact</a>
             </li>
           </ul>
         </nav>
 
-        <article class="about active" data-page="about">
-  <header>
-    <h2 class="h2 article-title">About me</h2>
-  </header>
-
-  <section class="about-text">
-    <p>
-      I am a highly experienced Software Engineering Lead with over 15 years of experience in developing enterprise-level solutions, particularly in the domains of banking and e-commerce.
-      I have a strong passion for software development and have extensively worked on web application projects using the .NET framework, C#, and other related technologies.
-      I am well-versed in distributed systems, service-oriented applications, and enterprise-level applications.
-    </p>
-
-    <p>
-      To create valued and quality solutions, DevOps and Agile development practices involve in my experiences. I am committed to delivering high-quality solutions to clients and am well-versed in DevOps and Agile development practices. As a Solution Architect and Lead Software Engineer, I lead a team of engineers to develop cutting-edge modern e-commerce solutions. I am involved in every step of the project lifecycle stages, from conceptualization to deployment to production and maintenance.
-    </p>
-
-    <p>
-      My technical expertise includes .Net, Microsoft Azure, React, SQL, C#, ASP.NET MVC, Web Forms, Web API, Javascript, WCF 4.0, SignalR, Entity Framework, and MS SQL server, Oracle, and Redis. I have worked on projects using Agile/Scrum methodologies and am well-versed in ITIL practices.
-    </p>
-
-    <p>
-      In addition to my professional work, I am also an avid writer and enjoy sharing my knowledge and experiences with others. I regularly write articles on various topics related to software development and technology on Medium. My articles cover a range of topics, from technical tutorials to insights on the latest industry trends. Writing allows me to stay up-to-date on the latest developments in the field and share my insights with others in the community. It also provides me with a creative outlet to express my thoughts and ideas.
-    </p>
-
-    <p>
-      I am also an active participant on Stack Overflow, where I share my knowledge and expertise with the community. In my free time, I enjoy playing chess and trekking.
-    </p>
-  </section>
-</article>
-
+        {{ content }}
       </div>
     </main>
 
