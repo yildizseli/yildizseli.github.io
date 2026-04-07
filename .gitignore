@@ -1,0 +1,6 @@
+# Ignore Jekyll build output
+_site/
+
+# Ignore temporary files
+.DS_Store
+Thumbs.db
