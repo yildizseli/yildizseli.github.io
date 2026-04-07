@@ -1,3 +1,7 @@
+---
+layout: null
+title: Blog
+---
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -42,7 +46,16 @@
 
       gtag("config", "G-LXQLH66J4S");
     </script>
-  </head>
+</head>
+
+<body>
+    <!-- Debug Info -->
+<div style="display:none">
+    Number of posts: {{ site.posts.size }}
+    {% for post in site.posts %}
+        Post: {{ post.title }}
+    {% endfor %}
+</div>
 
   <body>
     <!--
@@ -198,6 +211,7 @@
                   - #BLOG
                 -->
 
+<<<<<<< HEAD
         <article class="blog active" data-page="blog">
           <header>
             <h2 class="h2 article-title">Blog</h2>
@@ -1677,6 +1691,57 @@
       </div>
     </main>
 
+=======
+            <article class="blog active" data-page="blog">
+                <header>
+                    <h2 class="h2 article-title">Blog</h2>
+                </header>
+
+                <section class="blog-posts">
+                    <ul class="blog-posts-list">
+                        {% for post in site.posts %}
+                        <li class="blog-post-item">
+                            <a href="{{ post.link | default: post.url }}" target="_blank">
+                                <figure class="blog-banner-box">
+                                    <img src="{{ post.image }}" alt="{{ post.title }}" loading="lazy">
+                                </figure>
+
+                                <div class="blog-content">
+                                    <div class="blog-meta">
+                                        <p class="blog-category">{{ post.category }}</p>
+                                        <span class="dot"></span>
+                                        <time datetime="{{ post.date }}">{{ post.date | date: "%b %d, %Y" }}</time>
+                                    </div>
+
+                                    <h3 class="h3 blog-item-title">{{ post.title }}</h3>
+                                    <p class="blog-text">{{ post.description }}</p>
+                                </div>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </section>
+            </article>
+
+        </div>
+
+    </main>
+
+
+    <!--
+      - #FOOTER
+    -->
+
+    <footer class="footer">
+        <div class="footer-text">
+            <p class="copyright">
+                <a href="https://github.com/selimyildiz91" target="_blank">Selim YILDIZ</a>
+            </p>
+        </div>
+    </footer>
+
+
+>>>>>>> 82809b0 (Add missing _posts files and update blog.html for Jekyll integration)
     <!--
       - custom js link
     -->

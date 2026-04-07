@@ -1,0 +1,8 @@
+url: "http://127.0.0.1:4000"  # Local development için
+baseurl: ""
+
+# Blog posts folder
+collections:
+  posts:
+    output: true
+    permalink: /posts/:title/
