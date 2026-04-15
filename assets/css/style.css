@@ -1879,4 +1879,41 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .timeline-text { max-width: 700px; }
 
+
+/*-----------------------------------*\
+  #ABOUT - COMMUNITY LINKS (Medium & Stack Overflow)
+\*-----------------------------------*/
+
+.about-text i.fa-brands {
+  display: inline-block;
+  margin-right: 8px;
+  font-size: 16px;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+/* Medium icon – keep neutral for dark theme */
+.about-text .fa-medium {
+  color: var(--white-2);
+}
+
+/* Stack Overflow brand color */
+.about-text .fa-stack-overflow {
+  color: #f48024;
+}
+
+/* Links inside About section */
+.about-text a {
+  display: inline;
+  font-weight: var(--fw-500);
+  color: var(--orange-yellow-crayola);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-1);
+}
+
+.about-text a:hover {
+  border-bottom: 1px solid var(--orange-yellow-crayola);
+}
+
+
 }
