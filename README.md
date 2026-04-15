@@ -22,3 +22,9 @@ The site showcases:
 ## Notes
 
 The site is generated into `_site` by Jekyll. Use `bundle exec jekyll build` to build and `bundle exec jekyll serve` to preview locally.
+
+## Screen shoots
+<img width="1246" height="822" alt="image" src="https://github.com/user-attachments/assets/10c983e5-817d-4e63-aee2-14e468348647" />
+
+<img width="1239" height="1166" alt="image" src="https://github.com/user-attachments/assets/1295ee5a-754e-474e-99ca-24386b1a36a7" />
+
