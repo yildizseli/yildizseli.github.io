@@ -1915,5 +1915,26 @@ textarea.form-input::-webkit-resizer { display: none; }
   border-bottom: 1px solid var(--orange-yellow-crayola);
 }
 
+	
+/*-----------------------------------*\
+  #ABOUT - INLINE ICON FIX
+\*-----------------------------------*/
 
+.about-text p {
+  display: block;
+}
+
+.about-text i.fa-brands {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+  font-size: 15px;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.about-text a {
+  display: inline;
+}
 }
