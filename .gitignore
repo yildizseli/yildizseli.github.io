@@ -1,6 +1,46 @@
-# Ignore Jekyll build output
+# Jekyll / GitHub Pages
 _site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
 
-# Ignore temporary files
+# Ruby / Bundler
+Gemfile.lock
+vendor/
+.bundle/
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+Folder.DotSettings.user
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# OS files
 .DS_Store
 Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# Editor / IDE
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Logs
+*.log
+/.vs/slnx.sqlite
+/.vs/VSWorkspaceState.json
