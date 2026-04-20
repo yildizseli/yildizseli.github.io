@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How Pull Request Templates Can Improve Your GitHub Workflow - Selim YILDIZ</title>
+
+    <!-- SEO Meta -->
+    <meta name="description" content="Using Pull Request templates in GitHub to improve the PR writing process and streamline the review process." />
+    <link rel="canonical" href="https://levelup.gitconnected.com/how-pull-request-templates-can-improve-your-github-workflow-9114a17cb360" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="How Pull Request Templates Can Improve Your GitHub Workflow" />
+    <meta property="og:description" content="Using Pull Request templates in GitHub to improve the PR writing process and streamline the review process." />
+    <meta property="og:url" content="http://localhost:4000/posts/pr-templates/" />
+    <meta property="og:site_name" content="Selim YILDIZ" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="http://localhost:4000/assets/images/blog-11.jpg" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@yildizseli" />
+    <meta name="twitter:title" content="How Pull Request Templates Can Improve Your GitHub Workflow" />
+    <meta name="twitter:description" content="Using Pull Request templates in GitHub to improve the PR writing process and streamline the review process." />
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/blog-11.jpg" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "name": "How Pull Request Templates Can Improve Your GitHub Workflow",
+      "description": "Using Pull Request templates in GitHub to improve the PR writing process and streamline the review process.",
+      "url": "http://localhost:4000/posts/pr-templates/",
+      "datePublished": "2023-02-23T00:00:00+01:00",
+      "author": {
+        "@type": "Person",
+        "name": "Selim YILDIZ",
+        "url": "https://yildizseli.github.io"
+      }
+    }
+    </script>
+
+    <!--
+    - favicon
+    -->
+    <link rel="shortcut icon" href="/assets/images/logo.ico" type="image/x-icon" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    
+    <!--
+    - custom css link
+    -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+
+    <!--
+    - google font link
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LXQLH66J4S"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-LXQLH66J4S");
+    </script>
+  </head>
+
+  <body>
+    <main>
+      <aside class="sidebar" data-sidebar>
+        <div class="sidebar-info">
+          <figure class="avatar-box">
+            <img src="/assets/images/profile_picture_1.jpg" alt="Selim YILDIZ" width="80" />
+          </figure>
+
+          <div class="info-content">
+            <h1 class="name" title="Selim YILDIZ">Selim YILDIZ</h1>
+            <p class="title">Software Engineering Lead</p>
+          </div>
+
+          <button class="info_more-btn" data-sidebar-btn>
+            <span>Show Contacts</span>
+            <ion-icon name="chevron-down"></ion-icon>
+          </button>
+        </div>
+
+        <div class="sidebar-info_more">
+          <div class="separator"></div>
+
+          <ul class="contacts-list">
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="mail-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <p class="contact-title">Email</p>
+                <a href="mailto:selimyildiz91@gmail.com" class="contact-link">selimyildiz91@gmail.com</a>
+              </div>
+            </li>
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="phone-portrait-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <p class="contact-title">Phone</p>
+                <a href="tel:+46700093165" class="contact-link">+46 70 009 31 65</a>
+              </div>
+            </li>
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="calendar-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <p class="contact-title">Birthday</p>
+                <time datetime="1991-02-18">February 18, 1991</time>
+              </div>
+            </li>
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="location-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <p class="contact-title">Location</p>
+                <address>Lund, Skane, Sweden</address>
+              </div>
+            </li>
+          </ul>
+
+          <div class="separator"></div>
+
+          <ul class="social-list">
+            <li class="social-item">
+              <a href="https://stackoverflow.com/users/5519709/selim-yildiz" class="social-link">
+                <ion-icon name="logo-stackoverflow"></ion-icon>
+              </a>
+            </li>
+            <li class="social-item">
+              <a href="https://twitter.com/yildizseli" target="_blank" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+            <li class="social-item">
+              <a href="https://medium.com/@selimyildiz91" class="social-link">
+                <ion-icon name="logo-medium"></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <div class="main-content">
+        <nav class="navbar">
+          <ul class="navbar-list">
+            <li class="navbar-item">
+              <a href="/index.html" class="navbar-link">About</a>
+            </li>
+            <li class="navbar-item">
+              <a href="/resume.html" class="navbar-link">Resume</a>
+            </li>
+            <li class="navbar-item">
+              <a href="/blog.html" class="navbar-link">Blog</a>
+            </li>
+            <li class="navbar-item">
+              <a href="/contact.html" class="navbar-link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+
+        <article class="blog active" data-page="blog" style="padding-top: 80px;">
+
+  <style>
+    .blog-post-content {
+      max-width: 100%;
+    }
+    .blog-post-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+      margin: 15px auto;
+    }
+    .blog-post-content figure {
+      margin: 20px 0;
+      text-align: center;
+    }
+    .blog-post-content figcaption {
+      font-size: 13px;
+      color: var(--light-gray-70);
+      margin-top: 8px;
+    }
+    .blog-post-content h3 {
+      color: var(--white-2);
+      margin-top: 30px;
+      margin-bottom: 12px;
+      font-size: 1.4em;
+    }
+    .blog-post-content h4 {
+      color: var(--white-2);
+      margin-top: 25px;
+      margin-bottom: 10px;
+      font-size: 1.15em;
+    }
+    .blog-post-content p {
+      margin-bottom: 16px;
+      color: var(--light-gray);
+      line-height: 1.8;
+    }
+    .blog-post-content a {
+      color: var(--orange-yellow-crayola);
+      display: inline;
+    }
+    .blog-post-content a:hover {
+      text-decoration: underline;
+    }
+    .blog-post-content span {
+      display: inline;
+    }
+    .blog-post-content ul, .blog-post-content ol {
+      margin: 10px 0 20px 25px;
+      color: var(--light-gray);
+      line-height: 1.8;
+    }
+    .blog-post-content ol {
+      list-style-type: decimal;
+    }
+    .blog-post-content ul {
+      list-style-type: disc;
+    }
+    .blog-post-content li {
+      margin-bottom: 12px;
+      list-style: inherit;
+    }
+    .blog-post-content li strong {
+      color: var(--white-2);
+      display: inline;
+    }
+    .blog-post-content pre {
+      background: #1e1e2e;
+      padding: 20px 24px;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: 13.5px;
+      line-height: 1.7;
+      margin: 20px 0;
+      color: #cdd6f4;
+      font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      border: 1px solid #313244;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+    }
+    .blog-post-content code {
+      font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+      font-size: 0.88em;
+      background: #1e1e2e;
+      color: #f38ba8;
+      padding: 2px 7px;
+      border-radius: 4px;
+      border: 1px solid #313244;
+    }
+    /* Basic syntax highlighting for comments, strings, keywords */
+    .blog-post-content pre {
+      tab-size: 4;
+    }
+    .syn-cmt { color: #6c7086; font-style: italic; }
+    .syn-str { color: #a6e3a1; }
+    .syn-kw  { color: #cba6f7; }
+    .syn-typ { color: #89b4fa; }
+    .syn-fn  { color: #f9e2af; }
+    .blog-post-content blockquote {
+      border-left: 3px solid var(--orange-yellow-crayola);
+      padding: 12px 24px;
+      margin: 20px 0;
+      color: var(--light-gray-70);
+      font-style: italic;
+      background: var(--eerie-black-2);
+      border-radius: 0 8px 8px 0;
+    }
+    /* Medium mixtape embed cards */
+    .blog-post-content .graf--mixtapeEmbed {
+      display: flex;
+      align-items: stretch;
+      border: 1px solid var(--jet);
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 12px 0;
+      background: #1e1e2e;
+      transition: border-color 0.2s;
+    }
+    .blog-post-content .graf--mixtapeEmbed:hover {
+      border-color: var(--orange-yellow-crayola);
+    }
+    .blog-post-content .graf--mixtapeEmbed > a.markup--anchor--mixtapeEmbed-anchor,
+    .blog-post-content .graf--mixtapeEmbed > a:first-child {
+      flex: 1;
+      padding: 16px 20px;
+      color: var(--light-gray);
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+    }
+    .blog-post-content .graf--mixtapeEmbed strong {
+      color: var(--white-2);
+      font-size: 15px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .blog-post-content .graf--mixtapeEmbed em {
+      color: var(--light-gray-70);
+      font-size: 13px;
+      font-style: normal;
+      display: block;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .blog-post-content .graf--mixtapeEmbed .mixtapeImage,
+    .blog-post-content .graf--mixtapeEmbed > a:last-child:not(:first-child) {
+      width: 120px;
+      min-width: 120px;
+      background-size: cover;
+      background-position: center;
+      display: block;
+    }
+    .blog-post-content .graf--mixtapeEmbed .mixtapeImage--empty {
+      display: none;
+    }
+    .blog-post-content hr {
+      border: none;
+      border-top: 1px solid var(--jet);
+      margin: 30px 0;
+    }
+    .blog-post-content .aspectRatioPlaceholder {
+      max-width: 100%;
+      overflow: hidden;
+    }
+    .blog-post-content img[height="1"] {
+      display: none;
+    }
+  </style>
+
+  <nav class="blog-post-nav" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding: 12px 0; border-bottom: 1px solid var(--jet);">
+    <a href="/blog.html" style="color: var(--light-gray-70); text-decoration: none; font-size: 14px; display: inline-flex; align-items: center; gap: 6px;">
+      &larr; Back to all posts
+    </a>
+    
+    <a href="https://levelup.gitconnected.com/how-pull-request-templates-can-improve-your-github-workflow-9114a17cb360" target="_blank" rel="noopener noreferrer"
+       style="color: var(--orange-yellow-crayola); text-decoration: none; font-size: 14px; font-weight: 500; display: inline-flex; align-items: center; gap: 6px;">
+      Read on Medium &rarr;
+    </a>
+    
+  </nav>
+
+  <header>
+    <h2 class="h2 article-title">How Pull Request Templates Can Improve Your GitHub Workflow</h2>
+    <div class="blog-meta" style="margin-bottom: 25px;">
+      <p class="blog-category">Devops</p>
+      <span class="dot"></span>
+      <time datetime="2023-02-23 00:00:00 +0100">Feb 23, 2023</time>
+    </div>
+  </header>
+
+  <section class="blog-post-content" style="color: var(--light-gray); line-height: 1.8; font-size: 15px;">
+    <section class="section section--body section--first" name="0764"><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><figure class="graf graf--figure graf-after--h3" id="8845" name="8845"><img class="graf-image" data-height="3480" data-image-id="0*H_8myxW0yS3T7xre" data-is-featured="true" data-unsplash-photo-id="wX2L8L-fGeA" data-width="5327" src="https://cdn-images-1.medium.com/max/800/0*H_8myxW0yS3T7xre"/><figcaption class="imageCaption">Photo by <a class="markup--anchor markup--figure-anchor" data-href="https://unsplash.com/@synkevych?utm_source=medium&amp;utm_medium=referral" href="https://unsplash.com/@synkevych?utm_source=medium&amp;utm_medium=referral" rel="photo-creator noopener" target="_blank">Roman Synkevych 🇺🇦</a> on <a class="markup--anchor markup--figure-anchor" data-href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral" href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral" rel="photo-source noopener" target="_blank">Unsplash</a></figcaption></figure><p class="graf graf--p graf-after--figure" id="0511" name="0511">A well-written Pull Request (PR) can make the review process smoother, faster, and more efficient. One way to ensure your PRs are well-written is to use a Pull Request template. In this article, we will discuss Pull Request templates and how to create them in GitHub.</p><blockquote class="graf graf--blockquote graf-after--p" id="36fe" name="36fe">Pull request templates can help your developers create great pull request descriptions that meet your organization’s standards.</blockquote><h4 class="graf graf--h4 graf-after--blockquote" id="e46c" name="e46c">What is a Pull Request template?</h4><p class="graf graf--p graf-after--h4" id="9f14" name="9f14">Pull Request templates are pre-defined text files(<a class="markup--anchor markup--p-anchor" data-href="https://en.wikipedia.org/wiki/Markdown" href="https://en.wikipedia.org/wiki/Markdown" rel="noopener" target="_blank">Markdown</a>) that contain guidelines and suggestions for writing a good PR. The templates can include fields like “Description”, “Changes Made”, “How Has This Been Tested?”, and “Checklist”. These fields help ensure that all necessary information is included in your PR and make the review process easier for your team.</p><h4 class="graf graf--h4 graf-after--p" id="29e2" name="29e2">Why do we need them?</h4><p class="graf graf--p graf-after--h4" id="99c4" name="99c4">Using Pull Request templates can save you time and effort when writing PRs. The templates provide a standard structure that makes it easier to write clear, concise, and complete PRs. They also ensure that all necessary information is included, reducing the need for back-and-forth communication between you and your team.</p><h4 class="graf graf--h4 graf-after--p" id="338d" name="338d">How to create in GitHub?</h4><p class="graf graf--p graf-after--h4" id="896d" name="896d">Create a Markdown file, name it <strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">PULL_REQUEST_TEMPLATE.md</em></strong>, and place it in the project’s root folder. (See example <a class="markup--anchor markup--p-anchor" data-href="https://github.com/yildizseli/CleanArchitecturePlayground/blob/master/PULL_REQUEST_TEMPLATE.md" href="https://github.com/yildizseli/CleanArchitecturePlayground/blob/master/PULL_REQUEST_TEMPLATE.md" rel="noopener" target="_blank">here</a>)</p><p class="graf graf--p graf-after--p" id="7ae5" name="7ae5">Once you’ve created the template, it will be automatically displayed to users when they create a new Pull Request in the repository. You can customize the template to include the fields that are most relevant to your team and your project.</p><h4 class="graf graf--h4 graf-after--p" id="832e" name="832e">Here is an example Template:</h4><pre class="graf graf--pre graf-after--h4 graf--preV2" data-code-block-lang="markdown" data-code-block-mode="1" id="d11f" name="d11f" spellcheck="false">## Description
+
+Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.
+
+Fixes # (issue)
+
+## Types of changes
+
+What types of changes does your code introduce to the project?
+
+- [ ] Bug fix (non-breaking change which fixes an issue)
+- [ ] New feature (non-breaking change which adds functionality)
+- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
+
+## How Has This Been Tested?
+
+Please describe the tests that you ran to verify your changes. Provide instructions so we can reproduce. Please also list any relevant details for your test configuration
+
+- [ ] Test A
+- [ ] Test B
+
+## Checklist:
+
+- [ ] Code follows the project's coding style
+- [ ] Self-reviewed the code
+- [ ] Added relevant comments to the code, particularly in complex areas
+- [ ] Made corresponding changes to the documentation
+- [ ] Changes generate no new warnings
+- [ ] Added relevant unit tests to test the changes
+- [ ] All unit tests pass locally with the changes
+- [ ] No dependent changes are required to be merged or published</pre><p class="graf graf--p graf-after--pre" id="2fa9" name="2fa9">You can use this template as a starting point and modify it to fit your specific project’s requirements. Especially for the “Checklist” part, you should take your time and define a checklist based on your programming language, project’s needs, scope, etc. (Maybe I can write about it in the future…)</p><p class="graf graf--p graf-after--p" id="1805" name="1805"><strong class="markup--strong markup--p-strong">An example of PR that uses this template:</strong></p><figure class="graf graf--figure graf-after--p" id="1770" name="1770"><img class="graf-image" data-height="1028" data-image-id="1*dozGrBAwUFX2NgEoQJ6k1Q.png" data-width="1424" src="https://cdn-images-1.medium.com/max/800/1*dozGrBAwUFX2NgEoQJ6k1Q.png"/></figure><p class="graf graf--p graf-after--figure" id="a868" name="a868">This PR provides a clear description of the changes made, explains how the changes have been tested, and includes a checklist to ensure that all necessary steps have been taken.</p><blockquote class="graf graf--blockquote graf-after--p" id="4d07" name="4d07">⚠️<strong class="markup--strong markup--blockquote-strong">Note: </strong>Pull request templates can provide guidance, but are advisory only. That means developers will be able to create a PR that looks completely different than the template.</blockquote><h4 class="graf graf--h4 graf-after--blockquote" id="f5bb" name="f5bb">In conclusion:</h4><p class="graf graf--p graf-after--h4" id="d09a" name="d09a">Using Pull Request templates in GitHub can help you write better PRs and make the review process smoother for your team. They provide a standard structure for your PRs and ensure that all necessary information is included. By creating a Pull Request template, you can save time and effort and make the review process more efficient.</p><p class="graf graf--p graf-after--p" id="ad6f" name="ad6f">Thanks for reading!</p><h4 class="graf graf--h4 graf-after--p" id="2b21" name="2b21">Resources:</h4><div class="graf graf--mixtapeEmbed graf-after--h4" id="2f2a" name="2f2a"><a class="markup--anchor markup--mixtapeEmbed-anchor" data-href="https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository" href="https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository" title="https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository"><strong class="markup--strong markup--mixtapeEmbed-strong">Creating a pull request template for your repository - GitHub Docs</strong><br/><em class="markup--em markup--mixtapeEmbed-em">For more information, see " About issue and pull request templates." You can create a PULL_REQUEST_TEMPLATE/…</em>docs.github.com</a><a class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="09b0aedc8700949a9a7e844fadc3f18d" data-thumbnail-img-id="0*0SsrMoBjov0D853t" href="https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*0SsrMoBjov0D853t);"></a></div><div class="graf graf--mixtapeEmbed graf-after--mixtapeEmbed" id="03f9" name="03f9"><a class="markup--anchor markup--mixtapeEmbed-anchor" data-href="https://learn.microsoft.com/en-us/azure/devops/repos/git/pull-request-templates?view=azure-devops" href="https://learn.microsoft.com/en-us/azure/devops/repos/git/pull-request-templates?view=azure-devops" title="https://learn.microsoft.com/en-us/azure/devops/repos/git/pull-request-templates?view=azure-devops"><strong class="markup--strong markup--mixtapeEmbed-strong">Improve pull request descriptions with pull request templates - Azure Repos</strong><br/><em class="markup--em markup--mixtapeEmbed-em">Writing good pull request descriptions is a great way to help reviewers know what to expect when reviewing code…</em>learn.microsoft.com</a><a class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="35ad1a5012338cf1a99a25a4eaecc5ec" data-thumbnail-img-id="0*YfljF0u1ASSqgxbF" href="https://learn.microsoft.com/en-us/azure/devops/repos/git/pull-request-templates?view=azure-devops" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*YfljF0u1ASSqgxbF);"></a></div><p class="graf graf--p graf-after--mixtapeEmbed graf--trailing" id="1415" name="1415"><a class="markup--anchor markup--p-anchor" data-href="https://axolo.co/blog/p/part-3-github-pull-request-template" href="https://axolo.co/blog/p/part-3-github-pull-request-template" rel="nofollow noopener" target="_blank">https://axolo.co/blog/p/part-3-github-pull-request-template</a></p></div></div></section>
+
+  </section>
+
+  <script>
+    document.querySelectorAll('.blog-post-content pre').forEach(function(pre) {
+      // Work on text content, build highlighted HTML in one pass
+      var text = pre.textContent;
+      var result = [];
+      var i = 0;
+      while (i < text.length) {
+        // Comments
+        if (text[i] === '/' && text[i+1] === '/') {
+          var end = text.indexOf('\n', i);
+          if (end === -1) end = text.length;
+          result.push('<span class="syn-cmt">' + escHtml(text.substring(i, end)) + '</span>');
+          i = end;
+        }
+        // Strings
+        else if (text[i] === '"') {
+          var j = i + 1;
+          while (j < text.length && text[j] !== '"') j++;
+          result.push('<span class="syn-str">' + escHtml(text.substring(i, j + 1)) + '</span>');
+          i = j + 1;
+        }
+        // Words
+        else if (/[a-zA-Z_]/.test(text[i])) {
+          var j = i;
+          while (j < text.length && /[a-zA-Z0-9_]/.test(text[j])) j++;
+          var word = text.substring(i, j);
+          var kws = ['var','new','using','public','private','protected','static','void','class','interface','namespace','return','if','else','try','catch','async','await','get','set'];
+          var types = ['Uri','string','int','bool','double','decimal','object','AppDbContext','HttpClient','IServiceCollection'];
+          if (kws.indexOf(word) !== -1) {
+            result.push('<span class="syn-kw">' + word + '</span>');
+          } else if (types.indexOf(word) !== -1) {
+            result.push('<span class="syn-typ">' + word + '</span>');
+          } else {
+            result.push(escHtml(word));
+          }
+          i = j;
+        }
+        // Method calls: .Name(
+        else if (text[i] === '.' && /[A-Z]/.test(text[i+1])) {
+          var j = i + 1;
+          while (j < text.length && /[a-zA-Z0-9_]/.test(text[j])) j++;
+          result.push('.<span class="syn-fn">' + escHtml(text.substring(i+1, j)) + '</span>');
+          i = j;
+        }
+        else {
+          result.push(escHtml(text[i]));
+          i++;
+        }
+      }
+      pre.innerHTML = result.join('');
+    });
+    function escHtml(s) {
+      return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    // Clean up Medium mixtape embed cards
+    document.querySelectorAll('.graf--mixtapeEmbed').forEach(function(card) {
+      var mainLink = card.querySelector('a.markup--anchor--mixtapeEmbed-anchor') || card.querySelector('a:first-child');
+      if (!mainLink) return;
+
+      // Extract title, description, domain from the link
+      var strong = mainLink.querySelector('strong');
+      var em = mainLink.querySelector('em');
+      var title = strong ? strong.textContent.trim() : '';
+      var desc = em ? em.textContent.trim() : '';
+
+      // Get domain from href
+      var href = mainLink.getAttribute('href') || '';
+      var domain = '';
+      try { domain = new URL(href).hostname.replace('www.',''); } catch(e) {}
+
+      // Rebuild the link content cleanly
+      mainLink.innerHTML = '';
+      if (title) {
+        var t = document.createElement('strong');
+        t.textContent = title;
+        mainLink.appendChild(t);
+      }
+      if (desc) {
+        var d = document.createElement('em');
+        d.textContent = desc;
+        mainLink.appendChild(d);
+      }
+      if (domain) {
+        var s = document.createElement('span');
+        s.textContent = domain;
+        s.style.cssText = 'font-size:12px;color:var(--light-gray-70);opacity:0.7;';
+        mainLink.appendChild(s);
+      }
+    });
+  </script>
+
+</article>
+
+      </div>
+    </main>
+
+    <script src="/assets/js/script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>
+"

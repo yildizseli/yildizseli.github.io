@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gRPC vs REST: Simple comparison - Selim YILDIZ</title>
+
+    <!-- SEO Meta -->
+    <meta name="description" content="A very basic comparison/differences between gRPC and REST" />
+    <link rel="canonical" href="https://medium.com/@selimyildiz91/grpc-vs-rest-simple-comparison-911ac6b5e7e9" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="gRPC vs REST: Simple comparison" />
+    <meta property="og:description" content="A very basic comparison/differences between gRPC and REST" />
+    <meta property="og:url" content="http://localhost:4000/posts/grpc-vs-rest/" />
+    <meta property="og:site_name" content="Selim YILDIZ" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="http://localhost:4000/assets/images/blog-1.jpg" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@yildizseli" />
+    <meta name="twitter:title" content="gRPC vs REST: Simple comparison" />
+    <meta name="twitter:description" content="A very basic comparison/differences between gRPC and REST" />
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/blog-1.jpg" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "name": "gRPC vs REST: Simple comparison",
+      "description": "A very basic comparison/differences between gRPC and REST",
+      "url": "http://localhost:4000/posts/grpc-vs-rest/",
+      "datePublished": "2023-01-04T00:00:00+01:00",
+      "author": {
+        "@type": "Person",
+        "name": "Selim YILDIZ",
+        "url": "https://yildizseli.github.io"
+      }
+    }
+    </script>
+
+    <!--
+    - favicon
+    -->
+    <link rel="shortcut icon" href="/assets/images/logo.ico" type="image/x-icon" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    
+    <!--
+    - custom css link
+    -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+
+    <!--
+    - google font link
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LXQLH66J4S"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-LXQLH66J4S");
+    </script>
+  </head>
+
+  <body>
+    <main>
+      <aside class="sidebar" data-sidebar>
+        <div class="sidebar-info">
+          <figure class="avatar-box">
+            <img src="/assets/images/profile_picture_1.jpg" alt="Selim YILDIZ" width="80" />
+          </figure>
+
+          <div class="info-content">
+            <h1 class="name" title="Selim YILDIZ">Selim YILDIZ</h1>
+            <p class="title">Software Engineering Lead</p>
+          </div>
+
+          <button class="info_more-btn" data-sidebar-btn>
+            <span>Show Contacts</span>
+            <ion-icon name="chevron-down"></ion-icon>
+          </button>
+        </div>
+
+        <div class="sidebar-info_more">
+          <div class="separator"></div>
+
+          <ul class="contacts-list">
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="mail-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <p class="contact-title">Email</p>
+                <a href="mailto:selimyildiz91@gmail.com" class="contact-link">selimyildiz91@gmail.com</a>
+              </div>
+            </li>
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="phone-portrait-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <p class="contact-title">Phone</p>
+                <a href="tel:+46700093165" class="contact-link">+46 70 009 31 65</a>
+              </div>
+            </li>
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="calendar-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <p class="contact-title">Birthday</p>
+                <time datetime="1991-02-18">February 18, 1991</time>
+              </div>
+            </li>
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="location-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <p class="contact-title">Location</p>
+                <address>Lund, Skane, Sweden</address>
+              </div>
+            </li>
+          </ul>
+
+          <div class="separator"></div>
+
+          <ul class="social-list">
+            <li class="social-item">
+              <a href="https://stackoverflow.com/users/5519709/selim-yildiz" class="social-link">
+                <ion-icon name="logo-stackoverflow"></ion-icon>
+              </a>
+            </li>
+            <li class="social-item">
+              <a href="https://twitter.com/yildizseli" target="_blank" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+            <li class="social-item">
+              <a href="https://medium.com/@selimyildiz91" class="social-link">
+                <ion-icon name="logo-medium"></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <div class="main-content">
+        <nav class="navbar">
+          <ul class="navbar-list">
+            <li class="navbar-item">
+              <a href="/index.html" class="navbar-link">About</a>
+            </li>
+            <li class="navbar-item">
+              <a href="/resume.html" class="navbar-link">Resume</a>
+            </li>
+            <li class="navbar-item">
+              <a href="/blog.html" class="navbar-link">Blog</a>
+            </li>
+            <li class="navbar-item">
+              <a href="/contact.html" class="navbar-link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+
+        <article class="blog active" data-page="blog" style="padding-top: 80px;">
+
+  <style>
+    .blog-post-content {
+      max-width: 100%;
+    }
+    .blog-post-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+      margin: 15px auto;
+    }
+    .blog-post-content figure {
+      margin: 20px 0;
+      text-align: center;
+    }
+    .blog-post-content figcaption {
+      font-size: 13px;
+      color: var(--light-gray-70);
+      margin-top: 8px;
+    }
+    .blog-post-content h3 {
+      color: var(--white-2);
+      margin-top: 30px;
+      margin-bottom: 12px;
+      font-size: 1.4em;
+    }
+    .blog-post-content h4 {
+      color: var(--white-2);
+      margin-top: 25px;
+      margin-bottom: 10px;
+      font-size: 1.15em;
+    }
+    .blog-post-content p {
+      margin-bottom: 16px;
+      color: var(--light-gray);
+      line-height: 1.8;
+    }
+    .blog-post-content a {
+      color: var(--orange-yellow-crayola);
+      display: inline;
+    }
+    .blog-post-content a:hover {
+      text-decoration: underline;
+    }
+    .blog-post-content span {
+      display: inline;
+    }
+    .blog-post-content ul, .blog-post-content ol {
+      margin: 10px 0 20px 25px;
+      color: var(--light-gray);
+      line-height: 1.8;
+    }
+    .blog-post-content ol {
+      list-style-type: decimal;
+    }
+    .blog-post-content ul {
+      list-style-type: disc;
+    }
+    .blog-post-content li {
+      margin-bottom: 12px;
+      list-style: inherit;
+    }
+    .blog-post-content li strong {
+      color: var(--white-2);
+      display: inline;
+    }
+    .blog-post-content pre {
+      background: #1e1e2e;
+      padding: 20px 24px;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: 13.5px;
+      line-height: 1.7;
+      margin: 20px 0;
+      color: #cdd6f4;
+      font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      border: 1px solid #313244;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+    }
+    .blog-post-content code {
+      font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+      font-size: 0.88em;
+      background: #1e1e2e;
+      color: #f38ba8;
+      padding: 2px 7px;
+      border-radius: 4px;
+      border: 1px solid #313244;
+    }
+    /* Basic syntax highlighting for comments, strings, keywords */
+    .blog-post-content pre {
+      tab-size: 4;
+    }
+    .syn-cmt { color: #6c7086; font-style: italic; }
+    .syn-str { color: #a6e3a1; }
+    .syn-kw  { color: #cba6f7; }
+    .syn-typ { color: #89b4fa; }
+    .syn-fn  { color: #f9e2af; }
+    .blog-post-content blockquote {
+      border-left: 3px solid var(--orange-yellow-crayola);
+      padding: 12px 24px;
+      margin: 20px 0;
+      color: var(--light-gray-70);
+      font-style: italic;
+      background: var(--eerie-black-2);
+      border-radius: 0 8px 8px 0;
+    }
+    /* Medium mixtape embed cards */
+    .blog-post-content .graf--mixtapeEmbed {
+      display: flex;
+      align-items: stretch;
+      border: 1px solid var(--jet);
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 12px 0;
+      background: #1e1e2e;
+      transition: border-color 0.2s;
+    }
+    .blog-post-content .graf--mixtapeEmbed:hover {
+      border-color: var(--orange-yellow-crayola);
+    }
+    .blog-post-content .graf--mixtapeEmbed > a.markup--anchor--mixtapeEmbed-anchor,
+    .blog-post-content .graf--mixtapeEmbed > a:first-child {
+      flex: 1;
+      padding: 16px 20px;
+      color: var(--light-gray);
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+    }
+    .blog-post-content .graf--mixtapeEmbed strong {
+      color: var(--white-2);
+      font-size: 15px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .blog-post-content .graf--mixtapeEmbed em {
+      color: var(--light-gray-70);
+      font-size: 13px;
+      font-style: normal;
+      display: block;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .blog-post-content .graf--mixtapeEmbed .mixtapeImage,
+    .blog-post-content .graf--mixtapeEmbed > a:last-child:not(:first-child) {
+      width: 120px;
+      min-width: 120px;
+      background-size: cover;
+      background-position: center;
+      display: block;
+    }
+    .blog-post-content .graf--mixtapeEmbed .mixtapeImage--empty {
+      display: none;
+    }
+    .blog-post-content hr {
+      border: none;
+      border-top: 1px solid var(--jet);
+      margin: 30px 0;
+    }
+    .blog-post-content .aspectRatioPlaceholder {
+      max-width: 100%;
+      overflow: hidden;
+    }
+    .blog-post-content img[height="1"] {
+      display: none;
+    }
+  </style>
+
+  <nav class="blog-post-nav" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding: 12px 0; border-bottom: 1px solid var(--jet);">
+    <a href="/blog.html" style="color: var(--light-gray-70); text-decoration: none; font-size: 14px; display: inline-flex; align-items: center; gap: 6px;">
+      &larr; Back to all posts
+    </a>
+    
+    <a href="https://medium.com/@selimyildiz91/grpc-vs-rest-simple-comparison-911ac6b5e7e9" target="_blank" rel="noopener noreferrer"
+       style="color: var(--orange-yellow-crayola); text-decoration: none; font-size: 14px; font-weight: 500; display: inline-flex; align-items: center; gap: 6px;">
+      Read on Medium &rarr;
+    </a>
+    
+  </nav>
+
+  <header>
+    <h2 class="h2 article-title">gRPC vs REST: Simple comparison</h2>
+    <div class="blog-meta" style="margin-bottom: 25px;">
+      <p class="blog-category">Technical</p>
+      <span class="dot"></span>
+      <time datetime="2023-01-04 00:00:00 +0100">Jan 04, 2023</time>
+    </div>
+  </header>
+
+  <section class="blog-post-content" style="color: var(--light-gray); line-height: 1.8; font-size: 15px;">
+    <section class="section section--body section--first section--last" name="f523"><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h4 class="graf graf--h4 graf-after--h3 graf--subtitle" id="977f" name="977f">A very basic comparison/differences between gRPC and REST</h4><figure class="graf graf--figure graf-after--h4" id="5da2" name="5da2"><img class="graf-image" data-height="602" data-image-id="1*73eXDIWBgd6F8Yeol4YvfA.png" data-is-featured="true" data-width="1292" src="https://cdn-images-1.medium.com/max/800/1*73eXDIWBgd6F8Yeol4YvfA.png"/></figure><h4 class="graf graf--h4 graf-after--figure" id="7861" name="7861">Summary</h4><p class="graf graf--p graf-after--h4" id="7275" name="7275"><strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">gRPC </em></strong>and <strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">REST </em></strong>are two different popular protocols that can be used to access web services. Both are used to send and receive data over a network, but they have different methods of doing so. In this article, I will try to explain the differences between REST and gRPC to help you decide the best one for your project. At the end of the article, you will also find a basic “Hello world” service that is written by using gRPC and REST.</p><figure class="graf graf--figure graf-after--p" id="1f88" name="1f88"><img class="graf-image" data-height="337" data-image-id="1*cexzhz_OD6WmYf9FK7VtxA.png" data-width="1424" src="https://cdn-images-1.medium.com/max/800/1*cexzhz_OD6WmYf9FK7VtxA.png"/></figure><p class="graf graf--p graf-after--figure" id="8206" name="8206"><strong class="markup--strong markup--p-strong">gRPC </strong>(gRPC Remote Procedure Call) is a open source protocol developed by Google. It allows a client to call a function on a server. The client sends a message to a server over an HTTP/2 connection and the server returns a response. This protocol uses compressed data to send data faster over the network and supports multiple language support.</p><figure class="graf graf--figure graf-after--p" id="4789" name="4789"><img class="graf-image" data-height="206" data-image-id="1*4ZdRWapHBpflTN5FKaDV4w.png" data-width="475" src="https://cdn-images-1.medium.com/max/800/1*4ZdRWapHBpflTN5FKaDV4w.png"/></figure><p class="graf graf--p graf-after--figure" id="d077" name="d077"><strong class="markup--strong markup--p-strong">REST </strong>(Representational State Transfer) API is a protocol used to access a web service’s data or processing. It works over HTTP and uses HTTP methods (such as GET, POST, PUT, and DELETE) to send and receive data. REST API generally supports CRUD (Create, Read, Update, Delete) operations and sends data in JSON or XML format.</p><h4 class="graf graf--h4 graf-after--p" id="cc77" name="cc77">Differences:</h4><p class="graf graf--p graf-after--h4" id="0f83" name="0f83">One of the main differences between gRPC and REST is their method of sending data. gRPC uses compressed data to send data faster, while REST sends data slower and uses HTTP methods to send and receive data. Additionally, gRPC has broader language support, and is easier to establish an agreement between the two sides, but REST is more widespread and is commonly used by web applications.</p><p class="graf graf--p graf-after--p" id="2e8d" name="2e8d">Here are some key differences between gRPC and REST:</p><ul class="postList"><li class="graf graf--li graf-after--p" id="51d2" name="51d2"><strong class="markup--strong markup--li-strong">Data transmission</strong>: gRPC uses compressed data to send data faster over the network(It uses Protocol Buffers, a binary serialization format, to encode data before sending it over the network), while REST sends data(in JSON or XML format, which are text-based formats that are not as efficient as binary formats like Protocol Buffers.) slower and uses HTTP methods to send and receive data.</li><li class="graf graf--li graf-after--li" id="0b3c" name="0b3c"><strong class="markup--strong markup--li-strong">Language support</strong>: gRPC has broader language support and is easier to establish agreement between the two sides, but REST is more widespread and is commonly used by web applications.</li><li class="graf graf--li graf-after--li" id="cdbf" name="cdbf"><strong class="markup--strong markup--li-strong">Compatibility</strong>: REST is more compatible with older web browsers and devices, so it can reach a wider user base.</li><li class="graf graf--li graf-after--li" id="06b1" name="06b1"><strong class="markup--strong markup--li-strong">CRUD operations</strong>: REST API generally supports CRUD (Create, Read, Update, Delete) operations, while gRPC does not have built-in support for these operations.</li><li class="graf graf--li graf-after--li" id="e65e" name="e65e"><strong class="markup--strong markup--li-strong">Data format</strong>: REST sends data in JSON or XML format, while gRPC uses Protocol Buffers (a binary serialization format) by default.</li></ul><p class="graf graf--p graf-after--li" id="fda7" name="fda7">Ultimately, which protocol you use depends on the needs of your application. For example, gRPC may be more suitable for an application that requires fast data transmission, but REST is more common and may be easier to understand and use for a web application. Both protocols have their own advantages. For example, for a mobile application, data transmission speed may be important and in that case gRPC may be more suitable. But for a web application, REST may be more widely used and easier to understand.</p><p class="graf graf--p graf-after--p" id="989f" name="989f">Let’s create the same “Hello World” service in both gRPC and REST API:</p><h4 class="graf graf--h4 graf-after--p" id="3825" name="3825">Basic gRPC example:</h4><p class="graf graf--p graf-after--h4" id="fab3" name="fab3">This gRPC service(HelloService) takes a request from a client and returns a response.</p><pre class="graf graf--pre graf-after--p graf--preV2" data-code-block-lang="csharp" data-code-block-mode="2" id="3db2" name="3db2" spellcheck="false">public class HelloService : Hello.HelloBase
+{
+    public override Task&lt;HelloResponse&gt; SayHello(HelloRequest request, ServerCallContext context)
+    {
+        return Task.FromResult(new HelloResponse { Message = "Hello " + request.Name });
+    }
+}</pre><p class="graf graf--p graf-after--pre" id="e59e" name="e59e">Then, this service can be run on a gRPC server using the following server-side code:</p><pre class="graf graf--pre graf-after--p graf--preV2" data-code-block-lang="csharp" data-code-block-mode="1" id="3132" name="3132" spellcheck="false">var server = new Server
+{
+    Services = { Hello.BindService(new HelloService()) },
+    Ports = { new ServerPort("localhost", 5000, ServerCredentials.Insecure) }
+};
+server.Start();
+
+server.ShutdownAsync().Wait();</pre><p class="graf graf--p graf-after--pre" id="a60a" name="a60a">This server listens for requests sent to “localhost” on port 5000.</p><p class="graf graf--p graf-after--p" id="f479" name="f479">Then, a gRPC client can be created to call this service.</p><pre class="graf graf--pre graf-after--p graf--preV2" data-code-block-lang="javascript" data-code-block-mode="1" id="dc7d" name="dc7d" spellcheck="false">var channel = GrpcChannel.ForAddress("https://localhost:5000");
+var client = new HelloClient(channel);
+
+var response = client.SayHello(new HelloRequest { Name = "World" });
+console.WriteLine(response.Message);</pre><p class="graf graf--p graf-after--pre" id="3fe7" name="3fe7">This client sends a “Hello World” message to the “HelloService” service and receives a response.</p><h4 class="graf graf--h4 graf-after--p" id="544e" name="544e">Basic REST API Example:</h4><p class="graf graf--p graf-after--h4" id="449a" name="449a">This REST API takes an HTTP request and returns a response.</p><pre class="graf graf--pre graf-after--p graf--preV2" data-code-block-lang="csharp" data-code-block-mode="1" id="18f9" name="18f9" spellcheck="false">[ApiController]
+public class HelloController : ControllerBase
+{
+    [HttpGet]
+    public string Get()
+    {
+        return "Hello World!";
+    }
+}</pre><p class="graf graf--p graf-after--pre" id="66e8" name="66e8">This class takes an HTTP GET request and returns a “Hello World!” message.</p><p class="graf graf--p graf-after--p" id="502c" name="502c">Then, this API can be run in an ASP.NET Core application with that basic configuration.</p><pre class="graf graf--pre graf-after--p graf--preV2" data-code-block-lang="csharp" data-code-block-mode="2" id="eaae" name="eaae" spellcheck="false">public class Startup
+{
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddControllers();
+    }
+
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        if (env.IsDevelopment())
+        {
+            app.UseDeveloperExceptionPage();
+        }
+
+        app.UseRouting();
+        app.UseEndpoints(endpoints =&gt;
+        {
+            endpoints.MapControllers();
+        });
+    }
+}</pre><p class="graf graf--p graf-after--pre" id="dd2e" name="dd2e">This application takes an HTTP request and returns a response using the “HelloController” class.</p><p class="graf graf--p graf-after--p" id="25db" name="25db">Then, you can call this API using a web browser or a REST client. For example, you can go to the “<a class="markup--anchor markup--p-anchor" data-href="http://localhost:5000/hello" href="http://localhost:5000/hello" target="_blank">http://localhost:5000/hello</a>" address in a web browser to call this API and view the “Hello World!” message.</p><p class="graf graf--p graf-after--p" id="0b4e" name="0b4e">I hope these examples have been helpful and have helped you better understand how to use the gRPC and REST protocols in .NET.</p><p class="graf graf--p graf-after--p" id="aceb" name="aceb">Thanks for reading!</p><p class="graf graf--p graf-after--p" id="d762" name="d762">Sources:</p><div class="graf graf--mixtapeEmbed graf-after--p" id="84d5" name="84d5"><a class="markup--anchor markup--mixtapeEmbed-anchor" data-href="https://grpc.io/" href="https://grpc.io/" title="https://grpc.io/"><strong class="markup--strong markup--mixtapeEmbed-strong">gRPC</strong><br/><em class="markup--em markup--mixtapeEmbed-em">gRPC Learn more gRPC is a modern open source high performance Remote Procedure Call (RPC) framework that can run in any…</em>grpc.io</a><a class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="0cd8c3876b9597661f88d1b5a4973c35" data-thumbnail-img-id="0*DgDGAeK4MPKYCKTD" href="https://grpc.io/" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*DgDGAeK4MPKYCKTD);"></a></div><p class="graf graf--p graf-after--mixtapeEmbed graf--trailing" id="6ead" name="6ead"><a class="markup--anchor markup--p-anchor" data-href="https://blog.dreamfactory.com/grpc-vs-rest-how-does-grpc-compare-with-traditional-rest-apis/" href="https://blog.dreamfactory.com/grpc-vs-rest-how-does-grpc-compare-with-traditional-rest-apis/" rel="nofollow noopener" target="_blank">https://blog.dreamfactory.com/grpc-vs-rest-how-does-grpc-compare-with-traditional-rest-apis/</a></p></div></div></section>
+
+  </section>
+
+  <script>
+    document.querySelectorAll('.blog-post-content pre').forEach(function(pre) {
+      // Work on text content, build highlighted HTML in one pass
+      var text = pre.textContent;
+      var result = [];
+      var i = 0;
+      while (i < text.length) {
+        // Comments
+        if (text[i] === '/' && text[i+1] === '/') {
+          var end = text.indexOf('\n', i);
+          if (end === -1) end = text.length;
+          result.push('<span class="syn-cmt">' + escHtml(text.substring(i, end)) + '</span>');
+          i = end;
+        }
+        // Strings
+        else if (text[i] === '"') {
+          var j = i + 1;
+          while (j < text.length && text[j] !== '"') j++;
+          result.push('<span class="syn-str">' + escHtml(text.substring(i, j + 1)) + '</span>');
+          i = j + 1;
+        }
+        // Words
+        else if (/[a-zA-Z_]/.test(text[i])) {
+          var j = i;
+          while (j < text.length && /[a-zA-Z0-9_]/.test(text[j])) j++;
+          var word = text.substring(i, j);
+          var kws = ['var','new','using','public','private','protected','static','void','class','interface','namespace','return','if','else','try','catch','async','await','get','set'];
+          var types = ['Uri','string','int','bool','double','decimal','object','AppDbContext','HttpClient','IServiceCollection'];
+          if (kws.indexOf(word) !== -1) {
+            result.push('<span class="syn-kw">' + word + '</span>');
+          } else if (types.indexOf(word) !== -1) {
+            result.push('<span class="syn-typ">' + word + '</span>');
+          } else {
+            result.push(escHtml(word));
+          }
+          i = j;
+        }
+        // Method calls: .Name(
+        else if (text[i] === '.' && /[A-Z]/.test(text[i+1])) {
+          var j = i + 1;
+          while (j < text.length && /[a-zA-Z0-9_]/.test(text[j])) j++;
+          result.push('.<span class="syn-fn">' + escHtml(text.substring(i+1, j)) + '</span>');
+          i = j;
+        }
+        else {
+          result.push(escHtml(text[i]));
+          i++;
+        }
+      }
+      pre.innerHTML = result.join('');
+    });
+    function escHtml(s) {
+      return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    // Clean up Medium mixtape embed cards
+    document.querySelectorAll('.graf--mixtapeEmbed').forEach(function(card) {
+      var mainLink = card.querySelector('a.markup--anchor--mixtapeEmbed-anchor') || card.querySelector('a:first-child');
+      if (!mainLink) return;
+
+      // Extract title, description, domain from the link
+      var strong = mainLink.querySelector('strong');
+      var em = mainLink.querySelector('em');
+      var title = strong ? strong.textContent.trim() : '';
+      var desc = em ? em.textContent.trim() : '';
+
+      // Get domain from href
+      var href = mainLink.getAttribute('href') || '';
+      var domain = '';
+      try { domain = new URL(href).hostname.replace('www.',''); } catch(e) {}
+
+      // Rebuild the link content cleanly
+      mainLink.innerHTML = '';
+      if (title) {
+        var t = document.createElement('strong');
+        t.textContent = title;
+        mainLink.appendChild(t);
+      }
+      if (desc) {
+        var d = document.createElement('em');
+        d.textContent = desc;
+        mainLink.appendChild(d);
+      }
+      if (domain) {
+        var s = document.createElement('span');
+        s.textContent = domain;
+        s.style.cssText = 'font-size:12px;color:var(--light-gray-70);opacity:0.7;';
+        mainLink.appendChild(s);
+      }
+    });
+  </script>
+
+</article>
+
+      </div>
+    </main>
+
+    <script src="/assets/js/script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>
+"

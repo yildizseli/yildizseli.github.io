@@ -15,7 +15,7 @@ description: "Articles on .NET, Azure, API design, microservices, engineering le
                     <ul class="blog-posts-list">
                         {% for post in site.posts %}
                         <li class="blog-post-item">
-                            <a href="{{ post.link | default: post.url }}" target="_blank">
+                            <a href="{{ post.url }}">
                                 <figure class="blog-banner-box">
                                     <img src="{{ post.image }}" alt="{{ post.title }}" loading="lazy" class="blog-image">
                                 </figure>

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Why Premature Optimization is the Enemy of Good Software Development - Selim YILDIZ</title>
+
+    <!-- SEO Meta -->
+    <meta name="description" content="Premature optimization can lead to overly complex code that is difficult to read, understand, and maintain. It's important to avoid from it." />
+    <link rel="canonical" href="https://levelup.gitconnected.com/why-premature-optimization-is-the-enemy-of-good-software-development-11bc247640f6" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Why Premature Optimization is the Enemy of Good Software Development" />
+    <meta property="og:description" content="Premature optimization can lead to overly complex code that is difficult to read, understand, and maintain. It's important to avoid from it." />
+    <meta property="og:url" content="http://localhost:4000/posts/premature-optimization/" />
+    <meta property="og:site_name" content="Selim YILDIZ" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="http://localhost:4000/assets/images/blog-12.jpg" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@yildizseli" />
+    <meta name="twitter:title" content="Why Premature Optimization is the Enemy of Good Software Development" />
+    <meta name="twitter:description" content="Premature optimization can lead to overly complex code that is difficult to read, understand, and maintain. It's important to avoid from it." />
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/blog-12.jpg" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "name": "Why Premature Optimization is the Enemy of Good Software Development",
+      "description": "Premature optimization can lead to overly complex code that is difficult to read, understand, and maintain. It&#39;s important to avoid from it.",
+      "url": "http://localhost:4000/posts/premature-optimization/",
+      "datePublished": "2023-02-27T00:00:00+01:00",
+      "author": {
+        "@type": "Person",
+        "name": "Selim YILDIZ",
+        "url": "https://yildizseli.github.io"
+      }
+    }
+    </script>
+
+    <!--
+    - favicon
+    -->
+    <link rel="shortcut icon" href="/assets/images/logo.ico" type="image/x-icon" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    
+    <!--
+    - custom css link
+    -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+
+    <!--
+    - google font link
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LXQLH66J4S"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-LXQLH66J4S");
+    </script>
+  </head>
+
+  <body>
+    <main>
+      <aside class="sidebar" data-sidebar>
+        <div class="sidebar-info">
+          <figure class="avatar-box">
+            <img src="/assets/images/profile_picture_1.jpg" alt="Selim YILDIZ" width="80" />
+          </figure>
+
+          <div class="info-content">
+            <h1 class="name" title="Selim YILDIZ">Selim YILDIZ</h1>
+            <p class="title">Software Engineering Lead</p>
+          </div>
+
+          <button class="info_more-btn" data-sidebar-btn>
+            <span>Show Contacts</span>
+            <ion-icon name="chevron-down"></ion-icon>
+          </button>
+        </div>
+
+        <div class="sidebar-info_more">
+          <div class="separator"></div>
+
+          <ul class="contacts-list">
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="mail-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <p class="contact-title">Email</p>
+                <a href="mailto:selimyildiz91@gmail.com" class="contact-link">selimyildiz91@gmail.com</a>
+              </div>
+            </li>
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="phone-portrait-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <p class="contact-title">Phone</p>
+                <a href="tel:+46700093165" class="contact-link">+46 70 009 31 65</a>
+              </div>
+            </li>
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="calendar-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <p class="contact-title">Birthday</p>
+                <time datetime="1991-02-18">February 18, 1991</time>
+              </div>
+            </li>
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="location-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <p class="contact-title">Location</p>
+                <address>Lund, Skane, Sweden</address>
+              </div>
+            </li>
+          </ul>
+
+          <div class="separator"></div>
+
+          <ul class="social-list">
+            <li class="social-item">
+              <a href="https://stackoverflow.com/users/5519709/selim-yildiz" class="social-link">
+                <ion-icon name="logo-stackoverflow"></ion-icon>
+              </a>
+            </li>
+            <li class="social-item">
+              <a href="https://twitter.com/yildizseli" target="_blank" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+            <li class="social-item">
+              <a href="https://medium.com/@selimyildiz91" class="social-link">
+                <ion-icon name="logo-medium"></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <div class="main-content">
+        <nav class="navbar">
+          <ul class="navbar-list">
+            <li class="navbar-item">
+              <a href="/index.html" class="navbar-link">About</a>
+            </li>
+            <li class="navbar-item">
+              <a href="/resume.html" class="navbar-link">Resume</a>
+            </li>
+            <li class="navbar-item">
+              <a href="/blog.html" class="navbar-link">Blog</a>
+            </li>
+            <li class="navbar-item">
+              <a href="/contact.html" class="navbar-link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+
+        <article class="blog active" data-page="blog" style="padding-top: 80px;">
+
+  <style>
+    .blog-post-content {
+      max-width: 100%;
+    }
+    .blog-post-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+      margin: 15px auto;
+    }
+    .blog-post-content figure {
+      margin: 20px 0;
+      text-align: center;
+    }
+    .blog-post-content figcaption {
+      font-size: 13px;
+      color: var(--light-gray-70);
+      margin-top: 8px;
+    }
+    .blog-post-content h3 {
+      color: var(--white-2);
+      margin-top: 30px;
+      margin-bottom: 12px;
+      font-size: 1.4em;
+    }
+    .blog-post-content h4 {
+      color: var(--white-2);
+      margin-top: 25px;
+      margin-bottom: 10px;
+      font-size: 1.15em;
+    }
+    .blog-post-content p {
+      margin-bottom: 16px;
+      color: var(--light-gray);
+      line-height: 1.8;
+    }
+    .blog-post-content a {
+      color: var(--orange-yellow-crayola);
+      display: inline;
+    }
+    .blog-post-content a:hover {
+      text-decoration: underline;
+    }
+    .blog-post-content span {
+      display: inline;
+    }
+    .blog-post-content ul, .blog-post-content ol {
+      margin: 10px 0 20px 25px;
+      color: var(--light-gray);
+      line-height: 1.8;
+    }
+    .blog-post-content ol {
+      list-style-type: decimal;
+    }
+    .blog-post-content ul {
+      list-style-type: disc;
+    }
+    .blog-post-content li {
+      margin-bottom: 12px;
+      list-style: inherit;
+    }
+    .blog-post-content li strong {
+      color: var(--white-2);
+      display: inline;
+    }
+    .blog-post-content pre {
+      background: #1e1e2e;
+      padding: 20px 24px;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: 13.5px;
+      line-height: 1.7;
+      margin: 20px 0;
+      color: #cdd6f4;
+      font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      border: 1px solid #313244;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+    }
+    .blog-post-content code {
+      font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+      font-size: 0.88em;
+      background: #1e1e2e;
+      color: #f38ba8;
+      padding: 2px 7px;
+      border-radius: 4px;
+      border: 1px solid #313244;
+    }
+    /* Basic syntax highlighting for comments, strings, keywords */
+    .blog-post-content pre {
+      tab-size: 4;
+    }
+    .syn-cmt { color: #6c7086; font-style: italic; }
+    .syn-str { color: #a6e3a1; }
+    .syn-kw  { color: #cba6f7; }
+    .syn-typ { color: #89b4fa; }
+    .syn-fn  { color: #f9e2af; }
+    .blog-post-content blockquote {
+      border-left: 3px solid var(--orange-yellow-crayola);
+      padding: 12px 24px;
+      margin: 20px 0;
+      color: var(--light-gray-70);
+      font-style: italic;
+      background: var(--eerie-black-2);
+      border-radius: 0 8px 8px 0;
+    }
+    /* Medium mixtape embed cards */
+    .blog-post-content .graf--mixtapeEmbed {
+      display: flex;
+      align-items: stretch;
+      border: 1px solid var(--jet);
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 12px 0;
+      background: #1e1e2e;
+      transition: border-color 0.2s;
+    }
+    .blog-post-content .graf--mixtapeEmbed:hover {
+      border-color: var(--orange-yellow-crayola);
+    }
+    .blog-post-content .graf--mixtapeEmbed > a.markup--anchor--mixtapeEmbed-anchor,
+    .blog-post-content .graf--mixtapeEmbed > a:first-child {
+      flex: 1;
+      padding: 16px 20px;
+      color: var(--light-gray);
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+    }
+    .blog-post-content .graf--mixtapeEmbed strong {
+      color: var(--white-2);
+      font-size: 15px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .blog-post-content .graf--mixtapeEmbed em {
+      color: var(--light-gray-70);
+      font-size: 13px;
+      font-style: normal;
+      display: block;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .blog-post-content .graf--mixtapeEmbed .mixtapeImage,
+    .blog-post-content .graf--mixtapeEmbed > a:last-child:not(:first-child) {
+      width: 120px;
+      min-width: 120px;
+      background-size: cover;
+      background-position: center;
+      display: block;
+    }
+    .blog-post-content .graf--mixtapeEmbed .mixtapeImage--empty {
+      display: none;
+    }
+    .blog-post-content hr {
+      border: none;
+      border-top: 1px solid var(--jet);
+      margin: 30px 0;
+    }
+    .blog-post-content .aspectRatioPlaceholder {
+      max-width: 100%;
+      overflow: hidden;
+    }
+    .blog-post-content img[height="1"] {
+      display: none;
+    }
+  </style>
+
+  <nav class="blog-post-nav" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding: 12px 0; border-bottom: 1px solid var(--jet);">
+    <a href="/blog.html" style="color: var(--light-gray-70); text-decoration: none; font-size: 14px; display: inline-flex; align-items: center; gap: 6px;">
+      &larr; Back to all posts
+    </a>
+    
+    <a href="https://levelup.gitconnected.com/why-premature-optimization-is-the-enemy-of-good-software-development-11bc247640f6" target="_blank" rel="noopener noreferrer"
+       style="color: var(--orange-yellow-crayola); text-decoration: none; font-size: 14px; font-weight: 500; display: inline-flex; align-items: center; gap: 6px;">
+      Read on Medium &rarr;
+    </a>
+    
+  </nav>
+
+  <header>
+    <h2 class="h2 article-title">Why Premature Optimization is the Enemy of Good Software Development</h2>
+    <div class="blog-meta" style="margin-bottom: 25px;">
+      <p class="blog-category">Best Practices</p>
+      <span class="dot"></span>
+      <time datetime="2023-02-27 00:00:00 +0100">Feb 27, 2023</time>
+    </div>
+  </header>
+
+  <section class="blog-post-content" style="color: var(--light-gray); line-height: 1.8; font-size: 15px;">
+    <section class="section section--body section--first" name="3178"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><figure class="graf graf--figure graf-after--h3" id="1db0" name="1db0"><img class="graf-image" data-height="4000" data-image-id="0*pq-DewdFz8jAzAzI" data-is-featured="true" data-unsplash-photo-id="2NuEzrmD2xQ" data-width="6000" src="https://cdn-images-1.medium.com/max/800/0*pq-DewdFz8jAzAzI"/><figcaption class="imageCaption">Photo by <a class="markup--anchor markup--figure-anchor" data-href="https://unsplash.com/@pf91_photography?utm_source=medium&amp;utm_medium=referral" href="https://unsplash.com/@pf91_photography?utm_source=medium&amp;utm_medium=referral" rel="photo-creator noopener" target="_blank">Patrick</a> on <a class="markup--anchor markup--figure-anchor" data-href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral" href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral" rel="photo-source noopener" target="_blank">Unsplash</a></figcaption></figure><blockquote class="graf graf--pullquote graf-after--figure" id="fae5" name="fae5">Premature optimization is the root of all evil</blockquote><p class="graf graf--p graf-after--pullquote" id="cfe1" name="cfe1">The above message is a famous quote from <a class="markup--anchor markup--p-anchor" data-href="https://en.wikipedia.org/wiki/Donald_Knuth" href="https://en.wikipedia.org/wiki/Donald_Knuth" rel="noopener" target="_blank">Donald Knuth</a>, a computer scientist and mathematician, and it’s often used to highlight the importance of writing clear and maintainable code over trying to optimize code that may not need it.</p><p class="graf graf--p graf-after--p" id="b1ab" name="b1ab">Premature optimization refers to the practice of optimizing code before it’s actually necessary.</p><h4 class="graf graf--h4 graf-after--p" id="deef" name="deef">This can cause a variety of problems in software engineering, including:</h4><ol class="postList"><li class="graf graf--li graf-after--h4" id="22de" name="22de"><strong class="markup--strong markup--li-strong">Complexity</strong>: By trying to optimize code that may not need it, developers can create overly complex code that is difficult to read, understand, and maintain. This can lead to increased development time and increased risk of bugs and errors.</li><li class="graf graf--li graf-after--li" id="bc90" name="bc90"><strong class="markup--strong markup--li-strong">Wasted time and resources:</strong> By focusing on optimization before it’s actually necessary, developers can waste time and resources on optimization that may not be needed. This can lead to delays in the development process and increased costs.</li><li class="graf graf--li graf-after--li" id="2621" name="2621"><strong class="markup--strong markup--li-strong">Reduced readability and maintainability:</strong> By focusing on optimization, developers may make trade-offs in terms of readability and maintainability. This can make the code harder to understand for other developers and more difficult to update or modify in the future.</li><li class="graf graf--li graf-after--li graf--trailing" id="161d" name="161d"><strong class="markup--strong markup--li-strong">Lack of understanding of the trade-offs:</strong> by focusing on optimization, developers may not understand the trade-offs of implementing a certain optimization, and the cost of the optimization might be higher than the benefit, which leads to a non-optimal solution.</li></ol></div></div></section>
+<section class="section section--body" name="aafb"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><blockquote class="graf graf--blockquote graf--leading" id="7afb" name="7afb">It’s important to note that optimization is not always bad.</blockquote><p class="graf graf--p graf-after--blockquote" id="72a8" name="72a8">In fact, it’s necessary for the performance of some programs. But it’s important to understand that optimization should be done <strong class="markup--strong markup--p-strong">only when it’s actually necessary (</strong>remember The<strong class="markup--strong markup--p-strong"> </strong><a class="markup--anchor markup--p-anchor" data-href="https://martinfowler.com/bliki/Yagni.html" href="https://martinfowler.com/bliki/Yagni.html" rel="noopener" target="_blank">YAGNI (You Ain’t Gonna Need It)</a> principle<strong class="markup--strong markup--p-strong">),</strong> and when the benefit of the optimization outweighs the cost of making the code more complex.</p><p class="graf graf--p graf-after--p" id="df43" name="df43">A good approach is to use profiling tools to <strong class="markup--strong markup--p-strong">identify the performance bottlenecks of the program before attempting to optimize the code</strong>. This way, you can focus on the areas that actually need optimization and avoid wasting time and resources on unnecessary optimization.</p><h4 class="graf graf--h4 graf-after--p" id="998f" name="998f">Let’s look at some code examples!</h4><p class="graf graf--p graf-after--h4" id="6b3f" name="6b3f">Here’s an example of code that could be considered premature optimization:</p><pre class="graf graf--pre graf-after--p graf--preV2" data-code-block-lang="csharp" data-code-block-mode="1" id="7bd3" name="7bd3" spellcheck="false">using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        var list = new List&lt;int&gt; { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        var result = 0;
+
+        // Premature optimization example
+        var startTime = DateTime.Now;
+        for (int i = 0; i &lt; list.Count; i++)
+        {
+            result += list[i];
+        }
+        var endTime = DateTime.Now;
+        Console.WriteLine("Time taken: " + (endTime - startTime));
+        Console.WriteLine("Result: " + result);
+    }
+}</pre><p class="graf graf--p graf-after--pre" id="ae65" name="ae65">In this example, the developer has included a timer to measure the time taken to execute the for loop, which sums up all the elements in the list. This is an example of premature optimization because the list is not large enough to cause any performance issue and the time taken to execute the for loop is small. The developer is trying to optimize the code for performance, even though it’s not needed. The use of timer is not needed and the code is harder to read and understand.</p><p class="graf graf--p graf-after--p" id="1151" name="1151">A better approach would be to use the built-in <code class="markup--code markup--p-code">List&lt;T&gt;.Sum()</code> method which is more readable and easy to maintain.</p><pre class="graf graf--pre graf-after--p graf--preV2" data-code-block-lang="csharp" data-code-block-mode="1" id="61af" name="61af" spellcheck="false">using System;
+using System.Linq;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        var list = new List&lt;int&gt; { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        
+        // Better approach
+        var result = list.Sum();
+        Console.WriteLine("Result: " + result);
+    }
+}</pre><p class="graf graf--p graf-after--pre" id="33e5" name="33e5">In this example, the developer uses the built-in method which is more readable and easy to maintain. This approach is more efficient and is better in terms of readability and maintainability, and it’s less prone to errors.</p><h4 class="graf graf--h4 graf-after--p" id="091e" name="091e">In summary</h4><p class="graf graf--p graf-after--h4" id="4825" name="4825">Yes, premature optimization is the root of all evil, and it can lead to overly complex code that is difficult to read, understand, and maintain. It’s important to avoid premature optimization and focus on writing clear and maintainable code. Optimize only when it’s necessary and when the benefit of the optimization outweighs the cost of making the code more complex.</p><p class="graf graf--p graf-after--p" id="ecd5" name="ecd5">Thanks for reading!</p><p class="graf graf--p graf-after--p" id="c380" name="c380">Resource:</p><div class="graf graf--mixtapeEmbed graf-after--p graf--trailing" id="8f10" name="8f10"><a class="markup--anchor markup--mixtapeEmbed-anchor" data-href="https://softwareengineering.stackexchange.com/questions/80084/is-premature-optimization-really-the-root-of-all-evil" href="https://softwareengineering.stackexchange.com/questions/80084/is-premature-optimization-really-the-root-of-all-evil" title="https://softwareengineering.stackexchange.com/questions/80084/is-premature-optimization-really-the-root-of-all-evil"><strong class="markup--strong markup--mixtapeEmbed-strong">Is premature optimization really the root of all evil?</strong><br/><em class="markup--em markup--mixtapeEmbed-em">Premature micro optimizations are the root of all evil, because micro optimizations leave out context. They almost…</em>softwareengineering.stackexchange.com</a><a class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="5f63d77a7ccbd448da485dfd222f0966" data-thumbnail-img-id="0*WpCoQ4B7NlLo6rUw" href="https://softwareengineering.stackexchange.com/questions/80084/is-premature-optimization-really-the-root-of-all-evil" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*WpCoQ4B7NlLo6rUw);"></a></div></div></div></section>
+<section class="section section--body section--last" name="7a23"><div class="section-divider"><hr class="section-divider"/></div><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><h3 class="graf graf--h3 graf--leading" id="036e" name="036e">Level Up Coding</h3><p class="graf graf--p graf-after--h3" id="c382" name="c382">Thanks for being a part of our community! Before you go:</p><ul class="postList"><li class="graf graf--li graf-after--p" id="e6b7" name="e6b7">👏 Clap for the story and follow the author 👉</li><li class="graf graf--li graf-after--li" id="b981" name="b981">📰 View more content in the <a class="markup--anchor markup--li-anchor" data-href="https://levelup.gitconnected.com/?utm_source=pub&amp;utm_medium=post" href="https://levelup.gitconnected.com/?utm_source=pub&amp;utm_medium=post" rel="noopener" target="_blank">Level Up Coding publication</a></li><li class="graf graf--li graf-after--li" id="57d1" name="57d1">💰 Free coding interview course ⇒ <a class="markup--anchor markup--li-anchor" data-href="https://skilled.dev/?utm_source=luc&amp;utm_medium=article" href="https://skilled.dev/?utm_source=luc&amp;utm_medium=article" rel="noopener" target="_blank">View Course</a></li><li class="graf graf--li graf-after--li" id="01d8" name="01d8">🔔 Follow us: <a class="markup--anchor markup--li-anchor" data-href="https://twitter.com/gitconnected" href="https://twitter.com/gitconnected" rel="noopener" target="_blank">Twitter</a> | <a class="markup--anchor markup--li-anchor" data-href="https://www.linkedin.com/company/gitconnected" href="https://www.linkedin.com/company/gitconnected" rel="noopener" target="_blank">LinkedIn</a> | <a class="markup--anchor markup--li-anchor" data-href="https://newsletter.levelup.dev" href="https://newsletter.levelup.dev" rel="noopener" target="_blank">Newsletter</a></li></ul><p class="graf graf--p graf-after--li graf--trailing" id="97f6" name="97f6">🚀👉 <a class="markup--anchor markup--p-anchor" data-href="https://jobs.levelup.dev/talent/welcome?referral=true" href="https://jobs.levelup.dev/talent/welcome?referral=true" rel="noopener" target="_blank"><strong class="markup--strong markup--p-strong">Join the Level Up talent collective and find an amazing job</strong></a></p></div></div></section>
+
+  </section>
+
+  <script>
+    document.querySelectorAll('.blog-post-content pre').forEach(function(pre) {
+      // Work on text content, build highlighted HTML in one pass
+      var text = pre.textContent;
+      var result = [];
+      var i = 0;
+      while (i < text.length) {
+        // Comments
+        if (text[i] === '/' && text[i+1] === '/') {
+          var end = text.indexOf('\n', i);
+          if (end === -1) end = text.length;
+          result.push('<span class="syn-cmt">' + escHtml(text.substring(i, end)) + '</span>');
+          i = end;
+        }
+        // Strings
+        else if (text[i] === '"') {
+          var j = i + 1;
+          while (j < text.length && text[j] !== '"') j++;
+          result.push('<span class="syn-str">' + escHtml(text.substring(i, j + 1)) + '</span>');
+          i = j + 1;
+        }
+        // Words
+        else if (/[a-zA-Z_]/.test(text[i])) {
+          var j = i;
+          while (j < text.length && /[a-zA-Z0-9_]/.test(text[j])) j++;
+          var word = text.substring(i, j);
+          var kws = ['var','new','using','public','private','protected','static','void','class','interface','namespace','return','if','else','try','catch','async','await','get','set'];
+          var types = ['Uri','string','int','bool','double','decimal','object','AppDbContext','HttpClient','IServiceCollection'];
+          if (kws.indexOf(word) !== -1) {
+            result.push('<span class="syn-kw">' + word + '</span>');
+          } else if (types.indexOf(word) !== -1) {
+            result.push('<span class="syn-typ">' + word + '</span>');
+          } else {
+            result.push(escHtml(word));
+          }
+          i = j;
+        }
+        // Method calls: .Name(
+        else if (text[i] === '.' && /[A-Z]/.test(text[i+1])) {
+          var j = i + 1;
+          while (j < text.length && /[a-zA-Z0-9_]/.test(text[j])) j++;
+          result.push('.<span class="syn-fn">' + escHtml(text.substring(i+1, j)) + '</span>');
+          i = j;
+        }
+        else {
+          result.push(escHtml(text[i]));
+          i++;
+        }
+      }
+      pre.innerHTML = result.join('');
+    });
+    function escHtml(s) {
+      return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    // Clean up Medium mixtape embed cards
+    document.querySelectorAll('.graf--mixtapeEmbed').forEach(function(card) {
+      var mainLink = card.querySelector('a.markup--anchor--mixtapeEmbed-anchor') || card.querySelector('a:first-child');
+      if (!mainLink) return;
+
+      // Extract title, description, domain from the link
+      var strong = mainLink.querySelector('strong');
+      var em = mainLink.querySelector('em');
+      var title = strong ? strong.textContent.trim() : '';
+      var desc = em ? em.textContent.trim() : '';
+
+      // Get domain from href
+      var href = mainLink.getAttribute('href') || '';
+      var domain = '';
+      try { domain = new URL(href).hostname.replace('www.',''); } catch(e) {}
+
+      // Rebuild the link content cleanly
+      mainLink.innerHTML = '';
+      if (title) {
+        var t = document.createElement('strong');
+        t.textContent = title;
+        mainLink.appendChild(t);
+      }
+      if (desc) {
+        var d = document.createElement('em');
+        d.textContent = desc;
+        mainLink.appendChild(d);
+      }
+      if (domain) {
+        var s = document.createElement('span');
+        s.textContent = domain;
+        s.style.cssText = 'font-size:12px;color:var(--light-gray-70);opacity:0.7;';
+        mainLink.appendChild(s);
+      }
+    });
+  </script>
+
+</article>
+
+      </div>
+    </main>
+
+    <script src="/assets/js/script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>
+"

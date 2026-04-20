@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mastering GitHub: How to Manage Large Repositories like a Pro - Selim YILDIZ</title>
+
+    <!-- SEO Meta -->
+    <meta name="description" content="How to manage large repositories on Github, including how to split them, use submodules, optimize performance, and avoid common pitfalls" />
+    <link rel="canonical" href="https://medium.com/geekculture/mastering-github-how-to-manage-large-repositories-like-a-pro-8450b256254" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Mastering GitHub: How to Manage Large Repositories like a Pro" />
+    <meta property="og:description" content="How to manage large repositories on Github, including how to split them, use submodules, optimize performance, and avoid common pitfalls" />
+    <meta property="og:url" content="http://localhost:4000/posts/managing-large-repos/" />
+    <meta property="og:site_name" content="Selim YILDIZ" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="http://localhost:4000/assets/images/blog-14.jpg" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@yildizseli" />
+    <meta name="twitter:title" content="Mastering GitHub: How to Manage Large Repositories like a Pro" />
+    <meta name="twitter:description" content="How to manage large repositories on Github, including how to split them, use submodules, optimize performance, and avoid common pitfalls" />
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/blog-14.jpg" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "name": "Mastering GitHub: How to Manage Large Repositories like a Pro",
+      "description": "How to manage large repositories on Github, including how to split them, use submodules, optimize performance, and avoid common pitfalls",
+      "url": "http://localhost:4000/posts/managing-large-repos/",
+      "datePublished": "2023-03-05T00:00:00+01:00",
+      "author": {
+        "@type": "Person",
+        "name": "Selim YILDIZ",
+        "url": "https://yildizseli.github.io"
+      }
+    }
+    </script>
+
+    <!--
+    - favicon
+    -->
+    <link rel="shortcut icon" href="/assets/images/logo.ico" type="image/x-icon" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    
+    <!--
+    - custom css link
+    -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+
+    <!--
+    - google font link
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LXQLH66J4S"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-LXQLH66J4S");
+    </script>
+  </head>
+
+  <body>
+    <main>
+      <aside class="sidebar" data-sidebar>
+        <div class="sidebar-info">
+          <figure class="avatar-box">
+            <img src="/assets/images/profile_picture_1.jpg" alt="Selim YILDIZ" width="80" />
+          </figure>
+
+          <div class="info-content">
+            <h1 class="name" title="Selim YILDIZ">Selim YILDIZ</h1>
+            <p class="title">Software Engineering Lead</p>
+          </div>
+
+          <button class="info_more-btn" data-sidebar-btn>
+            <span>Show Contacts</span>
+            <ion-icon name="chevron-down"></ion-icon>
+          </button>
+        </div>
+
+        <div class="sidebar-info_more">
+          <div class="separator"></div>
+
+          <ul class="contacts-list">
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="mail-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <p class="contact-title">Email</p>
+                <a href="mailto:selimyildiz91@gmail.com" class="contact-link">selimyildiz91@gmail.com</a>
+              </div>
+            </li>
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="phone-portrait-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <p class="contact-title">Phone</p>
+                <a href="tel:+46700093165" class="contact-link">+46 70 009 31 65</a>
+              </div>
+            </li>
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="calendar-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <p class="contact-title">Birthday</p>
+                <time datetime="1991-02-18">February 18, 1991</time>
+              </div>
+            </li>
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="location-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <p class="contact-title">Location</p>
+                <address>Lund, Skane, Sweden</address>
+              </div>
+            </li>
+          </ul>
+
+          <div class="separator"></div>
+
+          <ul class="social-list">
+            <li class="social-item">
+              <a href="https://stackoverflow.com/users/5519709/selim-yildiz" class="social-link">
+                <ion-icon name="logo-stackoverflow"></ion-icon>
+              </a>
+            </li>
+            <li class="social-item">
+              <a href="https://twitter.com/yildizseli" target="_blank" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+            <li class="social-item">
+              <a href="https://medium.com/@selimyildiz91" class="social-link">
+                <ion-icon name="logo-medium"></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <div class="main-content">
+        <nav class="navbar">
+          <ul class="navbar-list">
+            <li class="navbar-item">
+              <a href="/index.html" class="navbar-link">About</a>
+            </li>
+            <li class="navbar-item">
+              <a href="/resume.html" class="navbar-link">Resume</a>
+            </li>
+            <li class="navbar-item">
+              <a href="/blog.html" class="navbar-link">Blog</a>
+            </li>
+            <li class="navbar-item">
+              <a href="/contact.html" class="navbar-link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+
+        <article class="blog active" data-page="blog" style="padding-top: 80px;">
+
+  <style>
+    .blog-post-content {
+      max-width: 100%;
+    }
+    .blog-post-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+      margin: 15px auto;
+    }
+    .blog-post-content figure {
+      margin: 20px 0;
+      text-align: center;
+    }
+    .blog-post-content figcaption {
+      font-size: 13px;
+      color: var(--light-gray-70);
+      margin-top: 8px;
+    }
+    .blog-post-content h3 {
+      color: var(--white-2);
+      margin-top: 30px;
+      margin-bottom: 12px;
+      font-size: 1.4em;
+    }
+    .blog-post-content h4 {
+      color: var(--white-2);
+      margin-top: 25px;
+      margin-bottom: 10px;
+      font-size: 1.15em;
+    }
+    .blog-post-content p {
+      margin-bottom: 16px;
+      color: var(--light-gray);
+      line-height: 1.8;
+    }
+    .blog-post-content a {
+      color: var(--orange-yellow-crayola);
+      display: inline;
+    }
+    .blog-post-content a:hover {
+      text-decoration: underline;
+    }
+    .blog-post-content span {
+      display: inline;
+    }
+    .blog-post-content ul, .blog-post-content ol {
+      margin: 10px 0 20px 25px;
+      color: var(--light-gray);
+      line-height: 1.8;
+    }
+    .blog-post-content ol {
+      list-style-type: decimal;
+    }
+    .blog-post-content ul {
+      list-style-type: disc;
+    }
+    .blog-post-content li {
+      margin-bottom: 12px;
+      list-style: inherit;
+    }
+    .blog-post-content li strong {
+      color: var(--white-2);
+      display: inline;
+    }
+    .blog-post-content pre {
+      background: #1e1e2e;
+      padding: 20px 24px;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: 13.5px;
+      line-height: 1.7;
+      margin: 20px 0;
+      color: #cdd6f4;
+      font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      border: 1px solid #313244;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+    }
+    .blog-post-content code {
+      font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+      font-size: 0.88em;
+      background: #1e1e2e;
+      color: #f38ba8;
+      padding: 2px 7px;
+      border-radius: 4px;
+      border: 1px solid #313244;
+    }
+    /* Basic syntax highlighting for comments, strings, keywords */
+    .blog-post-content pre {
+      tab-size: 4;
+    }
+    .syn-cmt { color: #6c7086; font-style: italic; }
+    .syn-str { color: #a6e3a1; }
+    .syn-kw  { color: #cba6f7; }
+    .syn-typ { color: #89b4fa; }
+    .syn-fn  { color: #f9e2af; }
+    .blog-post-content blockquote {
+      border-left: 3px solid var(--orange-yellow-crayola);
+      padding: 12px 24px;
+      margin: 20px 0;
+      color: var(--light-gray-70);
+      font-style: italic;
+      background: var(--eerie-black-2);
+      border-radius: 0 8px 8px 0;
+    }
+    /* Medium mixtape embed cards */
+    .blog-post-content .graf--mixtapeEmbed {
+      display: flex;
+      align-items: stretch;
+      border: 1px solid var(--jet);
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 12px 0;
+      background: #1e1e2e;
+      transition: border-color 0.2s;
+    }
+    .blog-post-content .graf--mixtapeEmbed:hover {
+      border-color: var(--orange-yellow-crayola);
+    }
+    .blog-post-content .graf--mixtapeEmbed > a.markup--anchor--mixtapeEmbed-anchor,
+    .blog-post-content .graf--mixtapeEmbed > a:first-child {
+      flex: 1;
+      padding: 16px 20px;
+      color: var(--light-gray);
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+    }
+    .blog-post-content .graf--mixtapeEmbed strong {
+      color: var(--white-2);
+      font-size: 15px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .blog-post-content .graf--mixtapeEmbed em {
+      color: var(--light-gray-70);
+      font-size: 13px;
+      font-style: normal;
+      display: block;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .blog-post-content .graf--mixtapeEmbed .mixtapeImage,
+    .blog-post-content .graf--mixtapeEmbed > a:last-child:not(:first-child) {
+      width: 120px;
+      min-width: 120px;
+      background-size: cover;
+      background-position: center;
+      display: block;
+    }
+    .blog-post-content .graf--mixtapeEmbed .mixtapeImage--empty {
+      display: none;
+    }
+    .blog-post-content hr {
+      border: none;
+      border-top: 1px solid var(--jet);
+      margin: 30px 0;
+    }
+    .blog-post-content .aspectRatioPlaceholder {
+      max-width: 100%;
+      overflow: hidden;
+    }
+    .blog-post-content img[height="1"] {
+      display: none;
+    }
+  </style>
+
+  <nav class="blog-post-nav" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding: 12px 0; border-bottom: 1px solid var(--jet);">
+    <a href="/blog.html" style="color: var(--light-gray-70); text-decoration: none; font-size: 14px; display: inline-flex; align-items: center; gap: 6px;">
+      &larr; Back to all posts
+    </a>
+    
+    <a href="https://medium.com/geekculture/mastering-github-how-to-manage-large-repositories-like-a-pro-8450b256254" target="_blank" rel="noopener noreferrer"
+       style="color: var(--orange-yellow-crayola); text-decoration: none; font-size: 14px; font-weight: 500; display: inline-flex; align-items: center; gap: 6px;">
+      Read on Medium &rarr;
+    </a>
+    
+  </nav>
+
+  <header>
+    <h2 class="h2 article-title">Mastering GitHub: How to Manage Large Repositories like a Pro</h2>
+    <div class="blog-meta" style="margin-bottom: 25px;">
+      <p class="blog-category">Devops</p>
+      <span class="dot"></span>
+      <time datetime="2023-03-05 00:00:00 +0100">Mar 05, 2023</time>
+    </div>
+  </header>
+
+  <section class="blog-post-content" style="color: var(--light-gray); line-height: 1.8; font-size: 15px;">
+    <section class="section section--body section--first section--last" name="f9f3"><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><figure class="graf graf--figure graf-after--h3" id="e1e7" name="e1e7"><img class="graf-image" data-height="9744" data-image-id="0*CYR4fv69c3uLx10B" data-is-featured="true" data-unsplash-photo-id="HLQDfaJUTVI" data-width="14467" src="https://cdn-images-1.medium.com/max/800/0*CYR4fv69c3uLx10B"/><figcaption class="imageCaption">Photo by <a class="markup--anchor markup--figure-anchor" data-href="https://unsplash.com/@rubaitulazad?utm_source=medium&amp;utm_medium=referral" href="https://unsplash.com/@rubaitulazad?utm_source=medium&amp;utm_medium=referral" rel="photo-creator noopener" target="_blank">Rubaitul Azad</a> on <a class="markup--anchor markup--figure-anchor" data-href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral" href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral" rel="photo-source noopener" target="_blank">Unsplash</a></figcaption></figure><p class="graf graf--p graf-after--figure" id="94c2" name="94c2">Managing large repositories on GitHub can be challenging, especially when it comes to performance, maintenance, and collaboration. In this article, we will discuss some strategies and tools for managing large repositories on GitHub.</p><h4 class="graf graf--h4 graf-after--p" id="fb9e" name="fb9e">1. Splitting repositories</h4><p class="graf graf--p graf-after--h4" id="e9d3" name="e9d3">One of the most common strategies for managing large repositories on GitHub is to split them into smaller ones. This approach can help you to manage and maintain your code more effectively, reduce the risk of conflicts, and improve performance.</p><p class="graf graf--p graf-after--p" id="060b" name="060b">To split a repository, you can use the <a class="markup--anchor markup--p-anchor" data-href="https://github.blog/2016-02-01-working-with-submodules/" href="https://github.blog/2016-02-01-working-with-submodules/" rel="noopener" target="_blank">Git submodules feature</a>, which allows you to include a repository as a submodule of another repository. This way, you can have separate repositories for different parts of your codebase and include them as submodules in a master repository. This approach allows you to manage each submodule separately while keeping them linked together.</p><p class="graf graf--p graf-after--p" id="501d" name="501d">Another way to split a repository is to use <a class="markup--anchor markup--p-anchor" data-href="https://www.atlassian.com/git/tutorials/git-subtree" href="https://www.atlassian.com/git/tutorials/git-subtree" rel="noopener" target="_blank">Git’s subtree feature</a>, which allows you to extract a subdirectory of a repository into its repository. This approach is useful when you want to split a large repository into smaller ones without losing the commit history.</p><h4 class="graf graf--h4 graf-after--p" id="2db7" name="2db7">2. Optimizing performance</h4><p class="graf graf--p graf-after--h4" id="3ace" name="3ace">Large repositories on GitHub can sometimes be slow to load and work with, especially when there are many files, large files, or many contributors. To optimize the performance of your repository, you can follow some best practices:</p><ul class="postList"><li class="graf graf--li graf-after--p" id="e095" name="e095">Keep your repository organized and tidy. Avoid storing unnecessary files, binaries, or large assets in your repository.</li><li class="graf graf--li graf-after--li" id="c032" name="c032">Use <a class="markup--anchor markup--li-anchor" data-href="https://git-lfs.com/" href="https://git-lfs.com/" rel="noopener" target="_blank">Git LFS (Large File Storage)</a> for large files such as images, videos, or binary files. Git LFS allows you to store these files separately from your Git repository, reducing the size and improving performance.</li><li class="graf graf--li graf-after--li" id="c927" name="c927">Use <a class="markup--anchor markup--li-anchor" data-href="https://git-scm.com/docs/shallow" href="https://git-scm.com/docs/shallow" rel="noopener" target="_blank">Git’s shallow cloning feature</a> to fetch only the recent commit history instead of the entire history. This approach can speed up the cloning process for large repositories.</li><li class="graf graf--li graf-after--li" id="6c74" name="6c74">Use <a class="markup--anchor markup--li-anchor" data-href="https://git-scm.com/docs/git-sparse-checkout" href="https://git-scm.com/docs/git-sparse-checkout" rel="noopener" target="_blank">Git’s sparse checkout feature</a> to check out only specific directories or files instead of the entire repository. This approach can help you to work with large repositories more efficiently.</li></ul><h4 class="graf graf--h4 graf-after--li" id="0f72" name="0f72">3. Collaborating effectively</h4><p class="graf graf--p graf-after--h4" id="2754" name="2754">When working with large repositories on GitHub, collaboration can be a challenge. You need to make sure that everyone is on the same page, avoid conflicts, and review changes effectively. Here are some tips for collaborating effectively:</p><ul class="postList"><li class="graf graf--li graf-after--p" id="4b64" name="4b64">Use pull requests to review and merge changes. Pull requests allow you to review changes, discuss them, and merge them safely.</li><li class="graf graf--li graf-after--li" id="ae89" name="ae89">Use <a class="markup--anchor markup--li-anchor" data-href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches" href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches" rel="noopener" target="_blank">branch protection rules</a> to prevent accidental changes or force specific checks before merging changes. Branch protection rules can help you to avoid conflicts and ensure quality control.</li><li class="graf graf--li graf-after--li" id="8120" name="8120">Use issue tracking and project management tools such as GitHub Issues, Milestones, or Projects to keep track of tasks, bugs, and features. These tools can help you to stay organized and collaborate effectively.</li><li class="graf graf--li graf-after--li" id="d8e2" name="d8e2">Use <a class="markup--anchor markup--li-anchor" data-href="https://levelup.gitconnected.com/how-pull-request-templates-can-improve-your-github-workflow-9114a17cb360" href="https://levelup.gitconnected.com/how-pull-request-templates-can-improve-your-github-workflow-9114a17cb360" rel="noopener" target="_blank">Pull Request Templates</a> to ensure that all necessary information is included, reducing the need for back-and-forth communication between you and your team.</li></ul><h4 class="graf graf--h4 graf-after--li" id="b9ac" name="b9ac">4. Avoiding common pitfalls</h4><p class="graf graf--p graf-after--h4" id="f5f8" name="f5f8">When managing large repositories on GitHub, there are some common pitfalls that you should avoid:</p><ul class="postList"><li class="graf graf--li graf-after--p" id="d8a8" name="d8a8">Don’t store sensitive information such as passwords, access tokens, or API keys in your repository. Use environment variables or separate configuration files instead.</li><li class="graf graf--li graf-after--li" id="b806" name="b806">Don’t store large files or binaries in your repository unless necessary. Use Git LFS instead.</li><li class="graf graf--li graf-after--li" id="f52e" name="f52e">Don’t push changes directly to the master branch. Use feature branches and pull requests instead.</li><li class="graf graf--li graf-after--li" id="0991" name="0991">Don’t forget to update your submodules regularly. Submodules can become out of sync and cause issues if not updated regularly.</li></ul><h4 class="graf graf--h4 graf-after--li" id="72a9" name="72a9">Conclusion</h4><p class="graf graf--p graf-after--h4" id="9457" name="9457">Managing large repositories on GitHub requires careful planning, organization, and collaboration. And of course, it might change depending on your specific needs and concerns. But whether you are a solo developer or part of a large team, these strategies and tools can help you to manage your codebase more efficiently and effectively.</p><p class="graf graf--p graf-after--p" id="f018" name="f018">Thanks for reading!</p><h4 class="graf graf--h4 graf-after--p" id="db30" name="db30">Resources:</h4><div class="graf graf--mixtapeEmbed graf-after--h4" id="d409" name="d409"><a class="markup--anchor markup--mixtapeEmbed-anchor" data-href="https://www.atlassian.com/git/tutorials/big-repositories" href="https://www.atlassian.com/git/tutorials/big-repositories" title="https://www.atlassian.com/git/tutorials/big-repositories"><strong class="markup--strong markup--mixtapeEmbed-strong">How to handle big repositories with Git | Atlassian Git Tutorial</strong><br/><em class="markup--em markup--mixtapeEmbed-em">Git is a fantastic choice for tracking the evolution of your code base and collaborating efficiently with your peers…</em>www.atlassian.com</a><a class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="6577202cacd655fd2eff8c35790aac40" data-thumbnail-img-id="0*YjEl_O62V6hsp-3b" href="https://www.atlassian.com/git/tutorials/big-repositories" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*YjEl_O62V6hsp-3b);"></a></div><p class="graf graf--p graf-after--mixtapeEmbed" id="95d6" name="95d6"><a class="markup--anchor markup--p-anchor" data-href="https://www.sitepoint.com/managing-huge-repositories-with-git/" href="https://www.sitepoint.com/managing-huge-repositories-with-git/" rel="nofollow noopener" target="_blank">https://www.sitepoint.com/managing-huge-repositories-with-git/</a></p><p class="graf graf--p graf-after--p" id="5406" name="5406"><a class="markup--anchor markup--p-anchor" data-href="https://www.atlassian.com/git/tutorials/git-subtree" href="https://www.atlassian.com/git/tutorials/git-subtree" rel="nofollow noopener" target="_blank">https://www.atlassian.com/git/tutorials/git-subtree</a></p><p class="graf graf--p graf-after--p graf--trailing" id="34a6" name="34a6"><a class="markup--anchor markup--p-anchor" data-href="https://github.blog/2016-02-01-working-with-submodules/" href="https://github.blog/2016-02-01-working-with-submodules/" rel="nofollow noopener" target="_blank">https://github.blog/2016-02-01-working-with-submodules/</a></p></div></div></section>
+
+  </section>
+
+  <script>
+    document.querySelectorAll('.blog-post-content pre').forEach(function(pre) {
+      // Work on text content, build highlighted HTML in one pass
+      var text = pre.textContent;
+      var result = [];
+      var i = 0;
+      while (i < text.length) {
+        // Comments
+        if (text[i] === '/' && text[i+1] === '/') {
+          var end = text.indexOf('\n', i);
+          if (end === -1) end = text.length;
+          result.push('<span class="syn-cmt">' + escHtml(text.substring(i, end)) + '</span>');
+          i = end;
+        }
+        // Strings
+        else if (text[i] === '"') {
+          var j = i + 1;
+          while (j < text.length && text[j] !== '"') j++;
+          result.push('<span class="syn-str">' + escHtml(text.substring(i, j + 1)) + '</span>');
+          i = j + 1;
+        }
+        // Words
+        else if (/[a-zA-Z_]/.test(text[i])) {
+          var j = i;
+          while (j < text.length && /[a-zA-Z0-9_]/.test(text[j])) j++;
+          var word = text.substring(i, j);
+          var kws = ['var','new','using','public','private','protected','static','void','class','interface','namespace','return','if','else','try','catch','async','await','get','set'];
+          var types = ['Uri','string','int','bool','double','decimal','object','AppDbContext','HttpClient','IServiceCollection'];
+          if (kws.indexOf(word) !== -1) {
+            result.push('<span class="syn-kw">' + word + '</span>');
+          } else if (types.indexOf(word) !== -1) {
+            result.push('<span class="syn-typ">' + word + '</span>');
+          } else {
+            result.push(escHtml(word));
+          }
+          i = j;
+        }
+        // Method calls: .Name(
+        else if (text[i] === '.' && /[A-Z]/.test(text[i+1])) {
+          var j = i + 1;
+          while (j < text.length && /[a-zA-Z0-9_]/.test(text[j])) j++;
+          result.push('.<span class="syn-fn">' + escHtml(text.substring(i+1, j)) + '</span>');
+          i = j;
+        }
+        else {
+          result.push(escHtml(text[i]));
+          i++;
+        }
+      }
+      pre.innerHTML = result.join('');
+    });
+    function escHtml(s) {
+      return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    // Clean up Medium mixtape embed cards
+    document.querySelectorAll('.graf--mixtapeEmbed').forEach(function(card) {
+      var mainLink = card.querySelector('a.markup--anchor--mixtapeEmbed-anchor') || card.querySelector('a:first-child');
+      if (!mainLink) return;
+
+      // Extract title, description, domain from the link
+      var strong = mainLink.querySelector('strong');
+      var em = mainLink.querySelector('em');
+      var title = strong ? strong.textContent.trim() : '';
+      var desc = em ? em.textContent.trim() : '';
+
+      // Get domain from href
+      var href = mainLink.getAttribute('href') || '';
+      var domain = '';
+      try { domain = new URL(href).hostname.replace('www.',''); } catch(e) {}
+
+      // Rebuild the link content cleanly
+      mainLink.innerHTML = '';
+      if (title) {
+        var t = document.createElement('strong');
+        t.textContent = title;
+        mainLink.appendChild(t);
+      }
+      if (desc) {
+        var d = document.createElement('em');
+        d.textContent = desc;
+        mainLink.appendChild(d);
+      }
+      if (domain) {
+        var s = document.createElement('span');
+        s.textContent = domain;
+        s.style.cssText = 'font-size:12px;color:var(--light-gray-70);opacity:0.7;';
+        mainLink.appendChild(s);
+      }
+    });
+  </script>
+
+</article>
+
+      </div>
+    </main>
+
+    <script src="/assets/js/script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>
+"

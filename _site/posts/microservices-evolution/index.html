@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Microservices Evolution Starts with Monolith: Here's Why - Selim YILDIZ</title>
+
+    <!-- SEO Meta -->
+    <meta name="description" content="Why you shouldn't start a new project with microservices, even if you're sure your application will be big enough to make it worthwhile." />
+    <link rel="canonical" href="https://medium.com/gitconnected/microservices-evolution-starts-with-monolith-heres-why-a0fc466d8aef?source=MyBlog" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Microservices Evolution Starts with Monolith: Here's Why" />
+    <meta property="og:description" content="Why you shouldn't start a new project with microservices, even if you're sure your application will be big enough to make it worthwhile." />
+    <meta property="og:url" content="http://localhost:4000/posts/microservices-evolution/" />
+    <meta property="og:site_name" content="Selim YILDIZ" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="http://localhost:4000/assets/images/2023-08-16-microservices-evolution.jpg" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@yildizseli" />
+    <meta name="twitter:title" content="Microservices Evolution Starts with Monolith: Here's Why" />
+    <meta name="twitter:description" content="Why you shouldn't start a new project with microservices, even if you're sure your application will be big enough to make it worthwhile." />
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/2023-08-16-microservices-evolution.jpg" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "name": "Microservices Evolution Starts with Monolith: Here&#39;s Why",
+      "description": "Why you shouldn&#39;t start a new project with microservices, even if you&#39;re sure your application will be big enough to make it worthwhile.",
+      "url": "http://localhost:4000/posts/microservices-evolution/",
+      "datePublished": "2023-08-16T00:00:00+02:00",
+      "author": {
+        "@type": "Person",
+        "name": "Selim YILDIZ",
+        "url": "https://yildizseli.github.io"
+      }
+    }
+    </script>
+
+    <!--
+    - favicon
+    -->
+    <link rel="shortcut icon" href="/assets/images/logo.ico" type="image/x-icon" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    
+    <!--
+    - custom css link
+    -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+
+    <!--
+    - google font link
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LXQLH66J4S"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-LXQLH66J4S");
+    </script>
+  </head>
+
+  <body>
+    <main>
+      <aside class="sidebar" data-sidebar>
+        <div class="sidebar-info">
+          <figure class="avatar-box">
+            <img src="/assets/images/profile_picture_1.jpg" alt="Selim YILDIZ" width="80" />
+          </figure>
+
+          <div class="info-content">
+            <h1 class="name" title="Selim YILDIZ">Selim YILDIZ</h1>
+            <p class="title">Software Engineering Lead</p>
+          </div>
+
+          <button class="info_more-btn" data-sidebar-btn>
+            <span>Show Contacts</span>
+            <ion-icon name="chevron-down"></ion-icon>
+          </button>
+        </div>
+
+        <div class="sidebar-info_more">
+          <div class="separator"></div>
+
+          <ul class="contacts-list">
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="mail-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <p class="contact-title">Email</p>
+                <a href="mailto:selimyildiz91@gmail.com" class="contact-link">selimyildiz91@gmail.com</a>
+              </div>
+            </li>
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="phone-portrait-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <p class="contact-title">Phone</p>
+                <a href="tel:+46700093165" class="contact-link">+46 70 009 31 65</a>
+              </div>
+            </li>
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="calendar-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <p class="contact-title">Birthday</p>
+                <time datetime="1991-02-18">February 18, 1991</time>
+              </div>
+            </li>
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="location-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <p class="contact-title">Location</p>
+                <address>Lund, Skane, Sweden</address>
+              </div>
+            </li>
+          </ul>
+
+          <div class="separator"></div>
+
+          <ul class="social-list">
+            <li class="social-item">
+              <a href="https://stackoverflow.com/users/5519709/selim-yildiz" class="social-link">
+                <ion-icon name="logo-stackoverflow"></ion-icon>
+              </a>
+            </li>
+            <li class="social-item">
+              <a href="https://twitter.com/yildizseli" target="_blank" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+            <li class="social-item">
+              <a href="https://medium.com/@selimyildiz91" class="social-link">
+                <ion-icon name="logo-medium"></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <div class="main-content">
+        <nav class="navbar">
+          <ul class="navbar-list">
+            <li class="navbar-item">
+              <a href="/index.html" class="navbar-link">About</a>
+            </li>
+            <li class="navbar-item">
+              <a href="/resume.html" class="navbar-link">Resume</a>
+            </li>
+            <li class="navbar-item">
+              <a href="/blog.html" class="navbar-link">Blog</a>
+            </li>
+            <li class="navbar-item">
+              <a href="/contact.html" class="navbar-link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+
+        <article class="blog active" data-page="blog" style="padding-top: 80px;">
+
+  <style>
+    .blog-post-content {
+      max-width: 100%;
+    }
+    .blog-post-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+      margin: 15px auto;
+    }
+    .blog-post-content figure {
+      margin: 20px 0;
+      text-align: center;
+    }
+    .blog-post-content figcaption {
+      font-size: 13px;
+      color: var(--light-gray-70);
+      margin-top: 8px;
+    }
+    .blog-post-content h3 {
+      color: var(--white-2);
+      margin-top: 30px;
+      margin-bottom: 12px;
+      font-size: 1.4em;
+    }
+    .blog-post-content h4 {
+      color: var(--white-2);
+      margin-top: 25px;
+      margin-bottom: 10px;
+      font-size: 1.15em;
+    }
+    .blog-post-content p {
+      margin-bottom: 16px;
+      color: var(--light-gray);
+      line-height: 1.8;
+    }
+    .blog-post-content a {
+      color: var(--orange-yellow-crayola);
+      display: inline;
+    }
+    .blog-post-content a:hover {
+      text-decoration: underline;
+    }
+    .blog-post-content span {
+      display: inline;
+    }
+    .blog-post-content ul, .blog-post-content ol {
+      margin: 10px 0 20px 25px;
+      color: var(--light-gray);
+      line-height: 1.8;
+    }
+    .blog-post-content ol {
+      list-style-type: decimal;
+    }
+    .blog-post-content ul {
+      list-style-type: disc;
+    }
+    .blog-post-content li {
+      margin-bottom: 12px;
+      list-style: inherit;
+    }
+    .blog-post-content li strong {
+      color: var(--white-2);
+      display: inline;
+    }
+    .blog-post-content pre {
+      background: #1e1e2e;
+      padding: 20px 24px;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: 13.5px;
+      line-height: 1.7;
+      margin: 20px 0;
+      color: #cdd6f4;
+      font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      border: 1px solid #313244;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+    }
+    .blog-post-content code {
+      font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+      font-size: 0.88em;
+      background: #1e1e2e;
+      color: #f38ba8;
+      padding: 2px 7px;
+      border-radius: 4px;
+      border: 1px solid #313244;
+    }
+    /* Basic syntax highlighting for comments, strings, keywords */
+    .blog-post-content pre {
+      tab-size: 4;
+    }
+    .syn-cmt { color: #6c7086; font-style: italic; }
+    .syn-str { color: #a6e3a1; }
+    .syn-kw  { color: #cba6f7; }
+    .syn-typ { color: #89b4fa; }
+    .syn-fn  { color: #f9e2af; }
+    .blog-post-content blockquote {
+      border-left: 3px solid var(--orange-yellow-crayola);
+      padding: 12px 24px;
+      margin: 20px 0;
+      color: var(--light-gray-70);
+      font-style: italic;
+      background: var(--eerie-black-2);
+      border-radius: 0 8px 8px 0;
+    }
+    /* Medium mixtape embed cards */
+    .blog-post-content .graf--mixtapeEmbed {
+      display: flex;
+      align-items: stretch;
+      border: 1px solid var(--jet);
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 12px 0;
+      background: #1e1e2e;
+      transition: border-color 0.2s;
+    }
+    .blog-post-content .graf--mixtapeEmbed:hover {
+      border-color: var(--orange-yellow-crayola);
+    }
+    .blog-post-content .graf--mixtapeEmbed > a.markup--anchor--mixtapeEmbed-anchor,
+    .blog-post-content .graf--mixtapeEmbed > a:first-child {
+      flex: 1;
+      padding: 16px 20px;
+      color: var(--light-gray);
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+    }
+    .blog-post-content .graf--mixtapeEmbed strong {
+      color: var(--white-2);
+      font-size: 15px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .blog-post-content .graf--mixtapeEmbed em {
+      color: var(--light-gray-70);
+      font-size: 13px;
+      font-style: normal;
+      display: block;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .blog-post-content .graf--mixtapeEmbed .mixtapeImage,
+    .blog-post-content .graf--mixtapeEmbed > a:last-child:not(:first-child) {
+      width: 120px;
+      min-width: 120px;
+      background-size: cover;
+      background-position: center;
+      display: block;
+    }
+    .blog-post-content .graf--mixtapeEmbed .mixtapeImage--empty {
+      display: none;
+    }
+    .blog-post-content hr {
+      border: none;
+      border-top: 1px solid var(--jet);
+      margin: 30px 0;
+    }
+    .blog-post-content .aspectRatioPlaceholder {
+      max-width: 100%;
+      overflow: hidden;
+    }
+    .blog-post-content img[height="1"] {
+      display: none;
+    }
+  </style>
+
+  <nav class="blog-post-nav" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding: 12px 0; border-bottom: 1px solid var(--jet);">
+    <a href="/blog.html" style="color: var(--light-gray-70); text-decoration: none; font-size: 14px; display: inline-flex; align-items: center; gap: 6px;">
+      &larr; Back to all posts
+    </a>
+    
+    <a href="https://medium.com/gitconnected/microservices-evolution-starts-with-monolith-heres-why-a0fc466d8aef?source=MyBlog" target="_blank" rel="noopener noreferrer"
+       style="color: var(--orange-yellow-crayola); text-decoration: none; font-size: 14px; font-weight: 500; display: inline-flex; align-items: center; gap: 6px;">
+      Read on Medium &rarr;
+    </a>
+    
+  </nav>
+
+  <header>
+    <h2 class="h2 article-title">Microservices Evolution Starts with Monolith: Here's Why</h2>
+    <div class="blog-meta" style="margin-bottom: 25px;">
+      <p class="blog-category">Microservice</p>
+      <span class="dot"></span>
+      <time datetime="2023-08-16 00:00:00 +0200">Aug 16, 2023</time>
+    </div>
+  </header>
+
+  <section class="blog-post-content" style="color: var(--light-gray); line-height: 1.8; font-size: 15px;">
+    <figure><img alt="" src="https://cdn-images-1.medium.com/max/1024/0*d6_bxO4bnQC2CUlZ"/><figcaption>Photo by <a href="https://unsplash.com/@brett_jordan?utm_source=medium&amp;utm_medium=referral">Brett Jordan</a> on <a href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral">Unsplash</a></figcaption></figure><p>Microservices architecture has gained significant attention in recent years as a powerful approach to designing complex software systems. However, this paradigm shift is not without its challenges, especially when it comes to initiating projects. In this article, we’ll explore the concept of “<a href="https://martinfowler.com/bliki/MonolithFirst.html">MonolithFirst</a>,” a strategy advocated by Martin Fowler, a renowned software architect, and its merits in the context of microservices adoption.</p><blockquote>You shouldn’t start a new project with microservices, even if you’re sure your application will be big enough to make it worthwhile. — Martin Fowler</blockquote><h4>The MonolithFirst Strategy</h4><p>The essence of the <strong><em>MonolithFirst</em></strong> strategy lies in its cautious and pragmatic approach to embracing microservices. Instead of diving headfirst into a microservices architecture, the strategy suggests starting with a monolithic application and later transitioning to microservices as the system’s complexity and requirements evolve.</p><figure><img alt="" src="https://cdn-images-1.medium.com/max/1024/1*N-J1o1SdplU0z2fslfu5YQ.png"/><figcaption><a href="https://medium.com/design-microservices-architecture-with-patterns/monolith-first-approach-before-moving-to-microservices-da969be8bf7c">Architecture Design Journey</a></figcaption></figure><h4>The Evolutionary Approach</h4><p>One of the key advantages of the <strong><em>MonolithFirst</em> </strong>approach is rooted in the concept of “<strong>You Ain’t Gonna Need It</strong>” (<a href="https://martinfowler.com/bliki/Yagni.html">YAGNI</a>). When embarking on a new software project, it’s often challenging to predict the exact features and components that will be necessary to address user needs effectively. By beginning with a monolith, teams prioritize speed and feedback, allowing them to quickly validate the core concepts of their application. This initial phase enables teams to learn about their users’ requirements and refine their understanding of the system’s architecture.</p><figure><img alt="" src="https://cdn-images-1.medium.com/max/828/1*2l2y-Hnp41rSdeT6T8pcTw.png"/><figcaption><a href="https://medium.com/design-microservices-architecture-with-patterns/monolith-first-approach-before-moving-to-microservices-da969be8bf7c">Modular Monolithic Architecture</a></figcaption></figure><h4>Identifying Bounded Contexts</h4><p>Microservices heavily rely on well-defined boundaries between services, known as <a href="https://learn.microsoft.com/en-us/azure/architecture/microservices/model/domain-analysis#define-bounded-contexts">Bounded Contexts</a>. Establishing these boundaries correctly is a complex task that requires a deep understanding of the domain. Starting with a monolith provides the opportunity to identify these boundaries through practical experience. This iterative process of designing, refining, and observing the interactions within the monolith helps architects and developers make more informed decisions about service divisions when transitioning to microservices.</p><figure><img alt="" src="https://cdn-images-1.medium.com/max/772/1*mwP59Yo9SW_r2rybDTOvng.png"/><figcaption><a href="https://martinfowler.com/bliki/BoundedContext.html">https://martinfowler.com/bliki/BoundedContext.html</a></figcaption></figure><h4>Peeling Off Microservices</h4><p>The <strong><em>MonolithFirst </em></strong>strategy allows for a gradual evolution towards microservices. Teams can start by identifying specific functionalities that could be better served as separate services and peel them off from the monolith. This incremental approach balances the advantages of microservices, such as independent scaling and technology choices, with the stability of the core monolithic architecture.</p><h4>Sacrificial Architecture</h4><p>Another interesting perspective is viewing the initial monolith as a “<a href="https://martinfowler.com/bliki/SacrificialArchitecture.html">Sacrificial Architecture.</a>” This approach recognizes that building a monolith, even if it will eventually be discarded, can provide rapid time-to-market advantages. It enables teams to validate their ideas and gather user feedback while laying the groundwork for future microservices.</p><h4>Contemplating Microservices</h4><p>While the <strong><em>MonolithFirst </em></strong>strategy offers several compelling benefits, it’s essential to consider alternative viewpoints. Some argue that starting directly with microservices can help teams adapt to the microservices development rhythm early on. However, this approach requires a significant level of discipline to design a monolith that can be smoothly divided into microservices.</p><figure><img alt="" src="https://cdn-images-1.medium.com/max/869/1*8tBZiwviKqjCOaVeYE5-2Q.png"/><figcaption><a href="https://medium.com/design-microservices-architecture-with-patterns/monolith-first-approach-before-moving-to-microservices-da969be8bf7c">Microservices Architecture</a></figcaption></figure><h4>Microservices: Not a Silver Bullet</h4><p>It’s important to note that microservices aren’t a universal solution for all scenarios. The allure of microservices, with their ability to enable independent scaling, granular technology choices, and enhanced fault tolerance, comes with its own set of challenges. As an illustration, consider the<a href="https://www.primevideotech.com/video-streaming/scaling-up-the-prime-video-audio-video-monitoring-service-and-reducing-costs-by-90"> case of Amazon’s Prime Video service</a>. Facing escalating costs and challenges in managing the audio/video monitoring service within a microservices architecture, Amazon made a surprising move. They transitioned from a distributed microservices architecture to a monolithic application, achieving remarkable outcomes.</p><h4>Conclusion</h4><p>In the ever-evolving landscape of software architecture, the MonolithFirst strategy offers a balanced and prudent approach to adopting microservices. By beginning with a monolithic application, teams can leverage the advantages of rapid feedback, evolutionary design, and a deep understanding of their domain. This foundation sets the stage for a smoother transition to microservices as the project gains clarity, complexity, and a proven need for the distributed nature of microservices. While the microservices journey is still unfolding, the <strong><em>MonolithFirst </em></strong>strategy provides a compass for navigating the path toward a successful and scalable architecture.</p><p>Thanks for reading!</p><h4>Resources:</h4><ul><li><a href="https://martinfowler.com/bliki/MonolithFirst.html">bliki: Monolith First</a></li><li><a href="https://medium.com/design-microservices-architecture-with-patterns/microservices-killer-modular-monolithic-architecture-ac83814f6862">Microservices Killer: Modular Monolithic Architecture</a></li><li><a href="https://www.primevideotech.com/video-streaming/scaling-up-the-prime-video-audio-video-monitoring-service-and-reducing-costs-by-90">Scaling up the Prime Video audio/video monitoring service and reducing costs by 90%</a></li></ul>
+
+  </section>
+
+  <script>
+    document.querySelectorAll('.blog-post-content pre').forEach(function(pre) {
+      // Work on text content, build highlighted HTML in one pass
+      var text = pre.textContent;
+      var result = [];
+      var i = 0;
+      while (i < text.length) {
+        // Comments
+        if (text[i] === '/' && text[i+1] === '/') {
+          var end = text.indexOf('\n', i);
+          if (end === -1) end = text.length;
+          result.push('<span class="syn-cmt">' + escHtml(text.substring(i, end)) + '</span>');
+          i = end;
+        }
+        // Strings
+        else if (text[i] === '"') {
+          var j = i + 1;
+          while (j < text.length && text[j] !== '"') j++;
+          result.push('<span class="syn-str">' + escHtml(text.substring(i, j + 1)) + '</span>');
+          i = j + 1;
+        }
+        // Words
+        else if (/[a-zA-Z_]/.test(text[i])) {
+          var j = i;
+          while (j < text.length && /[a-zA-Z0-9_]/.test(text[j])) j++;
+          var word = text.substring(i, j);
+          var kws = ['var','new','using','public','private','protected','static','void','class','interface','namespace','return','if','else','try','catch','async','await','get','set'];
+          var types = ['Uri','string','int','bool','double','decimal','object','AppDbContext','HttpClient','IServiceCollection'];
+          if (kws.indexOf(word) !== -1) {
+            result.push('<span class="syn-kw">' + word + '</span>');
+          } else if (types.indexOf(word) !== -1) {
+            result.push('<span class="syn-typ">' + word + '</span>');
+          } else {
+            result.push(escHtml(word));
+          }
+          i = j;
+        }
+        // Method calls: .Name(
+        else if (text[i] === '.' && /[A-Z]/.test(text[i+1])) {
+          var j = i + 1;
+          while (j < text.length && /[a-zA-Z0-9_]/.test(text[j])) j++;
+          result.push('.<span class="syn-fn">' + escHtml(text.substring(i+1, j)) + '</span>');
+          i = j;
+        }
+        else {
+          result.push(escHtml(text[i]));
+          i++;
+        }
+      }
+      pre.innerHTML = result.join('');
+    });
+    function escHtml(s) {
+      return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    // Clean up Medium mixtape embed cards
+    document.querySelectorAll('.graf--mixtapeEmbed').forEach(function(card) {
+      var mainLink = card.querySelector('a.markup--anchor--mixtapeEmbed-anchor') || card.querySelector('a:first-child');
+      if (!mainLink) return;
+
+      // Extract title, description, domain from the link
+      var strong = mainLink.querySelector('strong');
+      var em = mainLink.querySelector('em');
+      var title = strong ? strong.textContent.trim() : '';
+      var desc = em ? em.textContent.trim() : '';
+
+      // Get domain from href
+      var href = mainLink.getAttribute('href') || '';
+      var domain = '';
+      try { domain = new URL(href).hostname.replace('www.',''); } catch(e) {}
+
+      // Rebuild the link content cleanly
+      mainLink.innerHTML = '';
+      if (title) {
+        var t = document.createElement('strong');
+        t.textContent = title;
+        mainLink.appendChild(t);
+      }
+      if (desc) {
+        var d = document.createElement('em');
+        d.textContent = desc;
+        mainLink.appendChild(d);
+      }
+      if (domain) {
+        var s = document.createElement('span');
+        s.textContent = domain;
+        s.style.cssText = 'font-size:12px;color:var(--light-gray-70);opacity:0.7;';
+        mainLink.appendChild(s);
+      }
+    });
+  </script>
+
+</article>
+
+      </div>
+    </main>
+
+    <script src="/assets/js/script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>
+"

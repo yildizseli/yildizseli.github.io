@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Making Your API Secure in .NET: Tips and Tricks to Keep Hackers at Bay"
 date: 2023-03-03
 category: "Security"
@@ -6,3 +7,94 @@ image: "./assets/images/blog-13.jpg"
 link: "https://levelup.gitconnected.com/making-your-api-secure-in-net-tips-and-tricks-to-keep-hackers-at-bay-c705730626de"
 description: "Deep dive into more specific tips and tricks for making your API secure in .NET."
 ---
+<section class="section section--body section--first" name="dd3c"><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><figure class="graf graf--figure graf-after--h3" id="dd38" name="dd38"><img class="graf-image" data-height="4024" data-image-id="0*lYWmERuBSWj0VtBU" data-is-featured="true" data-unsplash-photo-id="dYEuFB8KQJk" data-width="6024" src="https://cdn-images-1.medium.com/max/800/0*lYWmERuBSWj0VtBU"/><figcaption class="imageCaption">Photo by <a class="markup--anchor markup--figure-anchor" data-href="https://unsplash.com/@cbpsc1?utm_source=medium&amp;utm_medium=referral" href="https://unsplash.com/@cbpsc1?utm_source=medium&amp;utm_medium=referral" rel="photo-creator noopener" target="_blank">Clint Patterson</a> on <a class="markup--anchor markup--figure-anchor" data-href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral" href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral" rel="photo-source noopener" target="_blank">Unsplash</a></figcaption></figure><p class="graf graf--p graf-after--figure" id="315f" name="315f">So you want to make your API secure in .NET? Well, you’ve come to the right place. In this article, we’ll be going over some tips and tricks to help you keep those pesky hackers at bay. In a previous article, we talked about <a class="markup--anchor markup--p-anchor" data-href="https://medium.com/gitconnected/how-to-build-secure-applications-a-guide-to-owasp-best-practices-3d11ba406f41" href="https://medium.com/gitconnected/how-to-build-secure-applications-a-guide-to-owasp-best-practices-3d11ba406f41" target="_blank">“How to Build Secure Applications: A Guide to OWASP Best Practices”</a>. Today, we’re going to dive into more specific tips and tricks for making your API secure in .NET.</p><p class="graf graf--p graf-after--p" id="e6cf" name="e6cf">But first, let’s talk about what exactly we mean by “secure.”</p><p class="graf graf--p graf-after--p" id="2ea2" name="2ea2">When we say “secure,” we’re talking about making sure that your API is protected from unauthorized access, data breaches, and other forms of cyber attacks. Basically, you want to make sure that only the right people can access your API, and that those people aren’t going to do anything nefarious with the data they get from it.</p><p class="graf graf--p graf-after--p" id="adf9" name="adf9">Now, let’s get into the nitty-gritty of how to make your API secure in .NET.</p><h4 class="graf graf--h4 graf-after--p" id="3330" name="3330">1. Use HTTPS</h4><p class="graf graf--p graf-after--h4" id="371f" name="371f">This might seem obvious, but it’s worth mentioning: you should always use HTTPS to secure your API. HTTPS encrypts all data that’s transmitted between the client and server, so even if someone intercepts the traffic, they won’t be able to read the data.</p><p class="graf graf--p graf-after--p" id="1f06" name="1f06">The following example permits HTTP/1.1 and HTTP/2 connections on port 8000. Connections are secured by TLS with a supplied certificate:</p><pre class="graf graf--pre graf-after--p graf--preV2" data-code-block-lang="csharp" data-code-block-mode="2" id="48d5" name="48d5" spellcheck="false">var builder = WebApplication.CreateBuilder(args);
+
+builder.WebHost.ConfigureKestrel((context, serverOptions) =&gt;
+{
+    serverOptions.Listen(IPAddress.Any, 8000, listenOptions =&gt;
+    {
+        listenOptions.UseHttps("testCert.pfx", "testPassword");
+    });
+});</pre><p class="graf graf--p graf-after--pre" id="7371" name="7371">Read more <a class="markup--anchor markup--p-anchor" data-href="http://Configure endpoints for the ASP.NET Core Kestrel web server" href="http://Configure%20endpoints%20for%20the%20ASP.NET%20Core%20Kestrel%20web%20server" rel="noopener" target="_blank">here</a></p><h4 class="graf graf--h4 graf-after--p" id="de75" name="de75">2. Use Strong Passwords</h4><p class="graf graf--p graf-after--h4" id="d59a" name="d59a">Another important aspect of securing your API is to make sure that your users are using strong passwords. Weak passwords are an open invitation for hackers to try to guess them and gain access to your API.</p><p class="graf graf--p graf-after--p" id="baf5" name="baf5">To enforce strong password policies, you can use the built-in ASP.NET Core Identity framework. Here’s an example of how to use it:</p><pre class="graf graf--pre graf-after--p graf--preV2" data-code-block-lang="csharp" data-code-block-mode="2" id="d74c" name="d74c" spellcheck="false">builder.Services.Configure&lt;IdentityOptions&gt;(options =&gt;
+{
+    // Default Password settings.
+    options.Password.RequireDigit = true;
+    options.Password.RequireLowercase = true;
+    options.Password.RequireNonAlphanumeric = true;
+    options.Password.RequireUppercase = true;
+    options.Password.RequiredLength = 6;
+    options.Password.RequiredUniqueChars = 1;
+});</pre><p class="graf graf--p graf-after--pre" id="9590" name="9590">Read more <a class="markup--anchor markup--p-anchor" data-href="https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity-configuration?view=aspnetcore-7.0" href="https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity-configuration?view=aspnetcore-7.0" rel="noopener" target="_blank">here</a></p><h4 class="graf graf--h4 graf-after--p" id="740e" name="740e">3. Use JWTs for Authentication</h4><p class="graf graf--p graf-after--h4" id="b13a" name="b13a"><a class="markup--anchor markup--p-anchor" data-href="https://jwt.io/" href="https://jwt.io/" rel="noopener" target="_blank">JWTs (JSON Web Tokens) </a>are a great way to handle authentication in your API. When a user logs in, they’re given a JWT, which they then send with every subsequent request. The JWT contains all the information needed to authenticate the user and make sure they have access to the resources they’re requesting.</p><p class="graf graf--p graf-after--p" id="ae5a" name="ae5a">Here’s some code that shows you how to use JWTs in .NET:</p><pre class="graf graf--pre graf-after--p graf--preV2" data-code-block-lang="csharp" data-code-block-mode="2" id="9fd9" name="9fd9" spellcheck="false">services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =&gt;
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = Configuration["Jwt:Issuer"],
+            ValidAudience = Configuration["Jwt:Issuer"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
+        };
+    });</pre><p class="graf graf--p graf-after--pre" id="2144" name="2144">Read more <a class="markup--anchor markup--p-anchor" data-href="https://curity.io/resources/learn/dotnet-api/" href="https://curity.io/resources/learn/dotnet-api/" rel="noopener" target="_blank">here</a>:</p><h4 class="graf graf--h4 graf-after--p" id="e879" name="e879">4. Use Role-Based Authorization</h4><p class="graf graf--p graf-after--h4" id="67ce" name="67ce">Role-based authorization is another important aspect of securing your API. By assigning roles to your users, you can make sure that they only have access to the resources they’re authorized to access.</p><p class="graf graf--p graf-after--p" id="2464" name="2464">Here’s a basic example of how to use role-based authorization:</p><pre class="graf graf--pre graf-after--p graf--preV2" data-code-block-lang="csharp" data-code-block-mode="1" id="a966" name="a966" spellcheck="false">[Authorize(Roles = "Admin")]
+[HttpGet("{id}")]
+public async Task&lt;ActionResult&lt;Product&gt;&gt; GetProduct(int id)
+{
+    // Here can only be accessed by users with the "Admin" role
+}
+``</pre><p class="graf graf--p graf-after--pre" id="ecd7" name="ecd7">Read more <a class="markup--anchor markup--p-anchor" data-href="https://learn.microsoft.com/en-us/aspnet/core/security/authorization/roles?view=aspnetcore-7.0" href="https://learn.microsoft.com/en-us/aspnet/core/security/authorization/roles?view=aspnetcore-7.0" rel="noopener" target="_blank">here</a></p><h4 class="graf graf--h4 graf-after--p" id="e828" name="e828">5. Use Logging</h4><p class="graf graf--p graf-after--h4" id="1f21" name="1f21">Logging is an essential tool for detecting and responding to security threats. By logging all user activity and system events, you can quickly identify potential threats and take action to mitigate them.</p><p class="graf graf--p graf-after--p" id="ee73" name="ee73">In .NET, you can use the built-in logging framework to log events and errors:</p><pre class="graf graf--pre graf-after--p graf--preV2" data-code-block-lang="csharp" data-code-block-mode="1" id="53a9" name="53a9" spellcheck="false">public class ProductService
+{
+    private readonly ILogger&lt;ProductService&gt; _logger;
+
+    public ProductService(ILogger&lt;ProductService&gt; logger)
+    {
+        _logger = logger;
+    }
+
+    public async Task&lt;Product&gt; GetProduct(int id)
+    {
+        _logger.LogInformation("Getting product {Id}", id);
+
+        // Get product from database...
+
+        _logger.LogInformation("Got product {Name}", product.Name);
+
+        return product;
+    }
+}</pre><p class="graf graf--p graf-after--pre" id="3c4f" name="3c4f">Read more <a class="markup--anchor markup--p-anchor" data-href="https://learn.microsoft.com/en-us/dotnet/core/extensions/logging?tabs=command-line" href="https://learn.microsoft.com/en-us/dotnet/core/extensions/logging?tabs=command-line" rel="noopener" target="_blank">here</a></p><h4 class="graf graf--h4 graf-after--p" id="7eca" name="7eca">6. Use Input Validation</h4><p class="graf graf--p graf-after--h4" id="5779" name="5779">Input validation is an essential security measure to prevent injection attacks and other exploits. Make sure to validate all user input and reject any input that doesn’t meet your requirements.</p><p class="graf graf--p graf-after--p" id="38e2" name="38e2">You can basically write your own input validations in the API as the following:</p><pre class="graf graf--pre graf-after--p graf--preV2" data-code-block-lang="csharp" data-code-block-mode="2" id="7296" name="7296" spellcheck="false">[HttpPost]
+public IActionResult AddUser([FromBody] User user)
+{
+    if (string.IsNullOrWhiteSpace(user.FirstName))
+    {
+        return BadRequest("First name is required.");
+    }
+
+    if (string.IsNullOrWhiteSpace(user.LastName))
+    {
+        return BadRequest("Last name is required.");
+    }
+
+    // Add the user to the database
+    return Ok();
+}</pre><p class="graf graf--p graf-after--pre" id="dec4" name="dec4">Or you can use <a class="markup--anchor markup--p-anchor" data-href="https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations?view=net-7.0" href="https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations?view=net-7.0" rel="noopener" target="_blank">Model Validation</a>:</p><pre class="graf graf--pre graf-after--p graf--preV2" data-code-block-lang="csharp" data-code-block-mode="1" id="5da5" name="5da5" spellcheck="false">public class User
+{
+    public int Id { get; set; }
+    [Required]
+    public string FirstName { get; set; }
+    [Required]
+    public string LastName { get; set; }
+}</pre><pre class="graf graf--pre graf-after--pre graf--preV2" data-code-block-lang="csharp" data-code-block-mode="1" id="fbae" name="fbae" spellcheck="false">[HttpPost]
+public IActionResult AddUser([FromBody] User user)
+{
+    if (ModelState.IsValid)
+    {
+        // Add the user to the database
+
+        return new HttpResponseMessage(HttpStatusCode.OK);
+    }
+    else
+    {
+        return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+    }
+}</pre><p class="graf graf--p graf-after--pre" id="b9dc" name="b9dc">Read more <a class="markup--anchor markup--p-anchor" data-href="https://learn.microsoft.com/en-us/aspnet/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api" href="https://learn.microsoft.com/en-us/aspnet/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api" rel="noopener" target="_blank">here</a>:</p><h4 class="graf graf--h4 graf-after--p" id="46f6" name="46f6">7. Keep Your Dependencies Up to Date</h4><p class="graf graf--p graf-after--h4 graf--trailing" id="3d1d" name="3d1d">Finally, it’s important to keep all your dependencies up to date. When a security vulnerability is found in a library or package that you’re using, the developers will often release a patch to fix the problem. By keeping your dependencies up to date, you can make sure that you’re using the latest, most secure version of each package.</p></div></div></section><section class="section section--body" name="b28d">

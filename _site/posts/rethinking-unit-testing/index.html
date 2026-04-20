@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rethinking Unit Testing: An Effective Approach for Software Development - Selim YILDIZ</title>
+
+    <!-- SEO Meta -->
+    <meta name="description" content="The pitfalls of excessive reliance on unit testing and shedding light on a more practical and efficient approach to testing software." />
+    <link rel="canonical" href="https://medium.com/gitconnected/rethinking-unit-testing-an-effective-approach-for-software-development-84e4ab6b532d?source=MyBlog" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Rethinking Unit Testing: An Effective Approach for Software Development" />
+    <meta property="og:description" content="The pitfalls of excessive reliance on unit testing and shedding light on a more practical and efficient approach to testing software." />
+    <meta property="og:url" content="http://localhost:4000/posts/rethinking-unit-testing/" />
+    <meta property="og:site_name" content="Selim YILDIZ" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://miro.medium.com/v2/resize:fit:828/format:webp/1*CX7SwRDQaI3lPmHO-K8vlA.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@yildizseli" />
+    <meta name="twitter:title" content="Rethinking Unit Testing: An Effective Approach for Software Development" />
+    <meta name="twitter:description" content="The pitfalls of excessive reliance on unit testing and shedding light on a more practical and efficient approach to testing software." />
+    <meta name="twitter:image" content="https://miro.medium.com/v2/resize:fit:828/format:webp/1*CX7SwRDQaI3lPmHO-K8vlA.png" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "name": "Rethinking Unit Testing: An Effective Approach for Software Development",
+      "description": "The pitfalls of excessive reliance on unit testing and shedding light on a more practical and efficient approach to testing software.",
+      "url": "http://localhost:4000/posts/rethinking-unit-testing/",
+      "datePublished": "2023-07-12T00:00:00+02:00",
+      "author": {
+        "@type": "Person",
+        "name": "Selim YILDIZ",
+        "url": "https://yildizseli.github.io"
+      }
+    }
+    </script>
+
+    <!--
+    - favicon
+    -->
+    <link rel="shortcut icon" href="/assets/images/logo.ico" type="image/x-icon" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    
+    <!--
+    - custom css link
+    -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+
+    <!--
+    - google font link
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LXQLH66J4S"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-LXQLH66J4S");
+    </script>
+  </head>
+
+  <body>
+    <main>
+      <aside class="sidebar" data-sidebar>
+        <div class="sidebar-info">
+          <figure class="avatar-box">
+            <img src="/assets/images/profile_picture_1.jpg" alt="Selim YILDIZ" width="80" />
+          </figure>
+
+          <div class="info-content">
+            <h1 class="name" title="Selim YILDIZ">Selim YILDIZ</h1>
+            <p class="title">Software Engineering Lead</p>
+          </div>
+
+          <button class="info_more-btn" data-sidebar-btn>
+            <span>Show Contacts</span>
+            <ion-icon name="chevron-down"></ion-icon>
+          </button>
+        </div>
+
+        <div class="sidebar-info_more">
+          <div class="separator"></div>
+
+          <ul class="contacts-list">
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="mail-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <p class="contact-title">Email</p>
+                <a href="mailto:selimyildiz91@gmail.com" class="contact-link">selimyildiz91@gmail.com</a>
+              </div>
+            </li>
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="phone-portrait-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <p class="contact-title">Phone</p>
+                <a href="tel:+46700093165" class="contact-link">+46 70 009 31 65</a>
+              </div>
+            </li>
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="calendar-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <p class="contact-title">Birthday</p>
+                <time datetime="1991-02-18">February 18, 1991</time>
+              </div>
+            </li>
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="location-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <p class="contact-title">Location</p>
+                <address>Lund, Skane, Sweden</address>
+              </div>
+            </li>
+          </ul>
+
+          <div class="separator"></div>
+
+          <ul class="social-list">
+            <li class="social-item">
+              <a href="https://stackoverflow.com/users/5519709/selim-yildiz" class="social-link">
+                <ion-icon name="logo-stackoverflow"></ion-icon>
+              </a>
+            </li>
+            <li class="social-item">
+              <a href="https://twitter.com/yildizseli" target="_blank" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+            <li class="social-item">
+              <a href="https://medium.com/@selimyildiz91" class="social-link">
+                <ion-icon name="logo-medium"></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <div class="main-content">
+        <nav class="navbar">
+          <ul class="navbar-list">
+            <li class="navbar-item">
+              <a href="/index.html" class="navbar-link">About</a>
+            </li>
+            <li class="navbar-item">
+              <a href="/resume.html" class="navbar-link">Resume</a>
+            </li>
+            <li class="navbar-item">
+              <a href="/blog.html" class="navbar-link">Blog</a>
+            </li>
+            <li class="navbar-item">
+              <a href="/contact.html" class="navbar-link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+
+        <article class="blog active" data-page="blog" style="padding-top: 80px;">
+
+  <style>
+    .blog-post-content {
+      max-width: 100%;
+    }
+    .blog-post-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+      margin: 15px auto;
+    }
+    .blog-post-content figure {
+      margin: 20px 0;
+      text-align: center;
+    }
+    .blog-post-content figcaption {
+      font-size: 13px;
+      color: var(--light-gray-70);
+      margin-top: 8px;
+    }
+    .blog-post-content h3 {
+      color: var(--white-2);
+      margin-top: 30px;
+      margin-bottom: 12px;
+      font-size: 1.4em;
+    }
+    .blog-post-content h4 {
+      color: var(--white-2);
+      margin-top: 25px;
+      margin-bottom: 10px;
+      font-size: 1.15em;
+    }
+    .blog-post-content p {
+      margin-bottom: 16px;
+      color: var(--light-gray);
+      line-height: 1.8;
+    }
+    .blog-post-content a {
+      color: var(--orange-yellow-crayola);
+      display: inline;
+    }
+    .blog-post-content a:hover {
+      text-decoration: underline;
+    }
+    .blog-post-content span {
+      display: inline;
+    }
+    .blog-post-content ul, .blog-post-content ol {
+      margin: 10px 0 20px 25px;
+      color: var(--light-gray);
+      line-height: 1.8;
+    }
+    .blog-post-content ol {
+      list-style-type: decimal;
+    }
+    .blog-post-content ul {
+      list-style-type: disc;
+    }
+    .blog-post-content li {
+      margin-bottom: 12px;
+      list-style: inherit;
+    }
+    .blog-post-content li strong {
+      color: var(--white-2);
+      display: inline;
+    }
+    .blog-post-content pre {
+      background: #1e1e2e;
+      padding: 20px 24px;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: 13.5px;
+      line-height: 1.7;
+      margin: 20px 0;
+      color: #cdd6f4;
+      font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      border: 1px solid #313244;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+    }
+    .blog-post-content code {
+      font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+      font-size: 0.88em;
+      background: #1e1e2e;
+      color: #f38ba8;
+      padding: 2px 7px;
+      border-radius: 4px;
+      border: 1px solid #313244;
+    }
+    /* Basic syntax highlighting for comments, strings, keywords */
+    .blog-post-content pre {
+      tab-size: 4;
+    }
+    .syn-cmt { color: #6c7086; font-style: italic; }
+    .syn-str { color: #a6e3a1; }
+    .syn-kw  { color: #cba6f7; }
+    .syn-typ { color: #89b4fa; }
+    .syn-fn  { color: #f9e2af; }
+    .blog-post-content blockquote {
+      border-left: 3px solid var(--orange-yellow-crayola);
+      padding: 12px 24px;
+      margin: 20px 0;
+      color: var(--light-gray-70);
+      font-style: italic;
+      background: var(--eerie-black-2);
+      border-radius: 0 8px 8px 0;
+    }
+    /* Medium mixtape embed cards */
+    .blog-post-content .graf--mixtapeEmbed {
+      display: flex;
+      align-items: stretch;
+      border: 1px solid var(--jet);
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 12px 0;
+      background: #1e1e2e;
+      transition: border-color 0.2s;
+    }
+    .blog-post-content .graf--mixtapeEmbed:hover {
+      border-color: var(--orange-yellow-crayola);
+    }
+    .blog-post-content .graf--mixtapeEmbed > a.markup--anchor--mixtapeEmbed-anchor,
+    .blog-post-content .graf--mixtapeEmbed > a:first-child {
+      flex: 1;
+      padding: 16px 20px;
+      color: var(--light-gray);
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+    }
+    .blog-post-content .graf--mixtapeEmbed strong {
+      color: var(--white-2);
+      font-size: 15px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .blog-post-content .graf--mixtapeEmbed em {
+      color: var(--light-gray-70);
+      font-size: 13px;
+      font-style: normal;
+      display: block;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .blog-post-content .graf--mixtapeEmbed .mixtapeImage,
+    .blog-post-content .graf--mixtapeEmbed > a:last-child:not(:first-child) {
+      width: 120px;
+      min-width: 120px;
+      background-size: cover;
+      background-position: center;
+      display: block;
+    }
+    .blog-post-content .graf--mixtapeEmbed .mixtapeImage--empty {
+      display: none;
+    }
+    .blog-post-content hr {
+      border: none;
+      border-top: 1px solid var(--jet);
+      margin: 30px 0;
+    }
+    .blog-post-content .aspectRatioPlaceholder {
+      max-width: 100%;
+      overflow: hidden;
+    }
+    .blog-post-content img[height="1"] {
+      display: none;
+    }
+  </style>
+
+  <nav class="blog-post-nav" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding: 12px 0; border-bottom: 1px solid var(--jet);">
+    <a href="/blog.html" style="color: var(--light-gray-70); text-decoration: none; font-size: 14px; display: inline-flex; align-items: center; gap: 6px;">
+      &larr; Back to all posts
+    </a>
+    
+    <a href="https://medium.com/gitconnected/rethinking-unit-testing-an-effective-approach-for-software-development-84e4ab6b532d?source=MyBlog" target="_blank" rel="noopener noreferrer"
+       style="color: var(--orange-yellow-crayola); text-decoration: none; font-size: 14px; font-weight: 500; display: inline-flex; align-items: center; gap: 6px;">
+      Read on Medium &rarr;
+    </a>
+    
+  </nav>
+
+  <header>
+    <h2 class="h2 article-title">Rethinking Unit Testing: An Effective Approach for Software Development</h2>
+    <div class="blog-meta" style="margin-bottom: 25px;">
+      <p class="blog-category">Unit testing</p>
+      <span class="dot"></span>
+      <time datetime="2023-07-12 00:00:00 +0200">Jul 12, 2023</time>
+    </div>
+  </header>
+
+  <section class="blog-post-content" style="color: var(--light-gray); line-height: 1.8; font-size: 15px;">
+    <section class="section section--body section--first section--last" name="e12e"><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><figure class="graf graf--figure graf-after--h3" id="43ca" name="43ca"><img class="graf-image" data-height="953" data-image-id="1*CX7SwRDQaI3lPmHO-K8vlA.png" data-is-featured="true" data-width="1703" src="https://cdn-images-1.medium.com/max/800/1*CX7SwRDQaI3lPmHO-K8vlA.png"/><figcaption class="imageCaption"><a class="markup--anchor markup--figure-anchor" data-href="https://www.youtube.com/watch?v=pjx06exON7g" href="https://www.youtube.com/watch?v=pjx06exON7g" rel="nofollow noopener" target="_blank">https://www.youtube.com/watch?v=pjx06exON7g</a></figcaption></figure><p class="graf graf--p graf-after--figure" id="f526" name="f526">In the realm of software development, unit testing has long been regarded as a vital practice for ensuring the quality and reliability of code. However, in a thought-provoking YouTube video titled <strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">“Unlearn Unit Testing”</em></strong>, <a class="markup--anchor markup--p-anchor" data-href="https://www.linkedin.com/in/lemiorhan" href="https://www.linkedin.com/in/lemiorhan" rel="noopener" target="_blank">Lemi Orhan Engin</a> challenges some of the prevailing beliefs about unit testing. (The video is Turkish but an English subtitle is available 😃) He shares his personal experience, highlighting the pitfalls of excessive reliance on unit testing and shedding light on a more practical and efficient approach to testing software.</p><figure class="graf graf--figure graf--iframe graf-after--p" id="ebfb" name="ebfb"><iframe frameborder="0" height="393" scrolling="no" src="https://www.youtube.com/embed/pjx06exON7g?feature=oembed" width="700"></iframe></figure><p class="graf graf--p graf-after--figure" id="fa81" name="fa81">This article delves into the key takeaways from the video, providing valuable insights for developers seeking to optimize their testing strategies.</p><h4 class="graf graf--h4 graf-after--p" id="5c45" name="5c45">The Importance of Code and Testing Integration:</h4><p class="graf graf--p graf-after--h4" id="66b2" name="66b2">Lemi Orhan begins by recounting his earlier belief that every line of code should be tested, striving for the coveted 100% code coverage. However, he soon discovered that such an approach failed to uncover functional issues during deployment, leading to a critical realization. Code and testing are inherently intertwined, and separating them can undermine the effectiveness of the testing process. He emphasizes that testing is not merely an afterthought or a validation exercise; rather, it is an integral part of the design process, ensuring that code works as expected.</p><blockquote class="graf graf--pullquote graf-after--p" id="9927" name="9927">The software design is not complete until it has been coded <em class="markup--em markup--pullquote-em">and</em> tested.</blockquote><blockquote class="graf graf--pullquote graf-after--pullquote" id="25be" name="25be">Testing is a fundamental part of the design validation and refinement process. -Jack W. Reeves</blockquote><h4 class="graf graf--h4 graf-after--pullquote" id="6efb" name="6efb">Clarifying Misconceptions about Unit Testing:</h4><p class="graf graf--p graf-after--h4" id="cefe" name="cefe">Unit testing, as Lemi Orhan explains, is not about trying to test every minute detail of an application or obsessively isolating every component for mocking. Instead, it serves as a means to design and improve code by systematically testing individual components in isolation. He dispels the notion that unit testing should make code unchangeable or unserviceable. In fact, well-designed code should become more robust and easier to test. Integration testing also plays a crucial role in validating the functionality of the entire system and business workflows.</p><figure class="graf graf--figure graf-after--p" id="55a3" name="55a3"><img class="graf-image" data-height="953" data-image-id="1*rWfkZlxvUMgVKO2xPpj59g.png" data-width="1709" src="https://cdn-images-1.medium.com/max/800/1*rWfkZlxvUMgVKO2xPpj59g.png"/><figcaption class="imageCaption"><a class="markup--anchor markup--figure-anchor" data-href="https://www.youtube.com/watch?v=pjx06exON7g" href="https://www.youtube.com/watch?v=pjx06exON7g" rel="nofollow noopener" target="_blank">https://www.youtube.com/watch?v=pjx06exON7g</a></figcaption></figure><h4 class="graf graf--h4 graf-after--figure" id="e3e3" name="e3e3">Moving Beyond Traditional Testing:</h4><p class="graf graf--p graf-after--h4" id="2082" name="2082">Lemi Orhan argues that relying solely on traditional testing approaches, including unit and integration testing, is inherently flawed. While these methods have their merits, they often fall short of guaranteeing that an application will work as expected in all scenarios. Instead, he suggests focusing on user stories and their requirements to gain a clearer understanding of the application’s intended behavior. By adopting a behavioral standpoint, developers can craft tests that encompass the full range of expected outcomes and alternative behaviors.</p><figure class="graf graf--figure graf-after--p" id="fdec" name="fdec"><img class="graf-image" data-height="1008" data-image-id="1*HqQW5amVWiwFfNHg-CGEPw.png" data-width="2413" src="https://cdn-images-1.medium.com/max/800/1*HqQW5amVWiwFfNHg-CGEPw.png"/><figcaption class="imageCaption"><a class="markup--anchor markup--figure-anchor" data-href="https://www.youtube.com/watch?v=pjx06exON7g" href="https://www.youtube.com/watch?v=pjx06exON7g" rel="nofollow noopener" target="_blank">https://www.youtube.com/watch?v=pjx06exON7g</a></figcaption></figure><h4 class="graf graf--h4 graf-after--figure" id="665c" name="665c">Effective Isolation and Testing Strategies:</h4><p class="graf graf--p graf-after--h4" id="5c08" name="5c08">To facilitate effective testing, Lemi Orhan recommends isolating different parts of an application and testing them individually. This can be achieved by utilizing adapters to separate system components and employing fake implementations to test isolated sections. While test doubles like mocks and spies have their place, he advises against overusing or misusing them. He emphasizes the importance of writing tests for every entry and exit point in the application, ensuring comprehensive coverage.</p><figure class="graf graf--figure graf-after--p" id="d4af" name="d4af"><img class="graf-image" data-height="995" data-image-id="1*XLZt8SfiwtLgwE74jB1Mrw.png" data-width="2424" src="https://cdn-images-1.medium.com/max/800/1*XLZt8SfiwtLgwE74jB1Mrw.png"/><figcaption class="imageCaption"><a class="markup--anchor markup--figure-anchor" data-href="https://www.youtube.com/watch?v=pjx06exON7g" href="https://www.youtube.com/watch?v=pjx06exON7g" rel="nofollow noopener" target="_blank">https://www.youtube.com/watch?v=pjx06exON7g</a></figcaption></figure><h4 class="graf graf--h4 graf-after--figure" id="5a10" name="5a10">Shifting Focus to Functional Testing:</h4><p class="graf graf--p graf-after--h4" id="81e0" name="81e0">Lemi Orhan suggests that unit testing should transcend individual classes or methods and instead focus on testing the flow of the business process. Integration testing, he argues, can be effectively replaced with functional testing, which allows developers to test different functionalities using mock frameworks. By adopting this approach, developers can achieve 80% code coverage or higher without relying extensively on integration testing. However, he acknowledges that in some cases, concrete testing may still be necessary for specific areas that require integration testing.</p><h4 class="graf graf--h4 graf-after--p" id="be5c" name="be5c">Conclusion</h4><p class="graf graf--p graf-after--h4" id="f412" name="f412">In the “Unlearn Unit Testing” video, Lemi Orhan Engin challenges conventional beliefs about unit testing and proposes a more effective approach to software testing. By integrating code and testing, clarifying misconceptions, focusing on user stories, employing effective isolation techniques, and embracing functional testing, developers can enhance the reliability and quality of their applications. Lemi Orhan’s insights encourage a shift in mindset, promoting a more pragmatic and comprehensive approach to testing that aligns with the dynamic nature of modern software development.</p><figure class="graf graf--figure graf-after--p" id="3f84" name="3f84"><img class="graf-image" data-height="984" data-image-id="1*rKy4pGiRfRZk-T5Vns7ldw.png" data-width="2399" src="https://cdn-images-1.medium.com/max/800/1*rKy4pGiRfRZk-T5Vns7ldw.png"/></figure><p class="graf graf--p graf-after--figure" id="57ae" name="57ae">You can check his project in terms of unit and integration testing and how they are implemented.</p><div class="graf graf--mixtapeEmbed graf-after--p" id="a757" name="a757"><a class="markup--anchor markup--mixtapeEmbed-anchor" data-href="https://github.com/AlicanAkkus/Modular-Architecture-Hexagonal-Demo-Project" href="https://github.com/AlicanAkkus/Modular-Architecture-Hexagonal-Demo-Project" title="https://github.com/AlicanAkkus/Modular-Architecture-Hexagonal-Demo-Project"><strong class="markup--strong markup--mixtapeEmbed-strong">GitHub - AlicanAkkus/Modular-Architecture-Hexagonal-Demo-Project: Hexagonal Architecture Demo…</strong><br/><em class="markup--em markup--mixtapeEmbed-em">This project is a sample production-ready implementation for demonstrating the power of Hexagonal Architecture (aka…</em>github.com</a><a class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="d99a83ba17408ba8510510ee9919afd3" data-thumbnail-img-id="0*0nNs_5Lq5Pi0yjzX" href="https://github.com/AlicanAkkus/Modular-Architecture-Hexagonal-Demo-Project" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*0nNs_5Lq5Pi0yjzX);"></a></div><h4 class="graf graf--h4 graf-after--mixtapeEmbed" id="a43a" name="a43a">Resource:</h4><p class="graf graf--p graf-after--h4 graf--trailing" id="f40c" name="f40c"><a class="markup--anchor markup--p-anchor" data-href="https://www.youtube.com/watch?v=pjx06exON7g" href="https://www.youtube.com/watch?v=pjx06exON7g" rel="nofollow noopener" target="_blank">https://www.youtube.com/watch?v=pjx06exON7g</a></p></div></div></section>
+
+  </section>
+
+  <script>
+    document.querySelectorAll('.blog-post-content pre').forEach(function(pre) {
+      // Work on text content, build highlighted HTML in one pass
+      var text = pre.textContent;
+      var result = [];
+      var i = 0;
+      while (i < text.length) {
+        // Comments
+        if (text[i] === '/' && text[i+1] === '/') {
+          var end = text.indexOf('\n', i);
+          if (end === -1) end = text.length;
+          result.push('<span class="syn-cmt">' + escHtml(text.substring(i, end)) + '</span>');
+          i = end;
+        }
+        // Strings
+        else if (text[i] === '"') {
+          var j = i + 1;
+          while (j < text.length && text[j] !== '"') j++;
+          result.push('<span class="syn-str">' + escHtml(text.substring(i, j + 1)) + '</span>');
+          i = j + 1;
+        }
+        // Words
+        else if (/[a-zA-Z_]/.test(text[i])) {
+          var j = i;
+          while (j < text.length && /[a-zA-Z0-9_]/.test(text[j])) j++;
+          var word = text.substring(i, j);
+          var kws = ['var','new','using','public','private','protected','static','void','class','interface','namespace','return','if','else','try','catch','async','await','get','set'];
+          var types = ['Uri','string','int','bool','double','decimal','object','AppDbContext','HttpClient','IServiceCollection'];
+          if (kws.indexOf(word) !== -1) {
+            result.push('<span class="syn-kw">' + word + '</span>');
+          } else if (types.indexOf(word) !== -1) {
+            result.push('<span class="syn-typ">' + word + '</span>');
+          } else {
+            result.push(escHtml(word));
+          }
+          i = j;
+        }
+        // Method calls: .Name(
+        else if (text[i] === '.' && /[A-Z]/.test(text[i+1])) {
+          var j = i + 1;
+          while (j < text.length && /[a-zA-Z0-9_]/.test(text[j])) j++;
+          result.push('.<span class="syn-fn">' + escHtml(text.substring(i+1, j)) + '</span>');
+          i = j;
+        }
+        else {
+          result.push(escHtml(text[i]));
+          i++;
+        }
+      }
+      pre.innerHTML = result.join('');
+    });
+    function escHtml(s) {
+      return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    // Clean up Medium mixtape embed cards
+    document.querySelectorAll('.graf--mixtapeEmbed').forEach(function(card) {
+      var mainLink = card.querySelector('a.markup--anchor--mixtapeEmbed-anchor') || card.querySelector('a:first-child');
+      if (!mainLink) return;
+
+      // Extract title, description, domain from the link
+      var strong = mainLink.querySelector('strong');
+      var em = mainLink.querySelector('em');
+      var title = strong ? strong.textContent.trim() : '';
+      var desc = em ? em.textContent.trim() : '';
+
+      // Get domain from href
+      var href = mainLink.getAttribute('href') || '';
+      var domain = '';
+      try { domain = new URL(href).hostname.replace('www.',''); } catch(e) {}
+
+      // Rebuild the link content cleanly
+      mainLink.innerHTML = '';
+      if (title) {
+        var t = document.createElement('strong');
+        t.textContent = title;
+        mainLink.appendChild(t);
+      }
+      if (desc) {
+        var d = document.createElement('em');
+        d.textContent = desc;
+        mainLink.appendChild(d);
+      }
+      if (domain) {
+        var s = document.createElement('span');
+        s.textContent = domain;
+        s.style.cssText = 'font-size:12px;color:var(--light-gray-70);opacity:0.7;';
+        mainLink.appendChild(s);
+      }
+    });
+  </script>
+
+</article>
+
+      </div>
+    </main>
+
+    <script src="/assets/js/script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>
+"

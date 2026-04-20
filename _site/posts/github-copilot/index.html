@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Github Copilot: The Good, the Bad, and the Controversial - Selim YILDIZ</title>
+
+    <!-- SEO Meta -->
+    <meta name="description" content="Copilot has the potential to revolutionize the way developers work and it comes with both potential benefits and concerns." />
+    <link rel="canonical" href="https://ai.plainenglish.io/github-copilot-the-good-the-bad-and-the-controversial-d17a47f494a0?source=MyBlog" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Github Copilot: The Good, the Bad, and the Controversial" />
+    <meta property="og:description" content="Copilot has the potential to revolutionize the way developers work and it comes with both potential benefits and concerns." />
+    <meta property="og:url" content="http://localhost:4000/posts/github-copilot/" />
+    <meta property="og:site_name" content="Selim YILDIZ" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="http://localhost:4000/assets/images/blog-18.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@yildizseli" />
+    <meta name="twitter:title" content="Github Copilot: The Good, the Bad, and the Controversial" />
+    <meta name="twitter:description" content="Copilot has the potential to revolutionize the way developers work and it comes with both potential benefits and concerns." />
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/blog-18.png" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "name": "Github Copilot: The Good, the Bad, and the Controversial",
+      "description": "Copilot has the potential to revolutionize the way developers work and it comes with both potential benefits and concerns.",
+      "url": "http://localhost:4000/posts/github-copilot/",
+      "datePublished": "2023-03-29T00:00:00+02:00",
+      "author": {
+        "@type": "Person",
+        "name": "Selim YILDIZ",
+        "url": "https://yildizseli.github.io"
+      }
+    }
+    </script>
+
+    <!--
+    - favicon
+    -->
+    <link rel="shortcut icon" href="/assets/images/logo.ico" type="image/x-icon" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    
+    <!--
+    - custom css link
+    -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+
+    <!--
+    - google font link
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LXQLH66J4S"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-LXQLH66J4S");
+    </script>
+  </head>
+
+  <body>
+    <main>
+      <aside class="sidebar" data-sidebar>
+        <div class="sidebar-info">
+          <figure class="avatar-box">
+            <img src="/assets/images/profile_picture_1.jpg" alt="Selim YILDIZ" width="80" />
+          </figure>
+
+          <div class="info-content">
+            <h1 class="name" title="Selim YILDIZ">Selim YILDIZ</h1>
+            <p class="title">Software Engineering Lead</p>
+          </div>
+
+          <button class="info_more-btn" data-sidebar-btn>
+            <span>Show Contacts</span>
+            <ion-icon name="chevron-down"></ion-icon>
+          </button>
+        </div>
+
+        <div class="sidebar-info_more">
+          <div class="separator"></div>
+
+          <ul class="contacts-list">
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="mail-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <p class="contact-title">Email</p>
+                <a href="mailto:selimyildiz91@gmail.com" class="contact-link">selimyildiz91@gmail.com</a>
+              </div>
+            </li>
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="phone-portrait-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <p class="contact-title">Phone</p>
+                <a href="tel:+46700093165" class="contact-link">+46 70 009 31 65</a>
+              </div>
+            </li>
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="calendar-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <p class="contact-title">Birthday</p>
+                <time datetime="1991-02-18">February 18, 1991</time>
+              </div>
+            </li>
+            <li class="contact-item">
+              <div class="icon-box">
+                <ion-icon name="location-outline"></ion-icon>
+              </div>
+              <div class="contact-info">
+                <p class="contact-title">Location</p>
+                <address>Lund, Skane, Sweden</address>
+              </div>
+            </li>
+          </ul>
+
+          <div class="separator"></div>
+
+          <ul class="social-list">
+            <li class="social-item">
+              <a href="https://stackoverflow.com/users/5519709/selim-yildiz" class="social-link">
+                <ion-icon name="logo-stackoverflow"></ion-icon>
+              </a>
+            </li>
+            <li class="social-item">
+              <a href="https://twitter.com/yildizseli" target="_blank" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+            <li class="social-item">
+              <a href="https://medium.com/@selimyildiz91" class="social-link">
+                <ion-icon name="logo-medium"></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <div class="main-content">
+        <nav class="navbar">
+          <ul class="navbar-list">
+            <li class="navbar-item">
+              <a href="/index.html" class="navbar-link">About</a>
+            </li>
+            <li class="navbar-item">
+              <a href="/resume.html" class="navbar-link">Resume</a>
+            </li>
+            <li class="navbar-item">
+              <a href="/blog.html" class="navbar-link">Blog</a>
+            </li>
+            <li class="navbar-item">
+              <a href="/contact.html" class="navbar-link">Contact</a>
+            </li>
+          </ul>
+        </nav>
+
+        <article class="blog active" data-page="blog" style="padding-top: 80px;">
+
+  <style>
+    .blog-post-content {
+      max-width: 100%;
+    }
+    .blog-post-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+      margin: 15px auto;
+    }
+    .blog-post-content figure {
+      margin: 20px 0;
+      text-align: center;
+    }
+    .blog-post-content figcaption {
+      font-size: 13px;
+      color: var(--light-gray-70);
+      margin-top: 8px;
+    }
+    .blog-post-content h3 {
+      color: var(--white-2);
+      margin-top: 30px;
+      margin-bottom: 12px;
+      font-size: 1.4em;
+    }
+    .blog-post-content h4 {
+      color: var(--white-2);
+      margin-top: 25px;
+      margin-bottom: 10px;
+      font-size: 1.15em;
+    }
+    .blog-post-content p {
+      margin-bottom: 16px;
+      color: var(--light-gray);
+      line-height: 1.8;
+    }
+    .blog-post-content a {
+      color: var(--orange-yellow-crayola);
+      display: inline;
+    }
+    .blog-post-content a:hover {
+      text-decoration: underline;
+    }
+    .blog-post-content span {
+      display: inline;
+    }
+    .blog-post-content ul, .blog-post-content ol {
+      margin: 10px 0 20px 25px;
+      color: var(--light-gray);
+      line-height: 1.8;
+    }
+    .blog-post-content ol {
+      list-style-type: decimal;
+    }
+    .blog-post-content ul {
+      list-style-type: disc;
+    }
+    .blog-post-content li {
+      margin-bottom: 12px;
+      list-style: inherit;
+    }
+    .blog-post-content li strong {
+      color: var(--white-2);
+      display: inline;
+    }
+    .blog-post-content pre {
+      background: #1e1e2e;
+      padding: 20px 24px;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: 13.5px;
+      line-height: 1.7;
+      margin: 20px 0;
+      color: #cdd6f4;
+      font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      border: 1px solid #313244;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+    }
+    .blog-post-content code {
+      font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+      font-size: 0.88em;
+      background: #1e1e2e;
+      color: #f38ba8;
+      padding: 2px 7px;
+      border-radius: 4px;
+      border: 1px solid #313244;
+    }
+    /* Basic syntax highlighting for comments, strings, keywords */
+    .blog-post-content pre {
+      tab-size: 4;
+    }
+    .syn-cmt { color: #6c7086; font-style: italic; }
+    .syn-str { color: #a6e3a1; }
+    .syn-kw  { color: #cba6f7; }
+    .syn-typ { color: #89b4fa; }
+    .syn-fn  { color: #f9e2af; }
+    .blog-post-content blockquote {
+      border-left: 3px solid var(--orange-yellow-crayola);
+      padding: 12px 24px;
+      margin: 20px 0;
+      color: var(--light-gray-70);
+      font-style: italic;
+      background: var(--eerie-black-2);
+      border-radius: 0 8px 8px 0;
+    }
+    /* Medium mixtape embed cards */
+    .blog-post-content .graf--mixtapeEmbed {
+      display: flex;
+      align-items: stretch;
+      border: 1px solid var(--jet);
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 12px 0;
+      background: #1e1e2e;
+      transition: border-color 0.2s;
+    }
+    .blog-post-content .graf--mixtapeEmbed:hover {
+      border-color: var(--orange-yellow-crayola);
+    }
+    .blog-post-content .graf--mixtapeEmbed > a.markup--anchor--mixtapeEmbed-anchor,
+    .blog-post-content .graf--mixtapeEmbed > a:first-child {
+      flex: 1;
+      padding: 16px 20px;
+      color: var(--light-gray);
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+    }
+    .blog-post-content .graf--mixtapeEmbed strong {
+      color: var(--white-2);
+      font-size: 15px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .blog-post-content .graf--mixtapeEmbed em {
+      color: var(--light-gray-70);
+      font-size: 13px;
+      font-style: normal;
+      display: block;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .blog-post-content .graf--mixtapeEmbed .mixtapeImage,
+    .blog-post-content .graf--mixtapeEmbed > a:last-child:not(:first-child) {
+      width: 120px;
+      min-width: 120px;
+      background-size: cover;
+      background-position: center;
+      display: block;
+    }
+    .blog-post-content .graf--mixtapeEmbed .mixtapeImage--empty {
+      display: none;
+    }
+    .blog-post-content hr {
+      border: none;
+      border-top: 1px solid var(--jet);
+      margin: 30px 0;
+    }
+    .blog-post-content .aspectRatioPlaceholder {
+      max-width: 100%;
+      overflow: hidden;
+    }
+    .blog-post-content img[height="1"] {
+      display: none;
+    }
+  </style>
+
+  <nav class="blog-post-nav" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding: 12px 0; border-bottom: 1px solid var(--jet);">
+    <a href="/blog.html" style="color: var(--light-gray-70); text-decoration: none; font-size: 14px; display: inline-flex; align-items: center; gap: 6px;">
+      &larr; Back to all posts
+    </a>
+    
+    <a href="https://ai.plainenglish.io/github-copilot-the-good-the-bad-and-the-controversial-d17a47f494a0?source=MyBlog" target="_blank" rel="noopener noreferrer"
+       style="color: var(--orange-yellow-crayola); text-decoration: none; font-size: 14px; font-weight: 500; display: inline-flex; align-items: center; gap: 6px;">
+      Read on Medium &rarr;
+    </a>
+    
+  </nav>
+
+  <header>
+    <h2 class="h2 article-title">Github Copilot: The Good, the Bad, and the Controversial</h2>
+    <div class="blog-meta" style="margin-bottom: 25px;">
+      <p class="blog-category">Tech</p>
+      <span class="dot"></span>
+      <time datetime="2023-03-29 00:00:00 +0200">Mar 29, 2023</time>
+    </div>
+  </header>
+
+  <section class="blog-post-content" style="color: var(--light-gray); line-height: 1.8; font-size: 15px;">
+    <section class="section section--body section--first section--last" name="47f2"><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><figure class="graf graf--figure graf-after--h3" id="fed0" name="fed0"><img class="graf-image" data-height="630" data-image-id="1*XXB44fde2_N0Q6jdQyp6lA.png" data-is-featured="true" data-width="1200" src="https://cdn-images-1.medium.com/max/800/1*XXB44fde2_N0Q6jdQyp6lA.png"/><figcaption class="imageCaption">source: <a class="markup--anchor markup--figure-anchor" data-href="https://github.blog/2022-06-21-github-copilot-is-generally-available-to-all-developers/" href="https://github.blog/2022-06-21-github-copilot-is-generally-available-to-all-developers/" rel="nofollow noopener" target="_blank">https://github.blog/2022-06-21-github-copilot-is-generally-available-to-all-developers/</a></figcaption></figure><p class="graf graf--p graf-after--figure" id="16c5" name="16c5"><a class="markup--anchor markup--p-anchor" data-href="https://github.com/features/copilot" href="https://github.com/features/copilot" rel="noopener" target="_blank">Github Copilot</a>, the AI-powered code completion tool developed by Github and OpenAI, has been making waves in the development community since its beta release in June 2021. With the ability to generate code suggestions and snippets based on natural language input from the user, Copilot has the potential to revolutionize the way developers work. However, as with any new technology, there are both potential benefits and concerns that come with Copilot’s introduction to the programming world.</p><h3 class="graf graf--h3 graf-after--p" id="ea37" name="ea37"><strong class="markup--strong markup--h3-strong">The Good:</strong></h3><ol class="postList"><li class="graf graf--li graf-after--h3" id="718d" name="718d"><strong class="markup--strong markup--li-strong">Increased productivity</strong> — One of the most obvious benefits of using Github Copilot is the potential for increased productivity. By automating the process of generating code snippets and suggestions, Copilot can save developers time and reduce the potential for errors. This can be especially helpful for repetitive tasks or when working with unfamiliar programming languages.</li></ol><blockquote class="graf graf--blockquote graf-after--li" id="f22a" name="f22a"><a class="markup--anchor markup--blockquote-anchor" data-href="https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/" href="https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/" rel="noopener" target="_blank">The Research</a> shows that %88 of people feel more productive when using GitHub Copilot</blockquote><figure class="graf graf--figure graf-after--blockquote" id="2c77" name="2c77"><img class="graf-image" data-height="228" data-image-id="1*OkPz5w7XBK1XejZ-pZTa_w.png" data-width="817" src="https://cdn-images-1.medium.com/max/800/1*OkPz5w7XBK1XejZ-pZTa_w.png"/><figcaption class="imageCaption"><a class="markup--anchor markup--figure-anchor" data-href="https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/" href="https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/" rel="nofollow noopener" target="_blank">https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/</a></figcaption></figure><p class="graf graf--p graf-after--figure" id="8cc8" name="8cc8"><strong class="markup--strong markup--p-strong">2. More accessible programming</strong> — Another potential benefit of Copilot is its ability to make programming more accessible to non-experts. By generating code based on natural language input, Copilot can help beginners get started with coding or enable developers to work in new programming languages without needing to learn every detail of the syntax.</p><p class="graf graf--p graf-after--p" id="0412" name="0412"><strong class="markup--strong markup--p-strong">3. Improved code quality</strong> — Because Copilot is designed to suggest high-quality code snippets, it can also help improve the overall quality of the code being written. By reducing the potential for errors or inconsistencies, Copilot can help ensure that code is more reliable and easier to maintain.</p><blockquote class="graf graf--blockquote graf-after--p" id="8586" name="8586"><a class="markup--anchor markup--blockquote-anchor" data-href="https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/" href="https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/" rel="noopener" target="_blank">Research</a> has found GitHub Copilot helps developers code faster, focus on solving bigger problems, stay in the flow longer, and feel more fulfilled with their work.</blockquote><figure class="graf graf--figure graf-after--blockquote" id="0202" name="0202"><img class="graf-image" data-height="219" data-image-id="1*cJ3NeosPfWFBeilbUt8BdA.png" data-width="851" src="https://cdn-images-1.medium.com/max/800/1*cJ3NeosPfWFBeilbUt8BdA.png"/><figcaption class="imageCaption">source: <a class="markup--anchor markup--figure-anchor" data-href="https://github.com/features/copilot" href="https://github.com/features/copilot" rel="nofollow noopener" target="_blank">https://github.com/features/copilot</a></figcaption></figure><h3 class="graf graf--h3 graf-after--figure" id="5676" name="5676">The Bad:</h3><ol class="postList"><li class="graf graf--li graf-after--h3" id="42fe" name="42fe"><strong class="markup--strong markup--li-strong">Potential for job displacement </strong>— One of the most significant concerns around Github Copilot is the potential for job displacement among programmers. While Copilot is designed to assist developers rather than replace them, there is still a worry that widespread adoption of the tool could lead to a reduction in the number of programming jobs available.</li><li class="graf graf--li graf-after--li" id="7b71" name="7b71"><strong class="markup--strong markup--li-strong">Bias and accuracy concerns</strong> — Because Copilot is an AI-powered tool, there are also concerns around its accuracy and potential biases. While Github and OpenAI have both stated that they are working to minimize biases and improve accuracy, there is still a risk that Copilot could generate code that is incorrect or based on problematic assumptions.</li><li class="graf graf--li graf-after--li" id="a9f0" name="a9f0"><strong class="markup--strong markup--li-strong">Legal and ethical concerns</strong> — As with any tool that uses AI, there are also concerns around the legal and ethical implications of using Github Copilot. For example, who owns the copyright to code generated by Copilot? Is it ethical to use AI-generated code in commercial applications without disclosing this fact to users?</li></ol><figure class="graf graf--figure graf-after--li" id="74a8" name="74a8"><img class="graf-image" data-height="232" data-image-id="1*vMfRTchJBuJUnVvA8ieXEA.png" data-width="1227" src="https://cdn-images-1.medium.com/max/800/1*vMfRTchJBuJUnVvA8ieXEA.png"/><figcaption class="imageCaption">source: <a class="markup--anchor markup--figure-anchor" data-href="https://github.com/features/copilot" href="https://github.com/features/copilot" rel="nofollow noopener" target="_blank">https://github.com/features/copilot</a></figcaption></figure><h3 class="graf graf--h3 graf-after--figure" id="8b1b" name="8b1b">The Controversial:</h3><ol class="postList"><li class="graf graf--li graf-after--h3" id="e7f6" name="e7f6"><strong class="markup--strong markup--li-strong">Open source vs. proprietary software</strong> — Because Github Copilot is based on OpenAI’s GPT language model, there is some controversy around the use of proprietary software in open-source projects. Some developers have argued that relying on Copilot could compromise the values of open-source development, while others see it as a useful tool that can enhance open-source projects.</li><li class="graf graf--li graf-after--li" id="49e9" name="49e9"><strong class="markup--strong markup--li-strong">Licensing and pricing</strong> — As of March 2023 if you want to use GitHub Copilot as “Individuals” the pricing is $10 and some developers express concern that Copilot could become prohibitively expensive or that licensing restrictions could limit its usefulness.</li></ol><figure class="graf graf--figure graf-after--li" id="7b3b" name="7b3b"><img class="graf-image" data-height="860" data-image-id="1*Ui1_fwMLgZ3zrfNC0zvM5g.png" data-width="1270" src="https://cdn-images-1.medium.com/max/800/1*Ui1_fwMLgZ3zrfNC0zvM5g.png"/><figcaption class="imageCaption">source: <a class="markup--anchor markup--figure-anchor" data-href="https://github.com/features/copilot#pricing" href="https://github.com/features/copilot#pricing" rel="nofollow noopener" target="_blank">https://github.com/features/copilot#pricing</a></figcaption></figure><p class="graf graf--p graf-after--figure" id="75d6" name="75d6">In conclusion, Github Copilot is a tool with significant potential for improving the way developers work. However, as with any new technology, there are both benefits and concerns that need to be considered. By addressing these concerns and working to mitigate potential risks, Github and OpenAI can help ensure that Copilot remains a useful and beneficial tool for the programming community.</p><p class="graf graf--p graf-after--p" id="3ef1" name="3ef1"><strong class="markup--strong markup--p-strong">Resources:</strong></p><div class="graf graf--mixtapeEmbed graf-after--p" id="5c2d" name="5c2d"><a class="markup--anchor markup--mixtapeEmbed-anchor" data-href="https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/" href="https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/" title="https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/"><strong class="markup--strong markup--mixtapeEmbed-strong">Research: quantifying GitHub Copilot's impact on developer productivity and happiness | The GitHub…</strong><br/><em class="markup--em markup--mixtapeEmbed-em">When the GitHub Copilot Technical Preview launched just over one year ago, we wanted to know one thing: Is this tool…</em>github.blog</a><a class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="f448d6dd05dca66e740cc8b9938f61fa" data-thumbnail-img-id="0*tX6VXK2U7QjeP7gG" href="https://github.blog/2022-09-07-research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*tX6VXK2U7QjeP7gG);"></a></div><div class="graf graf--mixtapeEmbed graf-after--mixtapeEmbed" id="1b72" name="1b72"><a class="markup--anchor markup--mixtapeEmbed-anchor" data-href="https://github.com/features/copilot" href="https://github.com/features/copilot" title="https://github.com/features/copilot"><strong class="markup--strong markup--mixtapeEmbed-strong">GitHub Copilot · Your AI pair programmer</strong><br/><em class="markup--em markup--mixtapeEmbed-em">Does GitHub Copilot write perfect code? In a recent evaluation, we found that users accepted on average 26% of all…</em>github.com</a><a class="js-mixtapeImage mixtapeImage u-ignoreBlock" data-media-id="dba769c840ccac35bd2dae4b74d18025" data-thumbnail-img-id="0*-8VSBZNkf-mTfUA7" href="https://github.com/features/copilot" style="background-image: url(https://cdn-images-1.medium.com/fit/c/160/160/0*-8VSBZNkf-mTfUA7);"></a></div><p class="graf graf--p graf-after--mixtapeEmbed" id="53a7" name="53a7"><em class="markup--em markup--p-em">More content at </em><a class="markup--anchor markup--p-anchor" data-href="https://plainenglish.io/" href="https://plainenglish.io/" rel="noopener" target="_blank"><strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">PlainEnglish.io</em></strong></a><em class="markup--em markup--p-em">.</em></p><p class="graf graf--p graf-after--p" id="b562" name="b562"><em class="markup--em markup--p-em">Sign up for our </em><a class="markup--anchor markup--p-anchor" data-href="http://newsletter.plainenglish.io/" href="http://newsletter.plainenglish.io/" rel="noopener" target="_blank"><strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">free weekly newsletter</em></strong></a><em class="markup--em markup--p-em">. Follow us on </em><a class="markup--anchor markup--p-anchor" data-href="https://twitter.com/inPlainEngHQ" href="https://twitter.com/inPlainEngHQ" rel="noopener" target="_blank"><strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">Twitter</em></strong></a>, <a class="markup--anchor markup--p-anchor" data-href="https://www.linkedin.com/company/inplainenglish/" href="https://www.linkedin.com/company/inplainenglish/" rel="noopener" target="_blank"><strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">LinkedIn</em></strong></a><em class="markup--em markup--p-em">, </em><a class="markup--anchor markup--p-anchor" data-href="https://www.youtube.com/channel/UCtipWUghju290NWcn8jhyAw" href="https://www.youtube.com/channel/UCtipWUghju290NWcn8jhyAw" rel="noopener" target="_blank"><strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">YouTube</em></strong></a><em class="markup--em markup--p-em">, and </em><a class="markup--anchor markup--p-anchor" data-href="https://discord.gg/GtDtUAvyhW" href="https://discord.gg/GtDtUAvyhW" rel="noopener" target="_blank"><strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">Discord</em></strong></a><strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">.</em></strong></p><p class="graf graf--p graf-after--p graf--trailing" id="fb72" name="fb72"><strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">Interested in scaling your software startup</em></strong><em class="markup--em markup--p-em">? Check out </em><a class="markup--anchor markup--p-anchor" data-href="https://circuit.ooo?utm=publication-post-cta" href="https://circuit.ooo?utm=publication-post-cta" rel="noopener" target="_blank"><strong class="markup--strong markup--p-strong"><em class="markup--em markup--p-em">Circuit</em></strong></a><em class="markup--em markup--p-em">.</em></p></div></div></section>
+
+  </section>
+
+  <script>
+    document.querySelectorAll('.blog-post-content pre').forEach(function(pre) {
+      // Work on text content, build highlighted HTML in one pass
+      var text = pre.textContent;
+      var result = [];
+      var i = 0;
+      while (i < text.length) {
+        // Comments
+        if (text[i] === '/' && text[i+1] === '/') {
+          var end = text.indexOf('\n', i);
+          if (end === -1) end = text.length;
+          result.push('<span class="syn-cmt">' + escHtml(text.substring(i, end)) + '</span>');
+          i = end;
+        }
+        // Strings
+        else if (text[i] === '"') {
+          var j = i + 1;
+          while (j < text.length && text[j] !== '"') j++;
+          result.push('<span class="syn-str">' + escHtml(text.substring(i, j + 1)) + '</span>');
+          i = j + 1;
+        }
+        // Words
+        else if (/[a-zA-Z_]/.test(text[i])) {
+          var j = i;
+          while (j < text.length && /[a-zA-Z0-9_]/.test(text[j])) j++;
+          var word = text.substring(i, j);
+          var kws = ['var','new','using','public','private','protected','static','void','class','interface','namespace','return','if','else','try','catch','async','await','get','set'];
+          var types = ['Uri','string','int','bool','double','decimal','object','AppDbContext','HttpClient','IServiceCollection'];
+          if (kws.indexOf(word) !== -1) {
+            result.push('<span class="syn-kw">' + word + '</span>');
+          } else if (types.indexOf(word) !== -1) {
+            result.push('<span class="syn-typ">' + word + '</span>');
+          } else {
+            result.push(escHtml(word));
+          }
+          i = j;
+        }
+        // Method calls: .Name(
+        else if (text[i] === '.' && /[A-Z]/.test(text[i+1])) {
+          var j = i + 1;
+          while (j < text.length && /[a-zA-Z0-9_]/.test(text[j])) j++;
+          result.push('.<span class="syn-fn">' + escHtml(text.substring(i+1, j)) + '</span>');
+          i = j;
+        }
+        else {
+          result.push(escHtml(text[i]));
+          i++;
+        }
+      }
+      pre.innerHTML = result.join('');
+    });
+    function escHtml(s) {
+      return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    // Clean up Medium mixtape embed cards
+    document.querySelectorAll('.graf--mixtapeEmbed').forEach(function(card) {
+      var mainLink = card.querySelector('a.markup--anchor--mixtapeEmbed-anchor') || card.querySelector('a:first-child');
+      if (!mainLink) return;
+
+      // Extract title, description, domain from the link
+      var strong = mainLink.querySelector('strong');
+      var em = mainLink.querySelector('em');
+      var title = strong ? strong.textContent.trim() : '';
+      var desc = em ? em.textContent.trim() : '';
+
+      // Get domain from href
+      var href = mainLink.getAttribute('href') || '';
+      var domain = '';
+      try { domain = new URL(href).hostname.replace('www.',''); } catch(e) {}
+
+      // Rebuild the link content cleanly
+      mainLink.innerHTML = '';
+      if (title) {
+        var t = document.createElement('strong');
+        t.textContent = title;
+        mainLink.appendChild(t);
+      }
+      if (desc) {
+        var d = document.createElement('em');
+        d.textContent = desc;
+        mainLink.appendChild(d);
+      }
+      if (domain) {
+        var s = document.createElement('span');
+        s.textContent = domain;
+        s.style.cssText = 'font-size:12px;color:var(--light-gray-70);opacity:0.7;';
+        mainLink.appendChild(s);
+      }
+    });
+  </script>
+
+</article>
+
+      </div>
+    </main>
+
+    <script src="/assets/js/script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>
+"

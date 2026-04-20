@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "How ChatGPT Can Help with Creating a Swagger Script for an API Endpoint"
 date: 2023-06-06
 category: "AI"
@@ -6,3 +7,87 @@ image: "/assets/images/2023-06-06-chatgpt-swagger.jpg"
 link: "https://levelup.gitconnected.com/how-chatgpt-can-help-with-creating-a-swagger-script-for-an-api-endpoint-af2fa01afb9a?source=MyBlog"
 description: "How ChatGPT, a powerful language model, can assist in creating a Swagger script for an API endpoint."
 ---
+<section class="section section--body section--first" name="1239"><div class="section-content"><div class="section-inner sectionLayout--insetColumn"><figure class="graf graf--figure graf-after--h3" id="e069" name="e069"><img class="graf-image" data-height="3398" data-image-id="0*AhP-okv0VVjvI1zh" data-is-featured="true" data-unsplash-photo-id="drwpcjkvxuU" data-width="5096" src="https://cdn-images-1.medium.com/max/800/0*AhP-okv0VVjvI1zh"/><figcaption class="imageCaption">Photo by <a class="markup--anchor markup--figure-anchor" data-href="https://unsplash.com/@siva_photography?utm_source=medium&amp;utm_medium=referral" href="https://unsplash.com/@siva_photography?utm_source=medium&amp;utm_medium=referral" rel="photo-creator noopener" target="_blank">Levart_Photographer</a> on <a class="markup--anchor markup--figure-anchor" data-href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral" href="https://unsplash.com?utm_source=medium&amp;utm_medium=referral" rel="photo-source noopener" target="_blank">Unsplash</a></figcaption></figure><p class="graf graf--p graf-after--figure" id="b64b" name="b64b">Documenting API endpoints is crucial for effective communication and seamless integration with developers and consumers. <a class="markup--anchor markup--p-anchor" data-href="https://swagger.io/" href="https://swagger.io/" rel="noopener" target="_blank">Swagger</a>, an open-source tool, provides an excellent solution for describing and documenting RESTful APIs. In this article, we’ll explore how <a class="markup--anchor markup--p-anchor" data-href="https://chat.openai.com/" href="https://chat.openai.com/" rel="noopener" target="_blank">ChatGPT</a>, a powerful language model, can assist in creating a Swagger script for an API endpoint.</p><h4 class="graf graf--h4 graf-after--p" id="5087" name="5087">Step 1: Understand Your API Endpoint:</h4><p class="graf graf--p graf-after--h4" id="766d" name="766d">Before diving into creating a Swagger script, it’s essential to have a clear understanding of your API endpoint. Define the HTTP method, path, request parameters, response types, and any additional information required for proper documentation.</p><p class="graf graf--p graf-after--p" id="d0cd" name="d0cd">Here is my example <a class="markup--anchor markup--p-anchor" data-href="https://github.com/yildizseli/Service-Framework/blob/master/ServiceRepository/IUserService.cs" href="https://github.com/yildizseli/Service-Framework/blob/master/ServiceRepository/IUserService.cs" rel="noopener" target="_blank">API</a>:</p><pre class="graf graf--pre graf-after--p graf--preV2" data-code-block-lang="csharp" data-code-block-mode="1" id="8d6f" name="8d6f" spellcheck="false">[ServiceContract]
+public interface IUserService
+{
+    [OperationContract]
+    ServiceResult&lt;UserDTO&gt; AddUser(string firstName, string lastName, int age);
+
+    [OperationContract]
+    ServiceResult&lt;List&lt;UserDTO&gt;&gt; GetUsers();
+
+    [OperationContract]
+    ServiceResult&lt;UserDTO&gt; GetUser(int Id);
+
+    [OperationContract]
+    ServiceResult&lt;bool&gt; DeleteUser(int Id);
+}</pre><h4 class="graf graf--h4 graf-after--pre" id="edc1" name="edc1">Step 2: Interacting with ChatGPT:</h4><p class="graf graf--p graf-after--h4" id="ecd5" name="ecd5">ChatGPT can generate Swagger scripts based on prompts and inputs. You can interact with ChatGPT by providing details about your API endpoint in a conversational manner. Here’s the prompt that I simply use with just giving my code:</p><blockquote class="graf graf--blockquote graf-after--p" id="2829" name="2829">Create a Swagger script for the following API</blockquote><p class="graf graf--p graf-after--blockquote" id="412e" name="412e">And here is the ChatGPT output:</p><pre class="graf graf--pre graf-after--p graf--preV2" data-code-block-lang="yaml" data-code-block-mode="1" id="c1be" name="c1be" spellcheck="false">swagger: '2.0'
+info:
+  title: User Service API
+  version: 1.0.0
+basePath: /api
+paths:
+  /users:
+    get:
+      summary: Get all users
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/UserDTO'
+  /users/{id}:
+    get:
+      summary: Get a user by ID
+      parameters:
+        - name: id
+          in: path
+          description: ID of the user
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            $ref: '#/definitions/UserDTO'
+    delete:
+      summary: Delete a user by ID
+      parameters:
+        - name: id
+          in: path
+          description: ID of the user
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            type: boolean
+  /users/add:
+    post:
+      summary: Add a new user
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: user
+          description: User object
+          required: true
+          schema:
+            $ref: '#/definitions/UserDTO'
+      responses:
+        '200':
+          description: Successful response
+          schema:
+            $ref: '#/definitions/UserDTO'
+definitions:
+  UserDTO:
+    type: object
+    properties:
+      firstName:
+        type: string
+      lastName:
+        type: string
+      age:
+        type: integer</pre><p class="graf graf--p graf-after--pre" id="9aff" name="9aff">Here is the result.</p><figure class="graf graf--figure graf-after--p" id="d82e" name="d82e"><img class="graf-image" data-height="893" data-image-id="1*HpB96bcZjKli5J7Bh2Ruzw.png" data-width="916" src="https://cdn-images-1.medium.com/max/800/1*HpB96bcZjKli5J7Bh2Ruzw.png"/></figure><blockquote class="graf graf--blockquote graf-after--figure" id="0e18" name="0e18">Which I think really great! Even though my code does not have any documentation, ChatGPT created a comprehensive Swagger script for me! With the prompts and inputs provided, ChatGPT was able to generate a detailed Swagger specification that accurately describes the API endpoint. This demonstrates the power of leveraging ChatGPT to automatically generate documentation, saving time and effort in the documentation process.</blockquote><h4 class="graf graf--h4 graf-after--blockquote" id="b938" name="b938">Step 3: Review and Customization:</h4><p class="graf graf--p graf-after--h4" id="daa3" name="daa3">It’s important to review and validate the generated Swagger script. ChatGPT provides a starting point, but you may need to customize and expand the script to include additional information specific to your API, such as authentication, request headers, or more detailed schema definitions.</p><h4 class="graf graf--h4 graf-after--p" id="6434" name="6434">Conclusion:</h4><p class="graf graf--p graf-after--h4" id="8962" name="8962">ChatGPT proves to be a valuable tool for generating Swagger scripts for API endpoints. By providing prompts and interacting with the model, you can quickly create a foundation for documenting your APIs in a standardized format. However, always review and customize the generated script to ensure accuracy and completeness for your specific API implementation.</p><p class="graf graf--p graf-after--p" id="a013" name="a013">Remember to leverage ChatGPT as an aid in your API documentation process, but rely on your expertise and knowledge to fine-tune and finalize the Swagger script for optimal documentation and API clarity.</p><p class="graf graf--p graf-after--p" id="06ca" name="06ca">Thanks for reading!</p><h4 class="graf graf--h4 graf-after--p" id="9f2b" name="9f2b">Resources:</h4><p class="graf graf--p graf-after--h4 graf--trailing" id="c4b0" name="c4b0"><a class="markup--anchor markup--p-anchor" data-href="https://chat.openai.com/" href="https://chat.openai.com/" rel="nofollow noopener" target="_blank">https://chat.openai.com/</a></p></div></div></section>
