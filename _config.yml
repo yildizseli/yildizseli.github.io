@@ -1,6 +1,30 @@
-url: "http://127.0.0.1:4000"  # Local development için
+url: "https://yildizseli.github.io"
 baseurl: ""
 future: true
+
+# Site metadata (used by jekyll-seo-tag)
+title: "Selim YILDIZ"
+description: "Software Engineering Lead sharing insights on .NET, Azure, microservices, API design, and engineering leadership."
+author:
+  name: "Selim YILDIZ"
+  url: "https://yildizseli.github.io"
+lang: en
+
+# Social / SEO
+twitter:
+  username: yildizseli
+social:
+  name: Selim YILDIZ
+  links:
+    - https://twitter.com/yildizseli
+    - https://medium.com/@selimyildiz91
+    - https://stackoverflow.com/users/5519709/selim-yildiz
+    - https://github.com/yildizseli
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
 
 # Blog posts folder
 collections:

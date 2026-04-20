@@ -4,9 +4,46 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta http-equiv="X-UA-Compatible" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Selim YILDIZ{% if page.title and page.title != "Home" %} - {{ page.title }}{% endif %}</title>
+    <title>{% if page.title and page.title != "Home" %}{{ page.title }} - Selim YILDIZ{% else %}Selim YILDIZ - Software Engineering Lead{% endif %}</title>
+
+    <!-- SEO Meta -->
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
+    <link rel="canonical" href="{{ page.url | absolute_url }}" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
+    <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
+    <meta property="og:url" content="{{ page.url | absolute_url }}" />
+    <meta property="og:site_name" content="{{ site.title }}" />
+    <meta property="og:type" content="{% if page.date %}article{% else %}website{% endif %}" />
+    {% if page.image %}<meta property="og:image" content="{{ page.image | absolute_url }}" />{% endif %}
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@yildizseli" />
+    <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
+    <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}" />
+    {% if page.image %}<meta name="twitter:image" content="{{ page.image | absolute_url }}" />{% endif %}
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "{% if page.date %}BlogPosting{% else %}WebPage{% endif %}",
+      "name": "{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}",
+      "description": "{% if page.description %}{{ page.description | escape }}{% else %}{{ site.description | escape }}{% endif %}",
+      "url": "{{ page.url | absolute_url }}"{% if page.date %},
+      "datePublished": "{{ page.date | date_to_xmlschema }}",
+      "author": {
+        "@type": "Person",
+        "name": "Selim YILDIZ",
+        "url": "https://yildizseli.github.io"
+      }{% endif %}
+    }
+    </script>
 
     <!--
     - favicon
