@@ -795,6 +795,16 @@ main {
   margin-bottom: 7px;
 }
 
+.timeline-item-title a {
+  color: var(--vegas-gold);
+  font-weight: var(--fw-400);
+  display: block;
+  font-size: var(--fs-7);
+  margin-top: 2px;
+}
+
+.timeline-item-title a:hover { color: var(--white-1); }
+
 .timeline-list span {
   color: var(--vegas-gold);
   font-weight: var(--fw-400);
