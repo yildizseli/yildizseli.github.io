@@ -56,3 +56,25 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+
+
+// Theme toggle
+const themeToggleBtn = document.getElementById("theme-toggle");
+
+function applyTheme(theme) {
+  if (theme === "light") {
+    document.documentElement.setAttribute("data-theme", "light");
+  } else {
+    document.documentElement.removeAttribute("data-theme");
+  }
+}
+
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener("click", function () {
+    const isLight = document.documentElement.getAttribute("data-theme") === "light";
+    const next = isLight ? "dark" : "light";
+    applyTheme(next);
+    localStorage.setItem("theme", next);
+  });
+}

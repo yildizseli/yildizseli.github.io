@@ -8,13 +8,13 @@
 
     <!-- SEO Meta -->
     <meta name="description" content="Get in touch with Selim YILDIZ - Software Engineering Lead based in Lund, Sweden." />
-    <link rel="canonical" href="https://yildizseli.github.io/contact.html" />
+    <link rel="canonical" href="http://localhost:4000/contact.html" />
 
     <!-- Open Graph -->
     <meta property="og:title" content="Contact" />
     <meta property="og:description" content="Get in touch with Selim YILDIZ - Software Engineering Lead based in Lund, Sweden." />
-    <meta property="og:url" content="https://yildizseli.github.io/contact.html" />
-    <meta property="og:site_name" content="Selim YILDIZ" />
+    <meta property="og:url" content="http://localhost:4000/contact.html" />
+    <meta property="og:site_name" content="" />
     <meta property="og:type" content="website" />
     
 
@@ -32,7 +32,7 @@
       "@type": "WebPage",
       "name": "Contact",
       "description": "Get in touch with Selim YILDIZ - Software Engineering Lead based in Lund, Sweden.",
-      "url": "https://yildizseli.github.io/contact.html"
+      "url": "http://localhost:4000/contact.html"
     }
     </script>
 
@@ -64,6 +64,13 @@
       gtag("js", new Date());
 
       gtag("config", "G-LXQLH66J4S");
+    </script>
+    <!-- Theme: apply saved preference before paint to avoid flash -->
+    <script>
+      (function() {
+        var t = localStorage.getItem('theme');
+        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      })();
     </script>
   </head>
 
@@ -106,15 +113,6 @@
               <div class="contact-info">
                 <p class="contact-title">Phone</p>
                 <a href="tel:+46700093165" class="contact-link">+46 70 009 31 65</a>
-              </div>
-            </li>
-            <li class="contact-item">
-              <div class="icon-box">
-                <ion-icon name="calendar-outline"></ion-icon>
-              </div>
-              <div class="contact-info">
-                <p class="contact-title">Birthday</p>
-                <time datetime="1991-02-18">February 18, 1991</time>
               </div>
             </li>
             <li class="contact-item">
@@ -164,6 +162,12 @@
             </li>
             <li class="navbar-item">
               <a href="/contact.html" class="navbar-link active">Contact</a>
+            </li>
+            <li class="navbar-item theme-toggle-item">
+              <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme">
+                <ion-icon name="sunny-outline" class="theme-icon sun-icon"></ion-icon>
+                <span class="toggle-track"><span class="toggle-thumb"></span></span>
+              </button>
             </li>
           </ul>
         </nav>

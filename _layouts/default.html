@@ -74,6 +74,13 @@
 
       gtag("config", "G-LXQLH66J4S");
     </script>
+    <!-- Theme: apply saved preference before paint to avoid flash -->
+    <script>
+      (function() {
+        var t = localStorage.getItem('theme');
+        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      })();
+    </script>
   </head>
 
   <body>
@@ -115,15 +122,6 @@
               <div class="contact-info">
                 <p class="contact-title">Phone</p>
                 <a href="tel:+46700093165" class="contact-link">+46 70 009 31 65</a>
-              </div>
-            </li>
-            <li class="contact-item">
-              <div class="icon-box">
-                <ion-icon name="calendar-outline"></ion-icon>
-              </div>
-              <div class="contact-info">
-                <p class="contact-title">Birthday</p>
-                <time datetime="1991-02-18">February 18, 1991</time>
               </div>
             </li>
             <li class="contact-item">
@@ -173,6 +171,12 @@
             </li>
             <li class="navbar-item">
               <a href="/contact.html" class="navbar-link{% if page.nav_active == 'contact' %} active{% endif %}">Contact</a>
+            </li>
+            <li class="navbar-item theme-toggle-item">
+              <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme">
+                <ion-icon name="sunny-outline" class="theme-icon sun-icon"></ion-icon>
+                <span class="toggle-track"><span class="toggle-thumb"></span></span>
+              </button>
             </li>
           </ul>
         </nav>

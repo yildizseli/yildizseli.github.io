@@ -1948,3 +1948,172 @@ textarea.form-input::-webkit-resizer { display: none; }
   display: inline;
 }
 }
+
+
+/*-----------------------------------*\
+  #THEME TOGGLE
+\*-----------------------------------*/
+
+.theme-toggle-item { margin-left: 8px; }
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 2px;
+  color: var(--light-gray);
+  transition: color var(--transition-1);
+}
+
+.theme-toggle:hover { color: var(--orange-yellow-crayola); }
+
+.theme-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.toggle-track {
+  position: relative;
+  width: 34px;
+  height: 20px;
+  background: var(--jet);
+  border-radius: 20px;
+  border: 1px solid var(--jet);
+  transition: background var(--transition-1), border-color var(--transition-1);
+  flex-shrink: 0;
+  display: block;
+}
+
+.toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--light-gray);
+  transition: transform var(--transition-1), background var(--transition-1);
+  display: block;
+}
+
+/* When light theme is active — thumb moves right, track turns yellow */
+html[data-theme="light"] .toggle-track {
+  background: var(--orange-yellow-crayola);
+  border-color: var(--orange-yellow-crayola);
+}
+
+html[data-theme="light"] .toggle-thumb {
+  transform: translateX(14px);
+  background: var(--white-1);
+}
+
+html[data-theme="light"] .theme-toggle { color: var(--light-gray); }
+html[data-theme="light"] .theme-toggle:hover { color: var(--orange-yellow-crayola); }
+
+
+/*-----------------------------------*\
+  #LIGHT THEME
+\*-----------------------------------*/
+
+html[data-theme="light"] {
+
+  --bg-gradient-onyx: linear-gradient(to bottom right, hsl(0, 0%, 90%) 3%, hsl(0, 0%, 95%) 97%);
+  --bg-gradient-jet: linear-gradient(
+    to bottom right,
+    hsla(0, 0%, 88%, 0.6) 0%,
+    hsla(0, 0%, 92%, 0) 100%
+  ), hsl(0, 0%, 98%);
+  --bg-gradient-yellow-1: linear-gradient(
+    to bottom right,
+    hsl(45, 100%, 65%) 0%,
+    hsla(36, 100%, 62%, 0) 50%
+  );
+  --bg-gradient-yellow-2: linear-gradient(
+    135deg,
+    hsla(45, 100%, 65%, 0.3) 0%,
+    hsla(35, 100%, 60%, 0) 59.86%
+  ), hsl(0, 0%, 98%);
+  --border-gradient-onyx: linear-gradient(
+    to bottom right,
+    hsl(0, 0%, 75%) 0%,
+    hsla(0, 0%, 75%, 0) 50%
+  );
+  --text-gradient-yellow: linear-gradient(to right, hsl(35, 90%, 40%), hsl(30, 90%, 36%));
+
+  --jet:              hsl(0, 0%, 82%);
+  --onyx:             hsl(0, 0%, 90%);
+  --eerie-black-1:    hsl(0, 0%, 98%);
+  --eerie-black-2:    hsl(0, 0%, 100%);
+  --smoky-black:      hsl(220, 16%, 92%);
+  --white-1:          hsl(240, 8%, 12%);
+  --white-2:          hsl(240, 8%, 12%);
+  --orange-yellow-crayola: hsl(35, 90%, 38%);
+  --vegas-gold:       hsl(35, 75%, 35%);
+  --light-gray:       hsl(240, 4%, 28%);
+  --light-gray-70:    hsl(240, 3%, 42%);
+  --bittersweet-shimmer: hsl(0, 43%, 48%);
+
+  --shadow-1: -4px 8px 24px hsla(0, 0%, 0%, 0.07);
+  --shadow-2: 0 16px 30px hsla(0, 0%, 0%, 0.07);
+  --shadow-3: 0 16px 40px hsla(0, 0%, 0%, 0.07);
+  --shadow-4: 0 25px 50px hsla(0, 0%, 0%, 0.05);
+  --shadow-5: 0 24px 80px hsla(0, 0%, 0%, 0.09);
+
+}
+
+/* Navbar background override for light mode */
+html[data-theme="light"] .navbar {
+  background: hsla(0, 0%, 100%, 0.85);
+  border-color: var(--jet);
+}
+
+/* Body scrollbar for light mode */
+html[data-theme="light"] body::-webkit-scrollbar-track { background: var(--smoky-black); }
+
+/* Map iframe: remove invert in light mode */
+html[data-theme="light"] .mapbox iframe { filter: grayscale(1); }
+
+/* Sidebar title badge */
+html[data-theme="light"] .info-content .title {
+  background: var(--jet);
+  color: var(--white-1);
+}
+
+/* Social icons */
+html[data-theme="light"] .about-text .fa-medium { color: var(--white-1); }
+
+/* Skill progress background */
+html[data-theme="light"] .skill-progress-bg { background: var(--jet); }
+
+/* Timeline connector line */
+html[data-theme="light"] .timeline-item:not(:last-child)::before { background: var(--jet); }
+html[data-theme="light"] .timeline-item::after { box-shadow: 0 0 0 4px var(--jet); }
+
+/* Blog post code blocks — keep dark in light mode for readability */
+html[data-theme="light"] .blog-post-content pre {
+  background: #1e1e2e;
+  color: #cdd6f4;
+  border-color: #313244;
+}
+html[data-theme="light"] .blog-post-content code {
+  background: #1e1e2e;
+  color: #f38ba8;
+  border-color: #313244;
+}
+
+/* Blog post embed cards in light mode */
+html[data-theme="light"] .blog-post-content .graf--mixtapeEmbed {
+  background: var(--eerie-black-1);
+  border-color: var(--jet);
+}
+
+/* Form inputs */
+html[data-theme="light"] .form-input {
+  color: var(--white-1);
+  border-color: var(--jet);
+  background: var(--eerie-black-1);
+}
+

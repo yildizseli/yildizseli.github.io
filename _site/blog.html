@@ -8,13 +8,13 @@
 
     <!-- SEO Meta -->
     <meta name="description" content="Articles on .NET, Azure, API design, microservices, engineering leadership, and software development best practices by Selim YILDIZ." />
-    <link rel="canonical" href="https://yildizseli.github.io/blog.html" />
+    <link rel="canonical" href="http://localhost:4000/blog.html" />
 
     <!-- Open Graph -->
     <meta property="og:title" content="Blog" />
     <meta property="og:description" content="Articles on .NET, Azure, API design, microservices, engineering leadership, and software development best practices by Selim YILDIZ." />
-    <meta property="og:url" content="https://yildizseli.github.io/blog.html" />
-    <meta property="og:site_name" content="Selim YILDIZ" />
+    <meta property="og:url" content="http://localhost:4000/blog.html" />
+    <meta property="og:site_name" content="" />
     <meta property="og:type" content="website" />
     
 
@@ -32,7 +32,7 @@
       "@type": "WebPage",
       "name": "Blog",
       "description": "Articles on .NET, Azure, API design, microservices, engineering leadership, and software development best practices by Selim YILDIZ.",
-      "url": "https://yildizseli.github.io/blog.html"
+      "url": "http://localhost:4000/blog.html"
     }
     </script>
 
@@ -64,6 +64,13 @@
       gtag("js", new Date());
 
       gtag("config", "G-LXQLH66J4S");
+    </script>
+    <!-- Theme: apply saved preference before paint to avoid flash -->
+    <script>
+      (function() {
+        var t = localStorage.getItem('theme');
+        if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      })();
     </script>
   </head>
 
@@ -106,15 +113,6 @@
               <div class="contact-info">
                 <p class="contact-title">Phone</p>
                 <a href="tel:+46700093165" class="contact-link">+46 70 009 31 65</a>
-              </div>
-            </li>
-            <li class="contact-item">
-              <div class="icon-box">
-                <ion-icon name="calendar-outline"></ion-icon>
-              </div>
-              <div class="contact-info">
-                <p class="contact-title">Birthday</p>
-                <time datetime="1991-02-18">February 18, 1991</time>
               </div>
             </li>
             <li class="contact-item">
@@ -165,6 +163,12 @@
             <li class="navbar-item">
               <a href="/contact.html" class="navbar-link">Contact</a>
             </li>
+            <li class="navbar-item theme-toggle-item">
+              <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme">
+                <ion-icon name="sunny-outline" class="theme-icon sun-icon"></ion-icon>
+                <span class="toggle-track"><span class="toggle-thumb"></span></span>
+              </button>
+            </li>
           </ul>
         </nav>
 
@@ -177,7 +181,7 @@
                     <ul class="blog-posts-list">
                         
                         <li class="blog-post-item">
-                            <a href="/posts/when-mvp-thinking-meets-reality/">
+                            <a href="/agile/2025/07/16/when-mvp-thinking-meets-reality.html">
                                 <figure class="blog-banner-box">
                                     <img src="/assets/images/2025-07-16-when-mvp-thinking-meets-reality.webp" alt="When MVP Thinking Meets Reality" loading="lazy" class="blog-image">
                                 </figure>
@@ -196,7 +200,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/building-robust-applications-with-the-reliable-web-app-pattern-for-net/">
+                            <a href="/.net,%20azure,%20architecture/2025/03/24/building-robust-applications-with-the-reliable-web-app-pattern-for-net.html">
                                 <figure class="blog-banner-box">
                                     <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*vQ_oUnfGe5yBSpVm9WUlCQ.jpeg" alt="Building Robust Applications with the Reliable Web App Pattern for .NET" loading="lazy" class="blog-image">
                                 </figure>
@@ -215,7 +219,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/understanding-web-authentication-session-based-authentication-vs-json-web-tokens-jwts/">
+                            <a href="/security/2024/12/29/understanding-web-authentication-session-based-authentication-vs-json-web-tokens-jwts.html">
                                 <figure class="blog-banner-box">
                                     <img src="/assets/images/2024-12-29-understanding-web-authentication-session-based-authentication-vs-json-web-tokens-jwts.webp" alt="Understanding Web Authentication: Session-Based Authentication vs. JSON Web Tokens (JWTs)" loading="lazy" class="blog-image">
                                 </figure>
@@ -234,7 +238,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/the-middle-innings-of-ai-highlights-from-microsoft-ignite-2024/">
+                            <a href="/tech/2024/11/25/the-middle-innings-of-ai-highlights-from-microsoft-ignite-2024.html">
                                 <figure class="blog-banner-box">
                                     <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*hQYVg5ekxt4Gr_pyktk2wQ.png" alt="The Middle Innings of AI: Highlights from Microsoft Ignite 2024" loading="lazy" class="blog-image">
                                 </figure>
@@ -253,7 +257,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/update-conference-2024-my-highlights-from-the-cutting-edge-of-net-and-ai/">
+                            <a href="/tech/2024/11/22/update-conference-2024-my-highlights-from-the-cutting-edge-of-net-and-ai.html">
                                 <figure class="blog-banner-box">
                                     <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*ph43sxevLFeLvh-cBPgLZA.png" alt="Update Conference 2024: My Highlights from the Cutting Edge of .NET and AI" loading="lazy" class="blog-image">
                                 </figure>
@@ -272,7 +276,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/understanding-the-differences-between-cookies-sessions-and-tokens/">
+                            <a href="/security/2024/04/04/understanding-the-differences-between-cookies-sessions-and-tokens.html">
                                 <figure class="blog-banner-box">
                                     <img src="/assets/images/2024-04-04-understanding-the-differences-between-cookies-sessions-and-tokens.webp" alt="Understanding the Differences Between Cookies, Sessions, and Tokens" loading="lazy" class="blog-image">
                                 </figure>
@@ -291,7 +295,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/choosing-the-right-code-repository-strategy-monorepos-or-microrepos/">
+                            <a href="/git/2023/09/27/choosing-the-right-code-repository-strategy-monorepos-or-microrepos.html">
                                 <figure class="blog-banner-box">
                                     <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*o272TN5AdpMxjd94HDY96A.png" alt="Choosing the Right Code Repository Strategy: Monorepos or Microrepos?" loading="lazy" class="blog-image">
                                 </figure>
@@ -310,7 +314,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/rest-api-best-practices-and-design/">
+                            <a href="/.net/2023/09/09/rest-api-best-practices-and-design.html">
                                 <figure class="blog-banner-box">
                                     <img src="/assets/images/2023-09-09-rest-api-best-practices-and-design.webp" alt="REST API — Best Practices and Design" loading="lazy" class="blog-image">
                                 </figure>
@@ -329,7 +333,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/why-ai-cant-replace-software-developers-yet/">
+                            <a href="/ai/2023/08/16/why-ai-cant-replace-software-developers-yet.html">
                                 <figure class="blog-banner-box">
                                     <img src="/assets/images/2023-08-16-why-ai-cant-replace-software-developers-yet.webp" alt="Why AI Can’t Replace Software Developers (Yet)" loading="lazy" class="blog-image">
                                 </figure>
@@ -348,7 +352,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/microservices-evolution/">
+                            <a href="/microservice/2023/08/16/microservices-evolution.html">
                                 <figure class="blog-banner-box">
                                     <img src="/assets/images/2023-08-16-microservices-evolution.jpg" alt="Microservices Evolution Starts with Monolith: Here's Why" loading="lazy" class="blog-image">
                                 </figure>
@@ -367,7 +371,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/overflowai-introduction/">
+                            <a href="/ai/2023/08/02/overflowai-introduction.html">
                                 <figure class="blog-banner-box">
                                     <img src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*0b9Bi7ogdC472wURwMxtYg.png" alt="Introducing OverflowAI by Stack Overflow" loading="lazy" class="blog-image">
                                 </figure>
@@ -386,7 +390,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/rethinking-unit-testing/">
+                            <a href="/unit%20testing/2023/07/12/rethinking-unit-testing.html">
                                 <figure class="blog-banner-box">
                                     <img src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*CX7SwRDQaI3lPmHO-K8vlA.png" alt="Rethinking Unit Testing: An Effective Approach for Software Development" loading="lazy" class="blog-image">
                                 </figure>
@@ -405,7 +409,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/useful-linq-extensions/">
+                            <a href="/linq,%20c%23/2023/06/21/useful-linq-extensions.html">
                                 <figure class="blog-banner-box">
                                     <img src="/assets/images/2023-06-21-useful-linq-extensions.jpg" alt="10 Useful extension methods in LINQ" loading="lazy" class="blog-image">
                                 </figure>
@@ -424,7 +428,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/clean-code-performance/">
+                            <a href="/tech/2023/06/12/clean-code-performance.html">
                                 <figure class="blog-banner-box">
                                     <img src="/assets/images/2023-06-12-clean-code-performance.jpg" alt="'Clean' Code, Horrible Performance" loading="lazy" class="blog-image">
                                 </figure>
@@ -443,7 +447,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/chatgpt-swagger/">
+                            <a href="/ai/2023/06/06/chatgpt-swagger.html">
                                 <figure class="blog-banner-box">
                                     <img src="/assets/images/2023-06-06-chatgpt-swagger.jpg" alt="How ChatGPT Can Help with Creating a Swagger Script for an API Endpoint" loading="lazy" class="blog-image">
                                 </figure>
@@ -462,7 +466,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/microsoft-build-2023/">
+                            <a href="/ai,%20microsoft/2023/05/30/microsoft-build-2023.html">
                                 <figure class="blog-banner-box">
                                     <img src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*ErX-R8nYZ1S_s6QXBaBOaw.png" alt="Microsoft Build 2023: The Rise of No-Code Developers: Anyone Can Code Now!" loading="lazy" class="blog-image">
                                 </figure>
@@ -481,7 +485,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/json-crack/">
+                            <a href="/tool/2023/05/23/json-crack.html">
                                 <figure class="blog-banner-box">
                                     <img src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*3GNLOg6Q6kySKaFrUEUdjg.png" alt="Json Crack: Seamlessly Visualize Your JSON Data Instantly Into Graphs" loading="lazy" class="blog-image">
                                 </figure>
@@ -500,7 +504,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/agile-tool-not-goal/">
+                            <a href="/agile/2023/05/16/agile-tool-not-goal.html">
                                 <figure class="blog-banner-box">
                                     <img src="/assets/images/2023-05-16-agile-tool-not-goal.jpg" alt="Agile: A Tool, not a Goal" loading="lazy" class="blog-image">
                                 </figure>
@@ -519,7 +523,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/never-too-late/">
+                            <a href="/career/2023/05/08/never-too-late.html">
                                 <figure class="blog-banner-box">
                                     <img src="/assets/images/2023-05-08-never-too-late.jpg" alt="Why It's Never Too Late to Become a Software Engineer" loading="lazy" class="blog-image">
                                 </figure>
@@ -538,7 +542,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/optimize-database-queries/">
+                            <a href="/.net/2023/05/02/optimize-database-queries.html">
                                 <figure class="blog-banner-box">
                                     <img src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*pVufWHWRQOG8zsjprmssCw@2x.jpeg" alt="5 Techniques to Optimize Database Queries in .NET" loading="lazy" class="blog-image">
                                 </figure>
@@ -557,7 +561,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/chatgpt-unit-test/">
+                            <a href="/ai,%20chatgpt/2023/04/26/chatgpt-unit-test.html">
                                 <figure class="blog-banner-box">
                                     <img src="/assets/images/2023-04-26-chatgpt-unit-test.jpg" alt="How ChatGPT Can Help You in Generating Unit Test Scenarios" loading="lazy" class="blog-image">
                                 </figure>
@@ -576,7 +580,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/redis-security/">
+                            <a href="/.net%20core,%20security/2023/04/20/redis-security.html">
                                 <figure class="blog-banner-box">
                                     <img src="/assets/images/2023-04-20-redis-security.jpg" alt="Securing Your .NET Core Application with Redis Distributed Caching" loading="lazy" class="blog-image">
                                 </figure>
@@ -595,7 +599,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/boost-api-performance/">
+                            <a href="/best%20practices/2023/04/12/boost-api-performance.html">
                                 <figure class="blog-banner-box">
                                     <img src="/assets/images/2023-04-12-boost-api-performance.jpg" alt="How to Boost Your API Performance" loading="lazy" class="blog-image">
                                 </figure>
@@ -614,7 +618,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/cache-invalidation/">
+                            <a href="/tech/2023/04/06/cache-invalidation.html">
                                 <figure class="blog-banner-box">
                                     <img src="./assets/images/blog-20.jpg" alt="Why Cache Invalidation is Hard and How to Solve It" loading="lazy" class="blog-image">
                                 </figure>
@@ -633,7 +637,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/redis-leaderboards/">
+                            <a href="/tech/2023/04/02/redis-leaderboards.html">
                                 <figure class="blog-banner-box">
                                     <img src="./assets/images/blog-19.jpg" alt="Real-time Leaderboards and Counters with Redis" loading="lazy" class="blog-image">
                                 </figure>
@@ -652,7 +656,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/github-copilot/">
+                            <a href="/tech/2023/03/29/github-copilot.html">
                                 <figure class="blog-banner-box">
                                     <img src="./assets/images/blog-18.png" alt="Github Copilot: The Good, the Bad, and the Controversial" loading="lazy" class="blog-image">
                                 </figure>
@@ -671,7 +675,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/git-extensions/">
+                            <a href="/devops/2023/03/24/git-extensions.html">
                                 <figure class="blog-banner-box">
                                     <img src="./assets/images/blog-17.jpg" alt="Say Goodbye to the Command Line: GIT Extensions Makes Git Easier Than Ever" loading="lazy" class="blog-image">
                                 </figure>
@@ -690,7 +694,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/microservices-dotnet/">
+                            <a href="/microservices/2023/03/16/microservices-dotnet.html">
                                 <figure class="blog-banner-box">
                                     <img src="./assets/images/blog-16.jpg" alt="Overview of Microservices in .NET" loading="lazy" class="blog-image">
                                 </figure>
@@ -709,7 +713,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/dapper-vs-efcore/">
+                            <a href="/orm/2023/03/13/dapper-vs-efcore.html">
                                 <figure class="blog-banner-box">
                                     <img src="./assets/images/blog-15.jpg" alt="Dapper vs EF Core: Which ORM Framework Should You Choose for Your .NET Application" loading="lazy" class="blog-image">
                                 </figure>
@@ -728,7 +732,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/managing-large-repos/">
+                            <a href="/devops/2023/03/05/managing-large-repos.html">
                                 <figure class="blog-banner-box">
                                     <img src="./assets/images/blog-14.jpg" alt="Mastering GitHub: How to Manage Large Repositories like a Pro" loading="lazy" class="blog-image">
                                 </figure>
@@ -747,7 +751,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/api-security-dotnet/">
+                            <a href="/security/2023/03/03/api-security-dotnet.html">
                                 <figure class="blog-banner-box">
                                     <img src="./assets/images/blog-13.jpg" alt="Making Your API Secure in .NET: Tips and Tricks to Keep Hackers at Bay" loading="lazy" class="blog-image">
                                 </figure>
@@ -766,7 +770,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/premature-optimization/">
+                            <a href="/best%20practices/2023/02/27/premature-optimization.html">
                                 <figure class="blog-banner-box">
                                     <img src="./assets/images/blog-12.jpg" alt="Why Premature Optimization is the Enemy of Good Software Development" loading="lazy" class="blog-image">
                                 </figure>
@@ -785,7 +789,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/pr-templates/">
+                            <a href="/devops/2023/02/23/pr-templates.html">
                                 <figure class="blog-banner-box">
                                     <img src="./assets/images/blog-11.jpg" alt="How Pull Request Templates Can Improve Your GitHub Workflow" loading="lazy" class="blog-image">
                                 </figure>
@@ -804,7 +808,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/continuous-learning/">
+                            <a href="/best%20practices/2023/02/20/continuous-learning.html">
                                 <figure class="blog-banner-box">
                                     <img src="./assets/images/blog-10.jpg" alt="Continuous Learning: Overcoming Challenges for a Thriving Career as a Software Developer" loading="lazy" class="blog-image">
                                 </figure>
@@ -823,7 +827,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/the-evolution-of-cloud-computing-in-software-development/">
+                            <a href="/best%20practices/2023/02/14/the-evolution-of-cloud-computing-in-software-development.html">
                                 <figure class="blog-banner-box">
                                     <img src="./assets/images/blog-9.jpg" alt="The Evolution of Cloud Computing in Software Development" loading="lazy" class="blog-image">
                                 </figure>
@@ -842,7 +846,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/the-surprising-similarities-between-playing-chess-and-developing-software/">
+                            <a href="/best%20practices/2023/02/03/the-surprising-similarities-between-playing-chess-and-developing-software.html">
                                 <figure class="blog-banner-box">
                                     <img src="/assets/images/2023-02-03-the-surprising-similarities-between-playing-chess-and-developing-software.jpg" alt="The Surprising Similarities between Playing Chess and Developing Software" loading="lazy" class="blog-image">
                                 </figure>
@@ -861,7 +865,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/how-to-build-secure-applications-a-guide-to-owasp-best-practices/">
+                            <a href="/security/2023/02/01/how-to-build-secure-applications-a-guide-to-owasp-best-practices.html">
                                 <figure class="blog-banner-box">
                                     <img src="https://miro.medium.com/v2/resize:fit:720/format:webp/0*51K5gUhSwwTeMfgC" alt="How to Build Secure Applications: A Guide to OWASP Best Practices" loading="lazy" class="blog-image">
                                 </figure>
@@ -880,7 +884,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/from-problems-to-progress-a-5-step-guide-to-approaching-problems-as-a-software-developer/">
+                            <a href="/technical/2023/02/01/from-problems-to-progress-a-5-step-guide-to-approaching-problems-as-a-software-developer.html">
                                 <figure class="blog-banner-box">
                                     <img src="/assets/images/2023-02-01-from-problems-to-progress-a-5-step-guide-to-approaching-problems-as-a-software-developer.jpg" alt="From Problems to Progress: A 5-Step Guide to Approaching Problems as a Software Developer" loading="lazy" class="blog-image">
                                 </figure>
@@ -899,7 +903,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/csharp-extension-methods/">
+                            <a href="/technical/2023/01/19/csharp-extension-methods.html">
                                 <figure class="blog-banner-box">
                                     <img src="./assets/images/blog-5.jpg" alt="10 Useful extension methods in C#" loading="lazy" class="blog-image">
                                 </figure>
@@ -918,7 +922,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/developer-mistakes/">
+                            <a href="/technical/2023/01/15/developer-mistakes.html">
                                 <figure class="blog-banner-box">
                                     <img src="./assets/images/blog-4.jpg" alt="The Top 10 Mistakes Developers Make and How to Avoid Them" loading="lazy" class="blog-image">
                                 </figure>
@@ -937,7 +941,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/lessons-learned-my-journey-to-5000-reputations-on-stack-overflow/">
+                            <a href="/technical/2023/01/12/lessons-learned-my-journey-to-5000-reputations-on-stack-overflow.html">
                                 <figure class="blog-banner-box">
                                     <img src="./assets/images/blog-3.jpg" alt="Lessons Learned: My Journey to 5000 Reputations on Stack Overflow" loading="lazy" class="blog-image">
                                 </figure>
@@ -956,7 +960,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/how-to-talk-to-anyone-from-a-developers-eye/">
+                            <a href="/books/2023/01/10/how-to-talk-to-anyone-from-a-developers-eye.html">
                                 <figure class="blog-banner-box">
                                     <img src="./assets/images/blog-2.jpg" alt="How To Talk To Anyone from a Developer’s Eye" loading="lazy" class="blog-image">
                                 </figure>
@@ -975,7 +979,7 @@
                         </li>
                         
                         <li class="blog-post-item">
-                            <a href="/posts/grpc-vs-rest/">
+                            <a href="/technical/2023/01/04/grpc-vs-rest.html">
                                 <figure class="blog-banner-box">
                                     <img src="./assets/images/blog-1.jpg" alt="gRPC vs REST: Simple comparison" loading="lazy" class="blog-image">
                                 </figure>
