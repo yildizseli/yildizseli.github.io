@@ -2117,3 +2117,254 @@ html[data-theme="light"] .form-input {
   background: var(--eerie-black-1);
 }
 
+
+
+
+/*-----------------------------------*\
+  #RESUME - PDF DOWNLOAD
+\*-----------------------------------*/
+
+.resume-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.resume-download-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: var(--border-gradient-onyx);
+  color: var(--orange-yellow-crayola);
+  border-radius: 14px;
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  box-shadow: var(--shadow-3);
+  z-index: 1;
+  transition: var(--transition-1);
+  cursor: pointer;
+}
+
+.resume-download-btn::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--bg-gradient-jet);
+  border-radius: inherit;
+  z-index: -1;
+  transition: var(--transition-1);
+}
+
+.resume-download-btn ion-icon { font-size: 16px; }
+
+.resume-download-btn:hover,
+.resume-download-btn:focus-visible { background: var(--bg-gradient-yellow-1); }
+
+.resume-download-btn:hover::before,
+.resume-download-btn:focus-visible::before { background: var(--bg-gradient-yellow-2); }
+
+/* Dedicated print-only resume layout: hidden on screen, shown only when printing */
+.print-resume {
+  display: none;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #222;
+}
+
+.pr-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #222;
+  margin-bottom: 18px;
+}
+
+.pr-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  filter: none;
+}
+
+.pr-heading { flex: 1; min-width: 200px; }
+
+.pr-heading h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #111;
+  margin: 0 0 2px;
+}
+
+.pr-title {
+  font-size: 15px;
+  color: #555;
+  margin: 0;
+}
+
+.pr-contact {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  color: #333;
+  text-align: left;
+  flex-shrink: 0;
+}
+
+.pr-contact li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  margin-bottom: 4px;
+  white-space: nowrap;
+}
+
+.pr-contact ion-icon { font-size: 14px; color: #555; flex-shrink: 0; }
+
+.pr-contact a {
+  color: #2457c5;
+  text-decoration: none;
+}
+
+.pr-contact a:hover { text-decoration: underline; }
+
+.pr-section { margin-bottom: 16px; }
+
+.pr-section h2 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding-bottom: 4px;
+  margin: 0 0 10px;
+  border-bottom: 1px solid #bbb;
+}
+
+.pr-section p { font-size: 12.5px; line-height: 1.5; margin: 0 0 8px; color: #333; }
+
+.pr-section ul {
+  margin: 0 0 4px;
+  padding-left: 18px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: #333;
+  list-style: disc outside;
+}
+
+.pr-section ul li {
+  margin-bottom: 3px;
+  list-style: disc outside;
+  display: list-item;
+}
+
+.pr-job { margin-bottom: 14px; break-inside: avoid; }
+
+.pr-job-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pr-job-header h3 {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #111;
+  margin: 0;
+}
+
+.pr-company { display: inline; font-weight: 600; color: #2457c5; text-decoration: none; }
+
+.pr-company:hover { text-decoration: underline; }
+
+.pr-company::before { content: " — "; color: #333; font-weight: 400; }
+
+.pr-org {
+  display: inline;
+  font-weight: 600;
+  color: #2457c5;
+  text-decoration: none;
+}
+
+.pr-org:hover { text-decoration: underline; }
+
+.pr-dates { font-size: 12px; color: #666; white-space: nowrap; }
+
+.pr-skills {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pr-section ul.pr-skills li {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  align-items: center;
+  column-gap: 16px;
+  margin-bottom: 8px;
+}
+
+.pr-skill-label {
+  display: block;
+  font-size: 12px;
+  color: #222;
+  line-height: 1.3;
+}
+
+.pr-skills-bar {
+  display: block;
+  position: relative;
+  height: 6px;
+  border-radius: 3px;
+  background: #e0e0e0;
+  overflow: hidden;
+}
+
+.pr-skills-bar i {
+  display: block;
+  height: 100%;
+  border-radius: 3px;
+  background: #2457c5;
+}
+
+@media print {
+
+  /* Hide the interactive site chrome and on-screen resume entirely */
+  .sidebar,
+  .navbar,
+  article.resume { display: none !important; }
+
+  html, body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  .main-content { margin: 0 !important; }
+
+  @page { margin: 14mm; }
+
+  .print-resume {
+    display: block !important;
+    width: auto !important;
+    max-width: 100% !important;
+  }
+
+  .pr-skills-bar i,
+  .pr-photo {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
