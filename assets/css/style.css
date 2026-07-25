@@ -877,6 +877,45 @@ main {
   border-radius: inherit;
 }
 
+/* Skills variant: badges-only design */
+.skills-variant { margin-bottom: 18px; padding: 18px; border-radius: 8px; background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0)); border:1px solid rgba(255,255,255,0.02); color: var(--light-gray); }
+.variant-title { display:none; }
+
+/* Badges */
+.badges { display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+.skill-badge { display:inline-flex; gap:10px; align-items:center; background: rgba(255,255,255,0.02); color: var(--white-1); padding:8px 12px; border-radius:999px; font-size:14px; border:1px solid rgba(255,255,255,0.04); box-shadow: none; line-height:1; }
+.skill-badge ion-icon { display:inline-block; width:20px; height:20px; font-size:18px; opacity:0.95; color: var(--white-1); }
+.skill-badge strong { color: var(--white-1); }
+
+/* Make badges more readable on dark backgrounds */
+.skills-variant .skill-badge { background: rgba(255,255,255,0.02); }
+html[data-theme="light"] .skills-variant .skill-badge { background: rgba(0,0,0,0.04); color: var(--eerie-black-2); border-color: rgba(0,0,0,0.06); }
+
+/* Print skills as simple inline labels */
+.pr-skills { display:flex; gap:10px; flex-wrap:wrap; list-style:none; padding:0; margin:0; }
+.pr-skills li { background: rgba(0,0,0,0.04); padding:6px 10px; border-radius:8px; color: var(--white-1); }
+
+/* Make the simple skills list show bullets and readable text */
+.skills-simple { padding-left: 1.2rem; margin: 0; }
+.skills-simple li { list-style: disc; margin-bottom: 8px; color: var(--light-gray); font-weight: var(--fw-300); }
+html[data-theme="light"] .skills-simple li { color: #222; }
+
+@media (max-width: 700px) {
+  .badges { gap:8px; }
+  .skill-badge { padding:8px 10px; font-size:13px; }
+}
+
+/* High-specificity overrides for badges to ensure readability in dark mode */
+.skills-variant#skills-badges .variant-title { display: none !important; }
+.skills-variant#skills-badges .badges { display: flex !important; flex-wrap: wrap !important; gap: 12px !important; align-items: center !important; }
+.skills-variant#skills-badges .skill-badge { display: inline-flex !important; gap: 10px !important; align-items: center !important; color: var(--white-1) !important; background: rgba(255,255,255,0.04) !important; padding: 8px 12px !important; border-radius: 999px !important; font-size: 14px !important; border: 1px solid rgba(255,255,255,0.06) !important; box-shadow: none !important; }
+.skills-variant#skills-badges .skill-badge ion-icon { color: var(--white-1) !important; font-size: 18px !important; }
+
+/* Light theme adjustments */
+html[data-theme="light"] .skills-variant#skills-badges .skill-badge { color: var(--eerie-black-2) !important; background: rgba(0,0,0,0.04) !important; border-color: rgba(0,0,0,0.06) !important; }
+html[data-theme="light"] .skills-variant#skills-badges .skill-badge ion-icon { color: var(--eerie-black-2) !important; }
+
+
 
 
 
